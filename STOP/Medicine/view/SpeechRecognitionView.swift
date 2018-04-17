@@ -1,110 +1,62 @@
 //
-//  SecondViewController.swift
+//  SpeachRecognitionView.swift
 //  STOP
 //
-//  Created by Yuuki Nishiyama on 2018/04/12.
+//  Created by Yuuki Nishiyama on 2018/04/17.
 //  Copyright © 2018 Yuuki Nishiyama. All rights reserved.
 //
 
 import UIKit
 import Speech
 
-class SecondViewController: UIViewController, UITableViewDelegate, SFSpeechRecognizerDelegate {
+class SpeechRecognitionView: UIView, SFSpeechRecognizerDelegate {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var micControlButton: UIButton!
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en_US"))!
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     
-    private let medicationSensor = Medication.init()
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        medicationSensor.createTable()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func awakeFromNib() {
+        let view:UIView = Bundle.main.loadNibNamed("SpeechRecognitionView", owner:self , options: nil)?.first as! UIView
+        addSubview(view)
+        
         // Do any additional setup after loading the view, typically from a nib.
         speechRecognizer.delegate = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let image:UIImage = UIImage(named:"ic_mic_light")!
+        micControlButton.backgroundColor = UIColor.init(red:31.0/255 , green: 148.0/255, blue: 249.0/255, alpha: 1.0)
+        micControlButton.setImage(image, for: UIControlState.normal)
     }
     
-    /// This method is called then the setting button on the menu bar is pushed.
-    /// Moreover, this method make options to move a next view.
-    /// - Parameter sender: The generator of this event
-    @IBAction func pushedSettingButton(_ sender: Any) {
-        let alertController = UIAlertController.init(title: "Move to...", message: nil, preferredStyle: UIAlertControllerStyle.alert)
-        
-        let settingsButton = UIAlertAction.init(title: "Settings", style: UIAlertActionStyle.default) { (action) in
-            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsView") as? SettingsTableViewController {
-                if let navigator = self.navigationController {
-                    navigator.pushViewController(viewController, animated: true)
-                }
-            }
-        }
-        
-        let feedbackButton = UIAlertAction.init(title: "Feedback", style: UIAlertActionStyle.default) { (action) in
-            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedbackView") as? FeedbackViewController {
-                if let navigator = self.navigationController {
-                    navigator.pushViewController(viewController, animated: true)
-                }
-            }
-        }
-        
-        let cancelButton = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
-        
-        alertController.addAction(settingsButton)
-        alertController.addAction(feedbackButton)
-        alertController.addAction(cancelButton)
-        
-        present(alertController, animated: true) {
-            
-        }
+    // Only override draw() if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func draw(_ rect: CGRect) {
+        // Drawing code
     }
     
-    @IBAction func pushedSpecifyTimeButton(_ sender: Any) {
-        let alert = UIAlertController(style: .alert, title: "Select date")
-        var selectedData = Date.init()
-        alert.addDatePicker(mode: .dateAndTime, date: Date.init(), minuteInterval: 15) { (date) in
-            // print(date)
-            selectedData = date
-        }
-        // alert.addAction(title: "OK", style: .cancel)
-        alert.addAction(image: nil, title: "OK", color: nil, style: .cancel) { action in
-            // completion handler
-            self.medicationSensor.saveMedication(timestamp: selectedData)
-            self.medicationSensor.startSyncDB()
-        }
-        alert.show()
-    }
     
-    @IBAction func pushedVoiceInputButton(_ sender: Any) {
+    @IBAction func pushedMicControlButton(_ sender: Any) {
         requestRecognizerAuthorization()
         if audioEngine.isRunning {
             audioEngine.stop()
             recognitionRequest?.endAudio()
             print("stop")
-            // button.isEnabled = false
+            let image:UIImage = UIImage(named:"ic_mic_light")!
+            micControlButton.backgroundColor = UIColor.init(red:31.0/255 , green: 148.0/255, blue: 249.0/255, alpha: 1.0)
+            micControlButton.setImage(image, for: UIControlState.normal)
         } else {
             do{
                 try startRecording()
+                let image:UIImage = UIImage(named:"ic_mic")!
+                micControlButton.backgroundColor = UIColor.white
+                micControlButton.setImage(image, for: UIControlState.normal)
                 print("start")
             }catch{
                 print("\(error)")
             }
         }
-    }
-    
-    @IBAction func pushedCurrentTimeButton(_ sender: Any) {
-        medicationSensor.saveMedication(timestamp: Date.init() )
-        medicationSensor.startSyncDB()
     }
     
     
@@ -166,9 +118,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, SFSpeechRecog
     
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         if available {
-        
+            
         } else {
-        
+            
         }
     }
     
@@ -184,7 +136,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, SFSpeechRecog
             }
         }
     }
+    
 }
-
-
 

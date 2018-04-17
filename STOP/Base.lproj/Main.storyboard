@@ -147,19 +147,37 @@ TIME</string>
                                     <action selector="pushedVoiceInputButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Vsd-pj-26E"/>
                                 </connections>
                             </button>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xup-Lt-WnS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFg-fY-1zG" customClass="SpeechRecognitionView" customModule="STOP" customModuleProvider="target">
+                                <rect key="frame" x="62" y="233" width="250" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Yff-nm-NbC"/>
+                                    <constraint firstAttribute="width" constant="250" id="ja6-FV-zxV"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="HFg-fY-1zG" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="7dp-2T-Sht"/>
                             <constraint firstItem="lr8-VA-Gw3" firstAttribute="leading" secondItem="xhM-a9-bTw" secondAttribute="leading" id="9eH-Jm-npa"/>
+                            <constraint firstItem="Xup-Lt-WnS" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="D8S-8a-hiG"/>
+                            <constraint firstAttribute="bottom" secondItem="Xup-Lt-WnS" secondAttribute="bottom" id="HZP-aL-UA0"/>
                             <constraint firstItem="xhM-a9-bTw" firstAttribute="bottom" secondItem="aCd-9c-TER" secondAttribute="bottom" id="IfD-7v-0eT"/>
                             <constraint firstItem="aCd-9c-TER" firstAttribute="top" secondItem="ZJi-ZF-Udp" secondAttribute="top" id="JTA-u3-fB4"/>
                             <constraint firstItem="lr8-VA-Gw3" firstAttribute="trailing" secondItem="ZJi-ZF-Udp" secondAttribute="trailing" id="JWz-25-WDN"/>
                             <constraint firstItem="xhM-a9-bTw" firstAttribute="top" secondItem="lr8-VA-Gw3" secondAttribute="bottom" constant="19" id="NBQ-ql-1JU"/>
                             <constraint firstItem="lr8-VA-Gw3" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="P9G-Re-Aw5"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="xhM-a9-bTw" secondAttribute="bottom" constant="18" id="TFz-Oq-Nbi"/>
+                            <constraint firstItem="HFg-fY-1zG" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="UhS-tF-fQB"/>
                             <constraint firstItem="lr8-VA-Gw3" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="YwS-Wf-VnC"/>
                             <constraint firstItem="lr8-VA-Gw3" firstAttribute="centerX" secondItem="aCd-9c-TER" secondAttribute="centerX" id="dgO-Gz-T2m"/>
+                            <constraint firstItem="Xup-Lt-WnS" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="edX-Tc-OCj"/>
                             <constraint firstItem="ZJi-ZF-Udp" firstAttribute="leading" secondItem="aCd-9c-TER" secondAttribute="trailing" constant="22" id="jNu-bS-Yxp"/>
+                            <constraint firstItem="Xup-Lt-WnS" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="k2o-5c-KTq"/>
                             <constraint firstItem="xhM-a9-bTw" firstAttribute="top" secondItem="aCd-9c-TER" secondAttribute="top" id="nhc-Sk-77C"/>
                             <constraint firstItem="aCd-9c-TER" firstAttribute="bottom" secondItem="ZJi-ZF-Udp" secondAttribute="bottom" id="pGr-DJ-tia"/>
                             <constraint firstItem="lr8-VA-Gw3" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="tbY-5z-Vs5"/>
@@ -182,6 +200,8 @@ TIME</string>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="backgroundView" destination="Xup-Lt-WnS" id="b2C-Be-TWF"/>
+                        <outlet property="speechRecognitionView" destination="HFg-fY-1zG" id="4uy-oZ-HpV"/>
                         <outlet property="tableView" destination="lr8-VA-Gw3" id="2pn-ry-8iL"/>
                     </connections>
                 </viewController>

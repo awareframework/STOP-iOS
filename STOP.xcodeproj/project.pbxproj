@@ -21,6 +21,8 @@
 		4F5F60A3207F8AEF003B02F7 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F60A2207F8AEF003B02F7 /* FeedbackViewController.swift */; };
 		4F884B052084CE6100D64AEC /* AWARE_STOP.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F884B002084CE6100D64AEC /* AWARE_STOP.xcdatamodeld */; };
 		4FB190812085104E0021CC5D /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB190802085104E0021CC5D /* Feedback.swift */; };
+		4FBDCA2F20867D790022193D /* SpeechRecognitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDCA2E20867D790022193D /* SpeechRecognitionView.swift */; };
+		4FBDCA3220867DB70022193D /* SpeechRecognitionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FBDCA3120867DB70022193D /* SpeechRecognitionView.xib */; };
 		4FF6654E20861C8F00774B64 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6654D20861C8F00774B64 /* Medication.swift */; };
 		4FF6655020861CA900774B64 /* EntityMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6654F20861CA900774B64 /* EntityMedication.swift */; };
 		4FF665A22086295900774B64 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF665532086295800774B64 /* Array+Extensions.swift */; };
@@ -121,6 +123,8 @@
 		4F884B042084CE6100D64AEC /* AWARE_v3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AWARE_v3.xcdatamodel; sourceTree = "<group>"; };
 		4FB1907A208507240021CC5D /* AWARE_v5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AWARE_v5.xcdatamodel; sourceTree = "<group>"; };
 		4FB190802085104E0021CC5D /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		4FBDCA2E20867D790022193D /* SpeechRecognitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionView.swift; sourceTree = "<group>"; };
+		4FBDCA3120867DB70022193D /* SpeechRecognitionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeechRecognitionView.xib; sourceTree = "<group>"; };
 		4FF6654D20861C8F00774B64 /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		4FF6654F20861CA900774B64 /* EntityMedication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityMedication.swift; sourceTree = "<group>"; };
 		4FF665532086295800774B64 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -215,14 +219,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4F28A6922086138E00CE1A68 /* FeedbackView */ = {
+		4F28A6922086138E00CE1A68 /* Feedback */ = {
 			isa = PBXGroup;
 			children = (
-				4F5F60A2207F8AEF003B02F7 /* FeedbackViewController.swift */,
+				4FBDCA2920867CA80022193D /* controller */,
 				4F28A695208613CA00CE1A68 /* sensor */,
 				4F28A694208613BE00CE1A68 /* model */,
 			);
-			path = FeedbackView;
+			path = Feedback;
 			sourceTree = "<group>";
 		};
 		4F28A694208613BE00CE1A68 /* model */ = {
@@ -241,30 +245,31 @@
 			path = sensor;
 			sourceTree = "<group>";
 		};
-		4F28A696208613F400CE1A68 /* SettingsView */ = {
+		4F28A696208613F400CE1A68 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				4F5F60A0207F8ABF003B02F7 /* SettingsTableViewController.swift */,
 			);
-			path = SettingsView;
+			path = Settings;
 			sourceTree = "<group>";
 		};
-		4F28A6972086140D00CE1A68 /* GameView */ = {
+		4F28A6972086140D00CE1A68 /* Game */ = {
 			isa = PBXGroup;
 			children = (
 				4F5F606E207F333E003B02F7 /* FirstViewController.swift */,
 			);
-			path = GameView;
+			path = Game;
 			sourceTree = "<group>";
 		};
-		4F28A6982086141700CE1A68 /* MedicineView */ = {
+		4F28A6982086141700CE1A68 /* Medicine */ = {
 			isa = PBXGroup;
 			children = (
-				4F5F6070207F333E003B02F7 /* SecondViewController.swift */,
-				4FF6654D20861C8F00774B64 /* Medication.swift */,
-				4FF6654F20861CA900774B64 /* EntityMedication.swift */,
+				4FBDCA3020867D7D0022193D /* view */,
+				4FBDCA2820867C980022193D /* controller */,
+				4FBDCA26208676990022193D /* sensor */,
+				4FBDCA27208676A80022193D /* model */,
 			);
-			path = MedicineView;
+			path = Medicine;
 			sourceTree = "<group>";
 		};
 		4F5F6060207F333E003B02F7 = {
@@ -294,10 +299,10 @@
 			children = (
 				4F5F606C207F333E003B02F7 /* AppDelegate.swift */,
 				4FF665512086295800774B64 /* Extensions */,
-				4F28A6972086140D00CE1A68 /* GameView */,
-				4F28A6982086141700CE1A68 /* MedicineView */,
-				4F28A696208613F400CE1A68 /* SettingsView */,
-				4F28A6922086138E00CE1A68 /* FeedbackView */,
+				4F28A6972086140D00CE1A68 /* Game */,
+				4F28A6982086141700CE1A68 /* Medicine */,
+				4F28A696208613F400CE1A68 /* Settings */,
+				4F28A6922086138E00CE1A68 /* Feedback */,
 				4F5F6072207F333E003B02F7 /* Main.storyboard */,
 				4F5F6075207F333F003B02F7 /* Assets.xcassets */,
 				4F5F6077207F333F003B02F7 /* LaunchScreen.storyboard */,
@@ -323,6 +328,47 @@
 				4F5F6090207F333F003B02F7 /* Info.plist */,
 			);
 			path = STOPUITests;
+			sourceTree = "<group>";
+		};
+		4FBDCA26208676990022193D /* sensor */ = {
+			isa = PBXGroup;
+			children = (
+				4FF6654D20861C8F00774B64 /* Medication.swift */,
+			);
+			path = sensor;
+			sourceTree = "<group>";
+		};
+		4FBDCA27208676A80022193D /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4FF6654F20861CA900774B64 /* EntityMedication.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4FBDCA2820867C980022193D /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				4F5F6070207F333E003B02F7 /* SecondViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		4FBDCA2920867CA80022193D /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				4F5F60A2207F8AEF003B02F7 /* FeedbackViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		4FBDCA3020867D7D0022193D /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4FBDCA2E20867D790022193D /* SpeechRecognitionView.swift */,
+				4FBDCA3120867DB70022193D /* SpeechRecognitionView.xib */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		4FF665512086295800774B64 /* Extensions */ = {
@@ -702,6 +748,7 @@
 				4F5F6079207F333F003B02F7 /* LaunchScreen.storyboard in Resources */,
 				4F5F6076207F333F003B02F7 /* Assets.xcassets in Resources */,
 				4F5F6074207F333E003B02F7 /* Main.storyboard in Resources */,
+				4FBDCA3220867DB70022193D /* SpeechRecognitionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -947,6 +994,7 @@
 				4FF665C72086295900774B64 /* Contacts.swift in Sources */,
 				4FF665A82086295900774B64 /* String+Extensions.swift in Sources */,
 				4F5F60A3207F8AEF003B02F7 /* FeedbackViewController.swift in Sources */,
+				4FBDCA2F20867D790022193D /* SpeechRecognitionView.swift in Sources */,
 				4FF665D52086295900774B64 /* TextField.swift in Sources */,
 				4FF665A62086295900774B64 /* UIView+Extensions.swift in Sources */,
 				4FB190812085104E0021CC5D /* Feedback.swift in Sources */,
