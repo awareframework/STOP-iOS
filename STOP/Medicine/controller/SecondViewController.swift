@@ -84,6 +84,7 @@ class SecondViewController: UIViewController, UITableViewDelegate{
     @IBAction func pushedVoiceInputButton(_ sender: Any) {
         speechRecognitionView.isHidden = false
         backgroundView.isHidden = false
+        speechRecognitionView.pushedMicControlButton(self)
     }
     
     @IBAction func pushedCurrentTimeButton(_ sender: Any) {

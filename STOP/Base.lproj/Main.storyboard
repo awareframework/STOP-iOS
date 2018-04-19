@@ -452,7 +452,7 @@ TIME</string>
         <image name="circle_small" width="150" height="150"/>
         <image name="ic_game" width="36" height="36"/>
         <image name="ic_medication" width="24" height="24"/>
-        <image name="ic_mic" width="72" height="72"/>
+        <image name="ic_mic" width="24" height="24"/>
         <image name="ic_question_light" width="36" height="36"/>
         <image name="ic_settings_light" width="36" height="36"/>
         <image name="start_button" width="400" height="400"/>

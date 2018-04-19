@@ -8,11 +8,16 @@
 
 import UIKit
 import Speech
+import AVFoundation
 
 class SpeechRecognitionView: UIView, SFSpeechRecognizerDelegate {
 
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var micControlButton: UIButton!
+    
+    let startSystemSoundID: SystemSoundID = 1113
+    let endSystemSoundID: SystemSoundID = 1114
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en_US"))!
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -25,9 +30,7 @@ class SpeechRecognitionView: UIView, SFSpeechRecognizerDelegate {
         
         // Do any additional setup after loading the view, typically from a nib.
         speechRecognizer.delegate = self
-        let image:UIImage = UIImage(named:"ic_mic_light")!
-        micControlButton.backgroundColor = UIColor.init(red:31.0/255 , green: 148.0/255, blue: 249.0/255, alpha: 1.0)
-        micControlButton.setImage(image, for: UIControlState.normal)
+        self.off()
     }
     
     // Only override draw() if you perform custom drawing.
@@ -43,16 +46,14 @@ class SpeechRecognitionView: UIView, SFSpeechRecognizerDelegate {
             audioEngine.stop()
             recognitionRequest?.endAudio()
             print("stop")
-            let image:UIImage = UIImage(named:"ic_mic_light")!
-            micControlButton.backgroundColor = UIColor.init(red:31.0/255 , green: 148.0/255, blue: 249.0/255, alpha: 1.0)
-            micControlButton.setImage(image, for: UIControlState.normal)
+            self.off()
+            AudioServicesPlaySystemSound (endSystemSoundID)
         } else {
             do{
                 try startRecording()
-                let image:UIImage = UIImage(named:"ic_mic")!
-                micControlButton.backgroundColor = UIColor.white
-                micControlButton.setImage(image, for: UIControlState.normal)
+                self.on()
                 print("start")
+                AudioServicesPlaySystemSound (startSystemSoundID)
             }catch{
                 print("\(error)")
             }
@@ -82,6 +83,11 @@ class SpeechRecognitionView: UIView, SFSpeechRecognizerDelegate {
             var isFinal = false
             
             if let result = result {
+                
+                DispatchQueue.main.async {
+                    self.resultLabel.text =  result.bestTranscription.formattedString
+                }
+                
                 isFinal = result.isFinal
             }
             
@@ -92,7 +98,14 @@ class SpeechRecognitionView: UIView, SFSpeechRecognizerDelegate {
                 self.recognitionRequest = nil
                 self.recognitionTask = nil
                 
-                print(result?.bestTranscription.formattedString)
+                // (result?.bestTranscription.formattedString)
+                if let finalString = result?.bestTranscription.formattedString {
+                    DispatchQueue.main.async {
+                        self.resultLabel.text = finalString
+                        self.off()
+                        AudioServicesPlaySystemSound (self.endSystemSoundID)
+                    }
+                }
             }
         }
         
@@ -137,5 +150,22 @@ class SpeechRecognitionView: UIView, SFSpeechRecognizerDelegate {
         }
     }
     
+    private func on() {
+        let image:UIImage = UIImage(named:"ic_mic_light")!
+        micControlButton.backgroundColor = UIColor.init(red:31.0/255 , green: 148.0/255, blue: 249.0/255, alpha: 1.0)
+        micControlButton.setImage(image, for: UIControlState.normal)
+        resultLabel.text = ""
+        messageLabel.text = "Please speak"
+
+    }
+    
+    private func off(){
+        let image:UIImage = UIImage(named:"ic_mic")!
+        micControlButton.backgroundColor = UIColor.white
+        micControlButton.setImage(image, for: UIControlState.normal)
+        messageLabel.text = "Tap to speak"
+        // AudioServicesPlaySystemSound (endSystemSoundID)
+        // resultLabel.text = ""
+    }
 }
 
