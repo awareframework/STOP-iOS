@@ -12,38 +12,44 @@ import AWAREFramework
 
 class FirstViewController: UIViewController {
 
+    @IBOutlet weak var smallCircle: UIImageView!
+    @IBOutlet weak var bigCircle: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var ballImage: UIImageView!
-    var appTimer:Timer? = nil
+    
+    var startTimer = Timer()
+    var gameTimer  = Timer()
     var count = 3
+    var timeCount = 0
     
     let accelerometer = Accelerometer.init()
     let linearAccelerometer = LinearAccelerometer.init()
     let gyroScope = Gyroscope.init()
     let rotation = Rotation.init()
+    let ballGame = BallGame.init()
     
     // ball game variables
     private var ballXpos=0.0, ballXmax=0.0, ballXaccel=0.0, ballXvel=0.0;
     private var ballYpos=0.0, ballYmax=0.0, ballYaccel=0.0, ballYvel=0.0;
-//    private var bigCircleXpos, bigCircleYpos;
-//    private var smallCircleXpos, smallCircleYpos;
+//    private var bigCircleXpos=0.0, bigCircleYpos=0.0;
+//    private var smallCircleXpos=0.0, smallCircleYpos=0.0;
     private var ballMaxDistance = 0.0, scoreRaw = 0.0;
     private var deviceXres = 0.0, deviceYres = 0.0, scoreCounter = 0;
     
     // Ball game settings variables
-    private var ballSize = 0;
-    private var smallCircleSize = 0;
-    private var bigCircleSize = 0;
-    private var sensitivity = 10.0; // 3.0 is default
-    private var gameTime = 60*1000; // in milliseconds
+    private var ballSize = UserDefaults.standard.double(forKey: STOPKeys.SETTING_BALL_SIZE);
+    private var smallCircleSize = UserDefaults.standard.double(forKey: STOPKeys.SETTING_SMALL_CIRCLE_SIZE);
+    private var bigCircleSize = UserDefaults.standard.double(forKey: STOPKeys.SETTING_BIG_CIRCLE_SIZE);
+    private var sensitivity = UserDefaults.standard.double(forKey: STOPKeys.SETTING_SENSITIVITY); // 3.0 is default
+    private var gameTime = UserDefaults.standard.double(forKey: STOPKeys.SETTING_GAME_TIME)//*1000; // in milliseconds
     
     // sampling flag
     private var sampling = false;
     
     // Strings for storing sampling data in JSON format
     private var gameData = String();
-    private var acceSamples = String();
+    private var accelSamples = String();
     private var linaccelSamples = String();
     private var gyroSamples = String();
     private var rotationSamples = String();
@@ -56,6 +62,8 @@ class FirstViewController: UIViewController {
     private let SAMPLE_KEY_ACCURACY = "accuracy";
     private let SAMPLE_KEY_LABEL = "label";
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -64,6 +72,11 @@ class FirstViewController: UIViewController {
         gyroScope.setStore(false)
         rotation.setStore(false)
         
+        smallCircle.isHidden = true
+        bigCircle.isHidden = true
+        startButton.isHidden = false
+        
+        self.setGameContents()
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,8 +85,30 @@ class FirstViewController: UIViewController {
     }
 
     override func viewDidLayoutSubviews() {
+        // self.setGameContents()
+        // put circles to the center
+        smallCircle.frame = CGRect.init(x:0 , y:0, width: smallCircleSize, height: smallCircleSize)
+        bigCircle.frame   = CGRect.init(x:0 , y:0, width: bigCircleSize,   height: bigCircleSize)
+        
+        smallCircle.center = startButton.center
+        bigCircle.center = startButton.center
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        self.setGameContents()
+    }
+    
+    private func setGameContents () {
+        
+        ballSize = UserDefaults.standard.double(forKey: STOPKeys.SETTING_BALL_SIZE);
+        smallCircleSize = UserDefaults.standard.double(forKey: STOPKeys.SETTING_SMALL_CIRCLE_SIZE);
+        bigCircleSize = UserDefaults.standard.double(forKey: STOPKeys.SETTING_BIG_CIRCLE_SIZE);
+        sensitivity = UserDefaults.standard.double(forKey: STOPKeys.SETTING_SENSITIVITY); // 3.0 is default
+        gameTime = UserDefaults.standard.double(forKey: STOPKeys.SETTING_GAME_TIME)// *1000; // in milliseconds
+        
+        ballImage.frame = CGRect.init(x:0,y:0, width:ballSize, height:ballSize)
         ballImage.center = startButton.center
-        ballImage.setNeedsLayout()
+        // ballImage.setNeedsLayout()
         
         self.deviceXres = Double(self.view.frame.height)
         self.deviceYres = Double(self.view.frame.width)
@@ -83,39 +118,49 @@ class FirstViewController: UIViewController {
         ballYmax = Double(self.view.frame.height - ballImage.frame.height)
         
         // put ball to the center
-         ballXpos = ballXmax / 2;
-         ballYpos = ballYmax / 2;
+        ballXpos = ballXmax / 2;
+        ballYpos = ballYmax / 2;
         
         // count maximum possible distance ball can cover from center
         ballMaxDistance = sqrt(ballXpos*ballXpos + ballYpos*ballYpos);
         
         // put circles to the center
-//        smallCircleXpos = (size.x - smallCircleSize)/2;
-//        smallCircleYpos = (size.y - smallCircleSize - 235 - 175)/2;
-//        bigCircleXpos = (size.x - bigCircleSize)/2;
-//        bigCircleYpos = (size.y - bigCircleSize - 235 -175)/2;
-    }
+        smallCircle.frame = CGRect.init(x:0 , y:0, width: smallCircleSize, height: smallCircleSize)
+        bigCircle.frame   = CGRect.init(x:0 , y:0, width: bigCircleSize,   height: bigCircleSize)
     
+        smallCircle.center = startButton.center
+        bigCircle.center = startButton.center
+    }
+
     @IBAction func pushedStartButton(_ sender: Any) {
         
-        /// @todo
-        self.sampling = true
+        smallCircle.isHidden = false
+        bigCircle.isHidden = false
+        startButton.isHidden = true
+        count = 3
+        timeCount = 0
         
-        startButton.isHidden = true;
-        Timer.scheduledTimer(withTimeInterval: 1, repeats:true) { (timer) in
+        self.startGame()
+        
+        startTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats:true) { (sTimer) in
+            // print(self.timeCount)
             if self.count > 0 {
                 self.messageLabel?.text = "...\(self.count)"
                 self.count = self.count - 1
             } else {
-                self.count = 3
-                timer.invalidate()
-                self.messageLabel?.text = "point"
-                self.startGame()
-                Timer.scheduledTimer(withTimeInterval: 30, repeats: false, block: { (timer) in
-                    self.messageLabel?.text = "finish"
-                    self.startButton.isHidden = false
-                    timer.invalidate()
-                    self.stopGame()
+                sTimer.invalidate()
+                self.sampling = true
+                
+                self.messageLabel?.text = "start!"// "point"
+                
+                self.gameTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (gTimer) in
+                    self.timeCount = self.timeCount + 1
+                    self.messageLabel?.text = "time: \(self.timeCount)"// "point"
+                    
+                    if self.timeCount > Int(self.gameTime){
+                        gTimer.invalidate()
+                        self.stopGame()
+                    }
                 })
             }
         }
@@ -123,12 +168,15 @@ class FirstViewController: UIViewController {
     
     func startGame(){
         
-        acceSamples = ""
+        accelSamples = ""
         linaccelSamples = ""
         gyroSamples = ""
         rotationSamples = ""
         scoreRaw = 0
         scoreCounter = 0
+        
+        gameData = "{\"gamedata\":[{\"ball_radius\":\(ballSize),\"sensitivity\":\(sensitivity),\"device_x_res\":\(deviceXres),\"device_y_res\":\(deviceYres),\"samples\":["
+        print(gameData)
         
         let block:SensorEventHandler = {(sensor:AWARESensor?,data:[AnyHashable:Any]?) -> Void in
             if let unwrappedSensor = sensor, let unwrappedData = data{
@@ -139,11 +187,11 @@ class FirstViewController: UIViewController {
                         unwrappedJsonStr.append(",")
                         if unwrappedSensor.getName() == self.accelerometer.getName() {
                             /// acc ///
-                            /// @todo -1
+                            /// @todo [-1 problem]
                             self.ballXaccel = -1 * (unwrappedData[self.SAMPLE_KEY_DOUBLE_VALUES_0] as! Double)
                             self.ballYaccel = (unwrappedData[self.SAMPLE_KEY_DOUBLE_VALUES_1] as! Double)
                             self.updateBall(unwrappedData[self.SAMPLE_KEY_TIMESTAMP] as! Int64)
-                            self.acceSamples.append(unwrappedJsonStr)
+                            self.accelSamples .append(unwrappedJsonStr)
                         } else if unwrappedSensor.getName() == self.linearAccelerometer.getName() {
                             /// liner-acc ///
                             self.linaccelSamples.append(unwrappedJsonStr)
@@ -164,6 +212,8 @@ class FirstViewController: UIViewController {
         gyroScope.setSensorEventHandler(block)
         rotation.setSensorEventHandler(block)
 
+        accelerometer.setSensingIntervalWithSecond(20000.0/1000.0/1000.0)
+        
         accelerometer.startSensor()
         linearAccelerometer.startSensor()
         gyroScope.startSensor()
@@ -173,12 +223,63 @@ class FirstViewController: UIViewController {
     }
     
     func stopGame(){
-        accelerometer.stopSensor()
-        linearAccelerometer.stopSensor()
-        gyroScope.startSensor()
-        rotation.stopSensor()
+        
+        cancelGame()
+        
+        // calculating game score
+        let finalScore = 100 - ((scoreRaw/Double(scoreCounter)) / ballMaxDistance)*100;
+        self.messageLabel?.text = "finish: score is \( String(format: "%.2f",finalScore)) \n"
+        
+        /// save the final result to GallGame table
+        let gameResult = "\(gameData.prefix(gameData.count-1))],\"score\":\(finalScore)}]"
+        var accResult = "\"accelerometer\":[]"
+        var linAccResult = "\"linearaccelerometer\":[]"
+        var gyroResult = "\"gyroscope\":[]"
+        var rotationResult = "\"rotation\":[]"
+        
+        if accelSamples.count > 0 {
+            accResult = "\"accelerometer\":[\(accelSamples.prefix(accelSamples.count-1))]"
+        }
+        
+        if linaccelSamples.count > 0 {
+            linAccResult = "\"linearaccelerometer\":[\(linaccelSamples.prefix(linaccelSamples.count-1))]"
+        }
+        
+        if gyroSamples.count > 0 {
+            gyroResult = "\"gyroscope\":[\(gyroSamples.prefix(gyroSamples.count-1))]"
+        }
+        
+        if rotationSamples.count > 0 {
+            rotationResult = "\"rotation\":[\(rotationSamples.prefix(rotationSamples.count-1))]"
+        }
+        
+        let result = "\(gameResult),\(accResult),\(linAccResult),\(gyroResult),\(rotationResult)}"
+        
+        ballGame.saveData(data: result)
     }
     
+    func cancelGame(){
+        accelerometer.stopSensor()
+        linearAccelerometer.stopSensor()
+        gyroScope.stopSensor()
+        rotation.stopSensor()
+        
+        if startTimer.isValid {
+            startTimer.invalidate()
+        }
+        
+        if gameTimer.isValid {
+            gameTimer.invalidate()
+        }
+        
+        self.smallCircle.isHidden = true
+        self.bigCircle.isHidden = true
+        self.startButton.isHidden = false
+        
+        self.sampling = false
+        
+        self.messageLabel?.text = "Push to play the game!"
+    }
     
     func updateBall(_ timestamp:Int64) {
         ballXvel = (ballXaccel * sensitivity);
@@ -217,7 +318,15 @@ class FirstViewController: UIViewController {
             ballYpos = 0;
         }
         
-        self.ballImage.frame = CGRect.init(x: ballXpos, y: ballYpos, width: Double(ballImage.frame.width), height:Double( ballImage.frame.height))
+        self.ballImage.frame = CGRect.init(x: ballXpos,
+                                           y: ballYpos,
+                                           width: Double(ballImage.frame.width),
+                                           height:Double(ballImage.frame.height))
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        // A game session is canceled when the view is changed.
+        self.cancelGame()
     }
     
     @IBAction func pushedSettingButton(_ sender: Any) {
@@ -227,6 +336,7 @@ class FirstViewController: UIViewController {
         let settingsButton = UIAlertAction.init(title: "Settings", style: UIAlertActionStyle.default) { (action) in
             if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsView") as? SettingsTableViewController {
                 if let navigator = self.navigationController {
+                    self.cancelGame()
                     navigator.pushViewController(viewController, animated: true)
                 }
             }
@@ -235,6 +345,7 @@ class FirstViewController: UIViewController {
         let feedbackButton = UIAlertAction.init(title: "Feedback", style: UIAlertActionStyle.default) { (action) in
             if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedbackView") as? FeedbackViewController {
                 if let navigator = self.navigationController {
+                    self.cancelGame()
                     navigator.pushViewController(viewController, animated: true)
                 }
             }

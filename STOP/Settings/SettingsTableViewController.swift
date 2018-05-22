@@ -8,11 +8,13 @@
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController{
 
+    let tableSource = ["Ball game","Medication"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,24 +31,46 @@ class SettingsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 2
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        // load cell model
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingCell", for: indexPath)
+        // set cell text
+        cell.textLabel!.text = tableSource[indexPath.row]
+        // set cell image
+        var image:UIImage? = nil
+        if indexPath.row == 0 {
+            image = UIImage(named:"ic_game")
+        }else if indexPath.row == 1{
+            image = UIImage(named:"ic_medication")
+        }
+        cell.imageView!.image = image
         return cell
     }
-    */
+    
+//    detailSettings
 
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // print("cell:\(indexPath.row) fruits:\(medications[indexPath.row])")
+        // let medication:EntityMedication = medications[indexPath.row]
+        
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailSettingsView") as? DetailSettingsTableViewController {
+            viewController.selectedItem = indexPath.item
+            viewController.title = self.tableSource[indexPath.item]
+            if let navigator = self.navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
+        }
+
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

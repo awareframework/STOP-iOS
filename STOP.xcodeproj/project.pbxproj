@@ -8,7 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		13017BC901187CAC9475F257 /* Pods_STOP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8B08C99597A89F6ABCE35 /* Pods_STOP.framework */; };
+		4F00EBC820B29D6D006EB9E6 /* EntityBallGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F00EBC720B29D6D006EB9E6 /* EntityBallGame.swift */; };
+		4F00EBCA20B29DC7006EB9E6 /* BallGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F00EBC920B29DC7006EB9E6 /* BallGame.swift */; };
+		4F00EBF520B36648006EB9E6 /* HealthActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F00EBF420B36648006EB9E6 /* HealthActivity.swift */; };
+		4F00EBF820B36727006EB9E6 /* EntityHealth+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F00EBF620B36727006EB9E6 /* EntityHealth+CoreDataClass.swift */; };
+		4F00EBF920B36727006EB9E6 /* EntityHealth+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F00EBF720B36727006EB9E6 /* EntityHealth+CoreDataProperties.swift */; };
 		4F28A691208610C100CE1A68 /* EntityFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28A690208610C000CE1A68 /* EntityFeedback.swift */; };
+		4F2B343920A3055A00CD3302 /* WitApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B343820A3055A00CD3302 /* WitApiHelper.swift */; };
+		4F2B343C20A3246D00CD3302 /* DetailSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B343B20A3246D00CD3302 /* DetailSettingsTableViewController.swift */; };
+		4F2B343F20A33A5600CD3302 /* STOPKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B343E20A33A5600CD3302 /* STOPKeys.swift */; };
 		4F5F606D207F333E003B02F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F606C207F333E003B02F7 /* AppDelegate.swift */; };
 		4F5F606F207F333E003B02F7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F606E207F333E003B02F7 /* FirstViewController.swift */; };
 		4F5F6071207F333E003B02F7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F6070207F333E003B02F7 /* SecondViewController.swift */; };
@@ -100,7 +108,15 @@
 		38EB0B4681C0DC6B613D2260 /* Pods_STOPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STOPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C39A3581BD7559E086EDED /* Pods-STOPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STOPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-STOPTests/Pods-STOPTests.release.xcconfig"; sourceTree = "<group>"; };
 		4C4005A3B62BBB20F30B613E /* Pods-STOPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STOPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-STOPTests/Pods-STOPTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4F00EBC720B29D6D006EB9E6 /* EntityBallGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityBallGame.swift; sourceTree = "<group>"; };
+		4F00EBC920B29DC7006EB9E6 /* BallGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallGame.swift; sourceTree = "<group>"; };
+		4F00EBF420B36648006EB9E6 /* HealthActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthActivity.swift; sourceTree = "<group>"; };
+		4F00EBF620B36727006EB9E6 /* EntityHealth+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EntityHealth+CoreDataClass.swift"; path = "/Users/yuuki/Dropbox/oulu/development/STOP-iOS/STOP/HealthActivity/EntityHealth+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		4F00EBF720B36727006EB9E6 /* EntityHealth+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EntityHealth+CoreDataProperties.swift"; path = "/Users/yuuki/Dropbox/oulu/development/STOP-iOS/STOP/HealthActivity/EntityHealth+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		4F28A690208610C000CE1A68 /* EntityFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityFeedback.swift; sourceTree = "<group>"; };
+		4F2B343820A3055A00CD3302 /* WitApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WitApiHelper.swift; sourceTree = "<group>"; };
+		4F2B343B20A3246D00CD3302 /* DetailSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSettingsTableViewController.swift; sourceTree = "<group>"; };
+		4F2B343E20A33A5600CD3302 /* STOPKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOPKeys.swift; sourceTree = "<group>"; };
 		4F5F6069207F333E003B02F7 /* STOP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STOP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F5F606C207F333E003B02F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F5F606E207F333E003B02F7 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +235,56 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4F00EBC420B29C5F006EB9E6 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				4F5F606E207F333E003B02F7 /* FirstViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		4F00EBC520B29C6A006EB9E6 /* sensor */ = {
+			isa = PBXGroup;
+			children = (
+				4F00EBC920B29DC7006EB9E6 /* BallGame.swift */,
+			);
+			path = sensor;
+			sourceTree = "<group>";
+		};
+		4F00EBC620B29C78006EB9E6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4F00EBC720B29D6D006EB9E6 /* EntityBallGame.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4F00EBCB20B2C561006EB9E6 /* HealthActivity */ = {
+			isa = PBXGroup;
+			children = (
+				4F00EBFA20B3FF29006EB9E6 /* sensor */,
+				4F00EBFB20B3FF34006EB9E6 /* model */,
+			);
+			path = HealthActivity;
+			sourceTree = "<group>";
+		};
+		4F00EBFA20B3FF29006EB9E6 /* sensor */ = {
+			isa = PBXGroup;
+			children = (
+				4F00EBF420B36648006EB9E6 /* HealthActivity.swift */,
+			);
+			path = sensor;
+			sourceTree = "<group>";
+		};
+		4F00EBFB20B3FF34006EB9E6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4F00EBF620B36727006EB9E6 /* EntityHealth+CoreDataClass.swift */,
+				4F00EBF720B36727006EB9E6 /* EntityHealth+CoreDataProperties.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		4F28A6922086138E00CE1A68 /* Feedback */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,7 +322,9 @@
 		4F28A6972086140D00CE1A68 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				4F5F606E207F333E003B02F7 /* FirstViewController.swift */,
+				4F00EBC620B29C78006EB9E6 /* model */,
+				4F00EBC520B29C6A006EB9E6 /* sensor */,
+				4F00EBC420B29C5F006EB9E6 /* controller */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -264,12 +332,30 @@
 		4F28A6982086141700CE1A68 /* Medicine */ = {
 			isa = PBXGroup;
 			children = (
-				4FBDCA3020867D7D0022193D /* view */,
 				4FBDCA2820867C980022193D /* controller */,
 				4FBDCA26208676990022193D /* sensor */,
 				4FBDCA27208676A80022193D /* model */,
 			);
 			path = Medicine;
+			sourceTree = "<group>";
+		};
+		4F2B343A20A3056100CD3302 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4F2B343820A3055A00CD3302 /* WitApiHelper.swift */,
+				4F2B343E20A33A5600CD3302 /* STOPKeys.swift */,
+				4FBDCA3020867D7D0022193D /* view */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4F2B343D20A3247D00CD3302 /* DetailSettings */ = {
+			isa = PBXGroup;
+			children = (
+				4F2B343B20A3246D00CD3302 /* DetailSettingsTableViewController.swift */,
+			);
+			name = DetailSettings;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		4F5F6060207F333E003B02F7 = {
@@ -298,11 +384,14 @@
 			isa = PBXGroup;
 			children = (
 				4F5F606C207F333E003B02F7 /* AppDelegate.swift */,
+				4F2B343A20A3056100CD3302 /* Utilities */,
 				4FF665512086295800774B64 /* Extensions */,
 				4F28A6972086140D00CE1A68 /* Game */,
 				4F28A6982086141700CE1A68 /* Medicine */,
+				4F2B343D20A3247D00CD3302 /* DetailSettings */,
 				4F28A696208613F400CE1A68 /* Settings */,
 				4F28A6922086138E00CE1A68 /* Feedback */,
+				4F00EBCB20B2C561006EB9E6 /* HealthActivity */,
 				4F5F6072207F333E003B02F7 /* Main.storyboard */,
 				4F5F6075207F333F003B02F7 /* Assets.xcassets */,
 				4F5F6077207F333F003B02F7 /* LaunchScreen.storyboard */,
@@ -964,6 +1053,7 @@
 				4FF665BF2086295900774B64 /* PhotoLibraryPickerViewController.swift in Sources */,
 				4FF665A22086295900774B64 /* Array+Extensions.swift in Sources */,
 				4FF665A72086295900774B64 /* Date+Extension.swift in Sources */,
+				4F00EBF520B36648006EB9E6 /* HealthActivity.swift in Sources */,
 				4FF665B92086295900774B64 /* PhoneCodeCell.swift in Sources */,
 				4FF665AB2086295900774B64 /* UIImage+Extensions.swift in Sources */,
 				4FF665D02086295900774B64 /* ItemWithPhoto.swift in Sources */,
@@ -971,11 +1061,13 @@
 				4F5F60A1207F8ABF003B02F7 /* SettingsTableViewController.swift in Sources */,
 				4F5F6071207F333E003B02F7 /* SecondViewController.swift in Sources */,
 				4F5F606D207F333E003B02F7 /* AppDelegate.swift in Sources */,
+				4F2B343C20A3246D00CD3302 /* DetailSettingsTableViewController.swift in Sources */,
 				4FF665B62086295900774B64 /* LocaleStore.swift in Sources */,
 				4FF665D12086295900774B64 /* LikeButtonCell.swift in Sources */,
 				4FF665AF2086295900774B64 /* Optional+Extensions.swift in Sources */,
 				4FF665AA2086295900774B64 /* UIColor+Extensions.swift in Sources */,
 				4FF665B82086295900774B64 /* LocalePickerViewController.swift in Sources */,
+				4F00EBC820B29D6D006EB9E6 /* EntityBallGame.swift in Sources */,
 				4FF665BA2086295900774B64 /* CurrencyCell.swift in Sources */,
 				4FF665B12086295900774B64 /* Locale+Extensions.swift in Sources */,
 				4FF665CB2086295900774B64 /* DatePickerViewController.swift in Sources */,
@@ -984,14 +1076,18 @@
 				4FF665B42086295900774B64 /* TextViewController.swift in Sources */,
 				4FF665B72086295900774B64 /* LocaleInfo.swift in Sources */,
 				4FF6655020861CA900774B64 /* EntityMedication.swift in Sources */,
+				4F2B343F20A33A5600CD3302 /* STOPKeys.swift in Sources */,
 				4FF665A32086295900774B64 /* UISegmentedControl+Extensions.swift in Sources */,
 				4FF665A52086295900774B64 /* UIViewController+Extensions.swift in Sources */,
 				4FF665C62086295900774B64 /* ContactsPickerViewController.swift in Sources */,
 				4FF665C82086295900774B64 /* Contact.swift in Sources */,
+				4F00EBF920B36727006EB9E6 /* EntityHealth+CoreDataProperties.swift in Sources */,
 				4FF665BB2086295900774B64 /* CountryCell.swift in Sources */,
 				4FF665D22086295900774B64 /* Label.swift in Sources */,
 				4FF665D32086295900774B64 /* SegmentedControl.swift in Sources */,
+				4F00EBF820B36727006EB9E6 /* EntityHealth+CoreDataClass.swift in Sources */,
 				4FF665C72086295900774B64 /* Contacts.swift in Sources */,
+				4F2B343920A3055A00CD3302 /* WitApiHelper.swift in Sources */,
 				4FF665A82086295900774B64 /* String+Extensions.swift in Sources */,
 				4F5F60A3207F8AEF003B02F7 /* FeedbackViewController.swift in Sources */,
 				4FBDCA2F20867D790022193D /* SpeechRecognitionView.swift in Sources */,
@@ -1004,6 +1100,7 @@
 				4FF665B02086295900774B64 /* Common+Extensions.swift in Sources */,
 				4FF665C92086295900774B64 /* ContactCell.swift in Sources */,
 				4F5F606F207F333E003B02F7 /* FirstViewController.swift in Sources */,
+				4F00EBCA20B29DC7006EB9E6 /* BallGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

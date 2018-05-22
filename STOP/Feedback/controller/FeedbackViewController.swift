@@ -14,6 +14,8 @@ class FeedbackViewController: UIViewController {
     @IBOutlet weak var deviceNameField: UITextField!
     @IBOutlet weak var deviceIdField: UITextField!
     @IBOutlet weak var feedbackMessageField: UITextView!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var speechRecognitionView: SpeechRecognitionView!
     
     var feedbackSensor:Feedback?
     
@@ -29,6 +31,29 @@ class FeedbackViewController: UIViewController {
         deviceNameField.text = AWAREStudy.shared()!.getDeviceName()
         deviceIdField.text = AWAREStudy.shared()!.getDeviceId()
         // Do any additional setup after loading the view.
+        backgroundView.isHidden = true
+        speechRecognitionView.isHidden = true
+        
+        speechRecognitionView.speechRecognitionEndHandler = ({ (result) -> Void in
+            let alertController = UIAlertController.init(title: "Do you insert this text?", message:result, preferredStyle: UIAlertControllerStyle.alert)
+            let yesButton = UIAlertAction.init(title: "Yes", style: UIAlertActionStyle.default) { (action) in
+                self.feedbackMessageField.text = self.feedbackMessageField.text + result + ".\n "
+            }
+            let cancelButton = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { (action) in
+            }
+            
+            self.backgroundView.isHidden = true
+            self.speechRecognitionView.isHidden = true
+            
+            alertController.addAction(yesButton)
+            alertController.addAction(cancelButton)
+            
+            self.present(alertController, animated: true) {
+            }
+            
+        })
+        
+        speechRecognitionView.defaultMessage = "What do you think about STOP?"
         
     }
 
@@ -42,6 +67,10 @@ class FeedbackViewController: UIViewController {
     }
     
     @IBAction func pushedAudioInputButton(_ sender: Any) {
+        backgroundView.isHidden = false
+        speechRecognitionView.isHidden = false
+        
+        speechRecognitionView.pushedMicControlButton(self)
     
     }
     

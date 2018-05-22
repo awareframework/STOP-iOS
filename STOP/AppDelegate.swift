@@ -10,7 +10,9 @@ import UIKit
 import AWAREFramework
 @UIApplicationMain
 class AppDelegate: AWAREDelegate {
-
+    
+    let health:HealthActivity?
+    
     override init() {
         /// Set a remote server url
         AWAREStudy.shared()!.setStudyURL("https://api.awareframework.com/index.php/webservice/index/1773/BqLDdqzNp5aB")
@@ -22,6 +24,26 @@ class AppDelegate: AWAREDelegate {
         CoreDataHandler.shared()!.overwriteManageObjectModel(withFileURL: url)
         /// Turn off background sensing
         AWARECore.shared()!.isNeedBackgroundSensing = false
+        
+        if !UserDefaults.standard.bool(forKey: "SETTING_STOP_DEFAULT"){
+            UserDefaults.standard.set(50.0, forKey: STOPKeys.SETTING_BALL_SIZE)
+            UserDefaults.standard.set(150.0, forKey: STOPKeys.SETTING_SMALL_CIRCLE_SIZE)
+            UserDefaults.standard.set(250.0, forKey: STOPKeys.SETTING_BIG_CIRCLE_SIZE)
+            UserDefaults.standard.set(2.0, forKey: STOPKeys.SETTING_SENSITIVITY)
+            UserDefaults.standard.set(10.0, forKey: STOPKeys.SETTING_GAME_TIME)
+            UserDefaults.standard.set(true, forKey: "SETTING_STOP_DEFAULT")
+        }
+        health = HealthActivity.init(awareStudy: AWAREStudy.shared(), dbType: AwareDBTypeSQLite)
+        health?.createTable()
+    }
+    
+    @objc func receivedHealthSurveyAnswer(notification: Notification){
+        let userInfo = notification.userInfo
+        let cells = userInfo![KEY_AWARE_ESM_CELLS] as! Array<BaseESMView>
+        for cell in cells {
+            let answer = cell.getUserAnswer()
+            health?.saveValue(answer!)
+        }
     }
     
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -52,6 +74,11 @@ class AppDelegate: AWAREDelegate {
             
             uwEsmManager.add(esmSchdule)
         }
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.receivedHealthSurveyAnswer(notification:)),
+                                               name: Notification.Name(ACTION_AWARE_ESM_NEXT),
+                                               object: nil)
         
         return true
     }

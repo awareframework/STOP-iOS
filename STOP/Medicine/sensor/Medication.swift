@@ -39,10 +39,31 @@ class Medication: AWARESensor {
         if let storage = self.storage{
             storage.saveData(with: data, buffer: false, saveInMainThread: true)
         }
-        
     }
     
-    public func getAllMedications() -> Array<Any>{
+    public func getAllMedications() -> Array<EntityMedication>{
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "EntityMedication")
+        let sectionSortDescriptor = NSSortDescriptor(key: "double_medication", ascending: false)
+        let sortDescriptors = [sectionSortDescriptor]
+        fetchRequest.sortDescriptors = sortDescriptors
+        do {
+            let medications = try CoreDataHandler.shared().managedObjectContext.fetch(fetchRequest)
+            return medications as! Array<EntityMedication>
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
         return []
+    }
+    
+    public func removeMedication(object:NSManagedObject){
+        CoreDataHandler.shared().managedObjectContext.delete(object)
+    }
+    
+    public func updateMedication(object:NSManagedObject){
+        do{
+            try CoreDataHandler.shared().managedObjectContext.save()
+        } catch let error as NSError {
+            print(error)
+        }
     }
 }
