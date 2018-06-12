@@ -11,19 +11,9 @@ import AWAREFramework
 @UIApplicationMain
 class AppDelegate: AWAREDelegate {
     
-    let health:HealthActivity?
+    var health:HealthActivity?
     
     override init() {
-        /// Set a remote server url
-        AWAREStudy.shared()!.setStudyURL("https://api.awareframework.com/index.php/webservice/index/1773/BqLDdqzNp5aB")
-        /// Set clean interval = never clean the stored data
-        AWAREStudy.shared()!.setCleanOldDataType(cleanOldDataTypeNever)
-        
-        /// Change the database mode
-        let url = Bundle.main.url(forResource: "AWARE_STOP", withExtension: "momd")
-        CoreDataHandler.shared()!.overwriteManageObjectModel(withFileURL: url)
-        /// Turn off background sensing
-        AWARECore.shared()!.isNeedBackgroundSensing = false
         
         if !UserDefaults.standard.bool(forKey: "SETTING_STOP_DEFAULT"){
             UserDefaults.standard.set(50.0, forKey: STOPKeys.SETTING_BALL_SIZE)
@@ -33,8 +23,23 @@ class AppDelegate: AWAREDelegate {
             UserDefaults.standard.set(10.0, forKey: STOPKeys.SETTING_GAME_TIME)
             UserDefaults.standard.set(true, forKey: "SETTING_STOP_DEFAULT")
         }
-        health = HealthActivity.init(awareStudy: AWAREStudy.shared(), dbType: AwareDBTypeSQLite)
-        health?.createTable()
+        
+        /// Change the database mode
+        let url = Bundle.main.url(forResource: "AWARE_STOP", withExtension: "momd")
+        CoreDataHandler.shared()!.overwriteManageObjectModel(withFileURL: url)
+        
+        /// Turn off background sensing
+        AWARECore.shared()!.isNeedBackgroundSensing = false
+        
+        /// Set clean interval = never clean the stored data
+        AWAREStudy.shared()!.setCleanOldDataType(cleanOldDataTypeNever)
+        
+        /// Set a remote server url
+        let studyURL = "https://api.awareframework.com/index.php/webservice/index/1836/5IuLyJjLQQNK"
+        AWAREStudy.shared().setStudyURL(studyURL);
+        AWAREStudy.shared().join(withURL:studyURL, completion: { (result, status, error) in
+            
+        })
     }
     
     @objc func receivedHealthSurveyAnswer(notification: Notification){
@@ -42,7 +47,16 @@ class AppDelegate: AWAREDelegate {
         let cells = userInfo![KEY_AWARE_ESM_CELLS] as! Array<BaseESMView>
         for cell in cells {
             let answer = cell.getUserAnswer()
+            
+            // save the user answer
             health?.saveValue(answer!)
+            
+            // sync the remote server after 3 seconds
+            let dispatchTime = DispatchTime.now() + 3
+            DispatchQueue.main.asyncAfter( deadline: dispatchTime ) {
+                self.health?.storage.setDebug(true)
+                self.health?.storage.startSyncStorage()
+            }
         }
     }
     
@@ -79,6 +93,8 @@ class AppDelegate: AWAREDelegate {
                                                selector: #selector(self.receivedHealthSurveyAnswer(notification:)),
                                                name: Notification.Name(ACTION_AWARE_ESM_NEXT),
                                                object: nil)
+        self.health = HealthActivity.init(awareStudy: AWAREStudy.shared(), dbType: AwareDBTypeSQLite)
+        self.health?.createTable()
         
         return true
     }

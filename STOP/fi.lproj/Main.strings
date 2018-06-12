@@ -1,0 +1,66 @@
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "4SC-gc-z2k"; */
+"4SC-gc-z2k.title" = "Item";
+
+/* Class = "UIViewController"; title = "STOP"; ObjectID = "5Ia-0U-tOJ"; */
+"5Ia-0U-tOJ.title" = "STOP";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "689-5e-Z42"; */
+"689-5e-Z42.title" = "Item";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "8aa-PP-Dh0"; */
+"8aa-PP-Dh0.title" = "Item";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "GCy-JJ-Inf"; */
+"GCy-JJ-Inf.title" = "Settings";
+
+/* Class = "UILabel"; text = "Feedback"; ObjectID = "Hw5-Hf-4aA"; */
+"Hw5-Hf-4aA.text" = "Feedback";
+
+/* Class = "UIButton"; normalTitle = "CLEAR"; ObjectID = "JqX-Ds-yEk"; */
+"JqX-Ds-yEk.normalTitle" = "CLEAR";
+
+/* Class = "UINavigationItem"; title = "STOP"; ObjectID = "UcD-Ju-8TE"; */
+"UcD-Ju-8TE.title" = "STOP";
+
+/* Class = "UILabel"; text = "List of medication records"; ObjectID = "YT0-M0-0YR"; */
+"YT0-M0-0YR.text" = "List of medication records";
+
+/* Class = "UIButton"; normalTitle = "NOW"; ObjectID = "ZJi-ZF-Udp"; */
+"ZJi-ZF-Udp.normalTitle" = "NOW";
+
+/* Class = "UITabBarItem"; title = "Game"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Game";
+
+/* Class = "UILabel"; text = "Push to play the game!"; ObjectID = "c3a-3V-TCE"; */
+"c3a-3V-TCE.text" = "Push to play the game!";
+
+/* Class = "UITabBarItem"; title = "Medication"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "Medication";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "eln-KH-qPy"; */
+"eln-KH-qPy.normalTitle" = "SUBMIT";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "iZ1-XQ-v7B"; */
+"iZ1-XQ-v7B.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "jbf-9X-PIi"; */
+"jbf-9X-PIi.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Device Name"; ObjectID = "jmE-kI-0z9"; */
+"jmE-kI-0z9.text" = "Device Name";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "mm1-xQ-gIq"; */
+"mm1-xQ-gIq.title" = "Item";
+
+/* Class = "UILabel"; text = "Device ID"; ObjectID = "pxs-Q7-CXF"; */
+"pxs-Q7-CXF.text" = "Device ID";
+
+/* Class = "UILabel"; text = "When have you taken medication last time?"; ObjectID = "qTi-il-UeO"; */
+"qTi-il-UeO.text" = "When have you taken medication last time?";
+
+/* Class = "UINavigationItem"; title = "STOP"; ObjectID = "rq0-Ta-52p"; */
+"rq0-Ta-52p.title" = "STOP";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "thW-2A-YhS"; */
+"thW-2A-YhS.text" = "Subtitle";

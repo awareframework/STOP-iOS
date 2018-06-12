@@ -31,6 +31,7 @@
 		4FB190812085104E0021CC5D /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB190802085104E0021CC5D /* Feedback.swift */; };
 		4FBDCA2F20867D790022193D /* SpeechRecognitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDCA2E20867D790022193D /* SpeechRecognitionView.swift */; };
 		4FBDCA3220867DB70022193D /* SpeechRecognitionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FBDCA3120867DB70022193D /* SpeechRecognitionView.xib */; };
+		4FE3497320CE77AB0006707F /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3497220CE77AB0006707F /* ConsentViewController.swift */; };
 		4FF6654E20861C8F00774B64 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6654D20861C8F00774B64 /* Medication.swift */; };
 		4FF6655020861CA900774B64 /* EntityMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6654F20861CA900774B64 /* EntityMedication.swift */; };
 		4FF665A22086295900774B64 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF665532086295800774B64 /* Array+Extensions.swift */; };
@@ -117,6 +118,8 @@
 		4F2B343820A3055A00CD3302 /* WitApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WitApiHelper.swift; sourceTree = "<group>"; };
 		4F2B343B20A3246D00CD3302 /* DetailSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSettingsTableViewController.swift; sourceTree = "<group>"; };
 		4F2B343E20A33A5600CD3302 /* STOPKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOPKeys.swift; sourceTree = "<group>"; };
+		4F4925D220CFCAB600C25669 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
+		4F4925D320CFCAB600C25669 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4F5F6069207F333E003B02F7 /* STOP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STOP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F5F606C207F333E003B02F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F5F606E207F333E003B02F7 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 		4FB190802085104E0021CC5D /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		4FBDCA2E20867D790022193D /* SpeechRecognitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionView.swift; sourceTree = "<group>"; };
 		4FBDCA3120867DB70022193D /* SpeechRecognitionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeechRecognitionView.xib; sourceTree = "<group>"; };
+		4FE3497220CE77AB0006707F /* ConsentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewController.swift; sourceTree = "<group>"; };
 		4FF6654D20861C8F00774B64 /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		4FF6654F20861CA900774B64 /* EntityMedication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityMedication.swift; sourceTree = "<group>"; };
 		4FF665532086295800774B64 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -393,6 +397,7 @@
 				4F28A6922086138E00CE1A68 /* Feedback */,
 				4F00EBCB20B2C561006EB9E6 /* HealthActivity */,
 				4F5F6072207F333E003B02F7 /* Main.storyboard */,
+				4FE3497420CE77B00006707F /* Consent */,
 				4F5F6075207F333F003B02F7 /* Assets.xcassets */,
 				4F5F6077207F333F003B02F7 /* LaunchScreen.storyboard */,
 				4F5F607A207F333F003B02F7 /* Info.plist */,
@@ -458,6 +463,14 @@
 				4FBDCA3120867DB70022193D /* SpeechRecognitionView.xib */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		4FE3497420CE77B00006707F /* Consent */ = {
+			isa = PBXGroup;
+			children = (
+				4FE3497220CE77AB0006707F /* ConsentViewController.swift */,
+			);
+			path = Consent;
 			sourceTree = "<group>";
 		};
 		4FF665512086295800774B64 /* Extensions */ = {
@@ -1071,6 +1084,7 @@
 				4FF665BA2086295900774B64 /* CurrencyCell.swift in Sources */,
 				4FF665B12086295900774B64 /* Locale+Extensions.swift in Sources */,
 				4FF665CB2086295900774B64 /* DatePickerViewController.swift in Sources */,
+				4FE3497320CE77AB0006707F /* ConsentViewController.swift in Sources */,
 				4FF665B32086295900774B64 /* AttributedTextBlock.swift in Sources */,
 				4FF665AE2086295900774B64 /* UIAlertController+Extensions.swift in Sources */,
 				4FF665B42086295900774B64 /* TextViewController.swift in Sources */,
@@ -1140,6 +1154,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F5F6073207F333E003B02F7 /* Base */,
+				4F4925D220CFCAB600C25669 /* fi */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1148,6 +1163,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F5F6078207F333F003B02F7 /* Base */,
+				4F4925D320CFCAB600C25669 /* fi */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1159,6 +1175,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1219,6 +1236,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -12,6 +12,7 @@ import AWAREFramework
 class HealthActivity: AWARESensor {
 
     override init!(awareStudy study: AWAREStudy!, dbType: AwareDBType) {
+        
         let storage = SQLiteStorage.init(study: study, sensorName: "health", entityName: "EntityHealth") { (data, managedContext, entityName) in
             let entity = NSEntityDescription.insertNewObject(forEntityName: entityName!, into: managedContext!) as! EntityHealth
             entity.timestamp = data?["timestamp"] as? NSNumber;
@@ -31,8 +32,6 @@ class HealthActivity: AWARESensor {
         let timestamp = AWAREUtils.getUnixTimestamp(NSDate.init() as Date?) as! Double
         let data:[String:Any] = ["timestamp":timestamp,"device_id":self.getDeviceId(),"pd_value":value]
         self.storage.saveData(with:data, buffer: false, saveInMainThread: true)
-        self.storage.startSyncStorage();
     }
-    
 }
 

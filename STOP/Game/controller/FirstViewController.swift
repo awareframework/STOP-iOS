@@ -93,6 +93,20 @@ class FirstViewController: UIViewController {
         smallCircle.center = startButton.center
         bigCircle.center = startButton.center
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // check a consent state
+        if(!ConsentViewController.isAnswered()){
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ConsentViewIdentifier") as! ConsentViewController
+            // Alternative way to present the new view controller
+            // self.navigationController?.show(vc, sender: nil)
+            self.present(vc, animated: true, completion: {
+                
+            })
+        }
+        
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         self.setGameContents()
@@ -256,6 +270,13 @@ class FirstViewController: UIViewController {
         let result = "\(gameResult),\(accResult),\(linAccResult),\(gyroResult),\(rotationResult)}"
         
         ballGame.saveData(data: result)
+        
+        // sync the remote server after 3 seconds
+        let dispatchTime = DispatchTime.now() + 3
+        DispatchQueue.main.asyncAfter( deadline: dispatchTime ) {
+            self.ballGame.storage.setDebug(true)
+            self.ballGame.storage.startSyncStorage()
+        }
     }
     
     func cancelGame(){
