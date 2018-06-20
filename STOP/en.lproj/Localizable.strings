@@ -1,0 +1,120 @@
+/* 
+  Localizable.strings
+  STOP
+
+  Created by Yuuki Nishiyama on 2018/06/14.
+  Copyright © 2018 Yuuki Nishiyama. All rights reserved.
+*/
+
+"symptom_5_0"="Speech";
+"symptom_5_1"="Normal";
+"symptom_5_2"="Mildly affected. No difficulty being understood";
+"symptom_5_3"="Moderately affected. Sometimes asked to repeat statements";
+"symptom_5_4"="Severely affected. Frequently asked to repeat statements";
+"symptom_5_5"="Unintelligible most of the time";
+"symptom_6_0"="Salivation";
+"symptom_6_1"="Normal";
+"symptom_6_2"="Slight but definite excess of saliva in mouth; may have nighttime drooling";
+"symptom_6_3"="Moderately excessive saliva; may have minimal drooling";
+"symptom_6_4"="Marked excess of saliva with some drooling";
+"symptom_6_5"="Marked drooling, requires constant tissue or handkerchief";
+"symptom_7_0"="Swallowing";
+"symptom_7_1"="Normal";
+"symptom_7_2"="Rare choking";
+"symptom_7_3"="Occasional choking";
+"symptom_7_4"="Requires soft food";
+"symptom_7_5"="Requires ng tube or gastrotomy feeding";
+"symptom_8_0"="Handwriting";
+"symptom_8_1"="Normal";
+"symptom_8_2"="Slightly slow or small";
+"symptom_8_3"="Moderately slow or small; all words are legible";
+"symptom_8_4"="Severely affected; not all words are legible";
+"symptom_8_5"="The majority of words are not legible";
+"symptom_9_0"="Cutting Food and Handling Utensils";
+"symptom_9_1"="Normal";
+"symptom_9_2"="Somewhat slow and clumsy, but no help needed";
+"symptom_9_3"="Can cut most foods, although clumsy and slow; some help needed";
+"symptom_9_4"="Food must be cut by someone, but can still feed slowly";
+"symptom_9_5"="Needs to be fed";
+"symptom_10_0"="Dressing";
+"symptom_10_1"="Normal";
+"symptom_10_2"="Somewhat slow, but no help needed";
+"symptom_10_3"="Occasional assistance with buttoning, getting arms in sleeves";
+"symptom_10_4"="Considerable help required, but can do some things alone";
+"symptom_10_5"="Helpless";
+"symptom_11_0"="Hygiene";
+"symptom_11_1"="Normal";
+"symptom_11_2"="Somewhat slow, but no help needed";
+"symptom_11_3"="Needs help to shower or bathe; or very slow in hygienic care";
+"symptom_11_4"="Requires assistance for washing, brushing teeth, combing hair, going to bathroom";
+"symptom_11_5"="Foley catheter or other mechanical aid";
+"symptom_12_0"="Turning in Bed and Adjusting Bed Clothes";
+"symptom_12_1"="Normal";
+"symptom_12_2"="Somewhat slow and clumsy, but no help needed";
+"symptom_12_3"="Can turn alone or adjust sheets, but with great difficulty";
+"symptom_12_4"="Can initiate, but not turn or adjust sheets alone";
+"symptom_12_5"="Helpless";
+"symptom_13_0"="Falling (Unrelated to Freezing)";
+"symptom_13_1"="None";
+"symptom_13_2"="Rare falling";
+"symptom_13_3"="Occasionally falls, less than once per day";
+"symptom_13_4"="Falls an average of once daily";
+"symptom_13_5"="Falls more than once daily";
+"symptom_14_0"="Freezing when Walking";
+"symptom_14_1"="None";
+"symptom_14_2"="Rare freezing when walking; may have start hesitation";
+"symptom_14_3"="Occasional freezing when walking";
+"symptom_14_4"="Frequent freezing. Occasionally falls from freezing";
+"symptom_14_5"="Frequent falls from freezing";
+"symptom_15_0"="Walking";
+"symptom_15_1"="Normal";
+"symptom_15_2"="Mild difficulty. May not swing arms or may tend to drag leg";
+"symptom_15_3"="Moderate difficulty, but requires little or no assistance";
+"symptom_15_4"="Severe disturbance of walking, requiring assistance";
+"symptom_15_5"="Cannot walk at all, even with assistance";
+"symptom_16_0"="Tremor (Symptomatic complaint of tremor in any part of body)";
+"symptom_16_1"="Absent";
+"symptom_16_2"="Slight and infrequently present";
+"symptom_16_3"="Moderate; bothersome to patient";
+"symptom_16_4"="Severe; interferes with many activities";
+"symptom_16_5"="Marked; interferes with most activities";
+"symptom_17_0"="Sensory Complaints Related to Parkinsonism";
+"symptom_17_1"="None";
+"symptom_17_2"="Occasionally has numbness, tingling, or mild aching";
+"symptom_17_3"="Frequently has numbness, tingling, or aching; not distressing";
+"symptom_17_4"="Frequent painful sensations";
+"symptom_17_5"="Excruciating pain";
+
+
+"app_name" = "STOP";
+"nav_medication" = "Medication";
+"nav_game" = "Game";
+"main_experiment" = "Experiment";
+"main_demo" = "Demo";
+"main_demo_mode" = "Demo mode";
+"main_demo_details" = "You are using STOP in demo mode: all the application functionalities are available but no data is collected and shared with the research study. You can join the study and contribute to the research";
+"main_quit_details" = "You will unenroll from the study: the application will stop sharing your data and all the already collected data will be deleted from the server. You can keep using the application will all the available functionalities in demo mode";
+"main_participant_info" ="Participant info";
+"main_join_study" = "Join study";
+"main_quit_study" = "Quit study";
+"main_quit_done" = "You have quit the study. The application will no longer collect your data";
+"main_daily_survey" = "Daily survey";
+"provider_game_label" = "STOP App data";
+"submit" = "Submit";
+"confirm" = "Confirm";
+"edit" = "Edit";
+"delete" = "Delete";
+"cancel" = "Cancel";
+"specify_with_voice" = "Specify with voice";
+"voice_when_taken" = "When have you taken medication last time?";
+"voice_what_think" = "What do you think about STOP?";
+
+
+"consent_empty_entries" = "Please insert data to empty entries and rate all the symptoms";
+"consent_declining" = "By declining the Research Consent, you may still use the application with all its functionalities. No data will be collected or shared with our study. Do you wish to proceed?";
+"consent_loading" = "Thank you for joining our study! Loading resources…";
+
+"consent_accept" = "Accept";
+"consent_decline" = "Decline";
+"consent_app_consent" = "Application usage consent";
+"consent_app_consent_details" = "This application is created as a part for STOP: Sentient Tracking of Parkinson’s research project.\n\nThis application collects following data for research purposes:\n* Details about the user: a questionnaire with questions related to Parkinson disease symptoms using UDPRS part II scale and user characteristics is filled after installing the application.\n* Mobile device sensors data: there is a ball game exercise in the application that asks the user to play a simple game for ten seconds. During a game session, the application collects the mobile device’s gyroscope, accelerometer, linear accelerometer and rotation data.\n* Medication time data: the application asks the participant to record information about when the last medication was taken.\n* Notification data: the application randomly displays a notification four times per day in order to remind participant to play a game and record medication times. The time the notifications are shown and when they are opened is recorded.\n* Feedback: the participant is able to provide feedback about the application usage.\n\nBy accepting this consent form, you will give permission to collect the data and to use the collected data by the University of Manchester and the University of Oulu and published and/or disclosed by the University of Manchester and the University of Oulu to others for further analysis. You are free to leave the study whenever you want. There is a possibility to delete all collected data in the application. You can also just uninstall the application, and data collection stops and already collected data can be used in the study.";

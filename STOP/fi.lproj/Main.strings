@@ -8,38 +8,62 @@
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "689-5e-Z42"; */
 "689-5e-Z42.title" = "Item";
 
+/* Class = "UILabel"; text = "Do you have diagnosed PD?"; ObjectID = "6K1-cP-Zkm"; */
+"6K1-cP-Zkm.text" = "Onko sinulla diagnosoitu Parkinsonin tauti?";
+
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "8aa-PP-Dh0"; */
 "8aa-PP-Dh0.title" = "Item";
 
+/* Class = "UILabel"; text = "Define your symptoms"; ObjectID = "90G-Tp-XRx"; */
+"90G-Tp-XRx.text" = "Mitä oireita sinulla on?";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "99L-9h-SUO"; */
+"99L-9h-SUO.normalTitle" = "Lähetä";
+
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "GCy-JJ-Inf"; */
-"GCy-JJ-Inf.title" = "Settings";
+"GCy-JJ-Inf.title" = "asetukset";
+
+/* Class = "UILabel"; text = "Your age"; ObjectID = "GFk-tF-bpB"; */
+"GFk-tF-bpB.text" = "Kuinka vanha olet?";
+
+/* Class = "UISegmentedControl"; HoD-O8-zGT.segmentTitles[0] = "Yes"; ObjectID = "HoD-O8-zGT"; */
+"HoD-O8-zGT.segmentTitles[0]" = "Kyllä";
+
+/* Class = "UISegmentedControl"; HoD-O8-zGT.segmentTitles[1] = "No"; ObjectID = "HoD-O8-zGT"; */
+"HoD-O8-zGT.segmentTitles[1]" = "Ei";
 
 /* Class = "UILabel"; text = "Feedback"; ObjectID = "Hw5-Hf-4aA"; */
-"Hw5-Hf-4aA.text" = "Feedback";
+"Hw5-Hf-4aA.text" = "Palaute";
 
 /* Class = "UIButton"; normalTitle = "CLEAR"; ObjectID = "JqX-Ds-yEk"; */
-"JqX-Ds-yEk.normalTitle" = "CLEAR";
+"JqX-Ds-yEk.normalTitle" = "Tyhjennä";
+
+/* Class = "UILabel"; text = "Define medications you take"; ObjectID = "L0y-nw-dpB"; */
+"L0y-nw-dpB.text" = "Mitä lääkkeitä käytät Park. tautiin?";
 
 /* Class = "UINavigationItem"; title = "STOP"; ObjectID = "UcD-Ju-8TE"; */
 "UcD-Ju-8TE.title" = "STOP";
 
 /* Class = "UILabel"; text = "List of medication records"; ObjectID = "YT0-M0-0YR"; */
-"YT0-M0-0YR.text" = "List of medication records";
+"YT0-M0-0YR.text" = "Lääkepäiväkirja";
 
 /* Class = "UIButton"; normalTitle = "NOW"; ObjectID = "ZJi-ZF-Udp"; */
-"ZJi-ZF-Udp.normalTitle" = "NOW";
+"ZJi-ZF-Udp.normalTitle" = "Nyt";
 
 /* Class = "UITabBarItem"; title = "Game"; ObjectID = "acW-dT-cKf"; */
-"acW-dT-cKf.title" = "Game";
+"acW-dT-cKf.title" = "Peli";
 
 /* Class = "UILabel"; text = "Push to play the game!"; ObjectID = "c3a-3V-TCE"; */
-"c3a-3V-TCE.text" = "Push to play the game!";
+"c3a-3V-TCE.text" = "Aloita peli painamalla nappia";
 
 /* Class = "UITabBarItem"; title = "Medication"; ObjectID = "cPa-gy-q4n"; */
-"cPa-gy-q4n.title" = "Medication";
+"cPa-gy-q4n.title" = "Lääkepäiväkirja";
 
 /* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "eln-KH-qPy"; */
-"eln-KH-qPy.normalTitle" = "SUBMIT";
+"eln-KH-qPy.normalTitle" = "Lähetä";
+
+/* Class = "UILabel"; text = "When was PD diagnosed"; ObjectID = "g33-J7-bev"; */
+"g33-J7-bev.text" = "Park. diagnosoitu";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "iZ1-XQ-v7B"; */
 "iZ1-XQ-v7B.text" = "Title";
@@ -57,10 +81,13 @@
 "pxs-Q7-CXF.text" = "Device ID";
 
 /* Class = "UILabel"; text = "When have you taken medication last time?"; ObjectID = "qTi-il-UeO"; */
-"qTi-il-UeO.text" = "When have you taken medication last time?";
+"qTi-il-UeO.text" = "Milloin otit lääkkeet?";
 
 /* Class = "UINavigationItem"; title = "STOP"; ObjectID = "rq0-Ta-52p"; */
 "rq0-Ta-52p.title" = "STOP";
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "thW-2A-YhS"; */
 "thW-2A-YhS.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "Participant"; ObjectID = "zCe-m8-M95"; */
+"zCe-m8-M95.text" = "Participant";

@@ -96,7 +96,7 @@ class FirstViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         // check a consent state
-        if(!ConsentViewController.isAnswered()){
+        if(!Consent.isConsentAnswered() && !Consent.isConsentRead()){
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "ConsentViewIdentifier") as! ConsentViewController
             // Alternative way to present the new view controller
@@ -354,7 +354,7 @@ class FirstViewController: UIViewController {
 
         let alertController = UIAlertController.init(title: "Move to...", message: nil, preferredStyle: UIAlertControllerStyle.alert)
 
-        let settingsButton = UIAlertAction.init(title: "Settings", style: UIAlertActionStyle.default) { (action) in
+        let settingsButton = UIAlertAction.init(title: "Experiment", style: UIAlertActionStyle.default) { (action) in
             if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsView") as? SettingsTableViewController {
                 if let navigator = self.navigationController {
                     self.cancelGame()
@@ -363,7 +363,7 @@ class FirstViewController: UIViewController {
             }
         }
         
-        let feedbackButton = UIAlertAction.init(title: "Feedback", style: UIAlertActionStyle.default) { (action) in
+        let feedbackButton = UIAlertAction.init(title: "Participant info", style: UIAlertActionStyle.default) { (action) in
             if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedbackView") as? FeedbackViewController {
                 if let navigator = self.navigationController {
                     self.cancelGame()
@@ -372,10 +372,65 @@ class FirstViewController: UIViewController {
             }
         }
         
-        let cancelButton = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
-        
+        /// add a setting button
         alertController.addAction(settingsButton)
+        
+        // add a feedback button
         alertController.addAction(feedbackButton)
+        
+        /// add a join or quit study button
+        if Consent.isConsentAnswered() {
+            let quitStudyButton = UIAlertAction.init(title: NSLocalizedString("main_quit_study",comment: "Join Study"), style: .destructive) {(action) in
+                DispatchQueue.main.async {
+                    let quitStudyAlert = UIAlertController.init(title: NSLocalizedString("main_quit_study",comment: "Join Study"),
+                                                                message: NSLocalizedString("main_quit_details", comment: "main_quit_details"),
+                                                                preferredStyle: UIAlertControllerStyle.alert)
+                    let quitCancelButton = UIAlertAction.init(title: NSLocalizedString("cancel", comment: "cancel"),
+                                                              style: UIAlertActionStyle.cancel, handler: { (action) in
+                                
+                    })
+                    
+                    let quitConfirmButton = UIAlertAction.init(title: NSLocalizedString("confirm", comment: "confirm"),
+                                                               style: UIAlertActionStyle.destructive, handler: { (action) in
+                                                                
+                    })
+                    quitStudyAlert.addAction(quitCancelButton)
+                    quitStudyAlert.addAction(quitConfirmButton)
+                    self.present(quitStudyAlert, animated: true, completion: {
+                        
+                    })
+                }
+            }
+            alertController.addAction(quitStudyButton)
+        }else{
+            let quitStudyButton = UIAlertAction.init(title:NSLocalizedString("main_join_study",comment: "Join Study"),
+                                                     style: .destructive) {(action) in
+                DispatchQueue.main.async {
+                    let joinStudyAlert = UIAlertController.init(title: NSLocalizedString("main_join_study",comment: "Join Study"),
+                                                                message: NSLocalizedString("main_demo_details", comment: "main_demo_details"),
+                                                                preferredStyle: UIAlertControllerStyle.alert)
+                    let joinCancelButton = UIAlertAction.init(title: NSLocalizedString("cancel", comment: "cancel"),
+                                                              style: UIAlertActionStyle.cancel, handler: { (action) in
+                                                                
+                    })
+                    
+                    let joinConfirmButton = UIAlertAction.init(title: NSLocalizedString("confirm", comment: "confirm"),
+                                                               style: UIAlertActionStyle.destructive, handler: { (action) in
+                                                                
+                    })
+                    joinStudyAlert.addAction(joinCancelButton)
+                    joinStudyAlert.addAction(joinConfirmButton)
+                    self.present(joinStudyAlert, animated: true, completion: {
+                        
+                    })
+                }
+            }
+            alertController.addAction(quitStudyButton)
+        }
+        
+        /// add a cancel button
+        let cancelButton = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+
         alertController.addAction(cancelButton)
         
         present(alertController, animated: true) {

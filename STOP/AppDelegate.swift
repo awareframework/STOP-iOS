@@ -62,6 +62,9 @@ class AppDelegate: AWAREDelegate {
     
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        Consent.setContentRead(state: true)
+        Consent.setContantAnswer(state: false)
+        
         // Override point for customization after application launch.
         super.application(application, didFinishLaunchingWithOptions: launchOptions)
         

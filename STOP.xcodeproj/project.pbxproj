@@ -17,6 +17,10 @@
 		4F2B343920A3055A00CD3302 /* WitApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B343820A3055A00CD3302 /* WitApiHelper.swift */; };
 		4F2B343C20A3246D00CD3302 /* DetailSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B343B20A3246D00CD3302 /* DetailSettingsTableViewController.swift */; };
 		4F2B343F20A33A5600CD3302 /* STOPKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B343E20A33A5600CD3302 /* STOPKeys.swift */; };
+		4F2E214C20D3F775008D487A /* Consent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E214B20D3F775008D487A /* Consent.swift */; };
+		4F3A9BD020D150B1002C8A07 /* SymptomContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A9BCF20D150B1002C8A07 /* SymptomContentView.swift */; };
+		4F3A9BD220D150D4002C8A07 /* SymptomContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F3A9BD120D150D4002C8A07 /* SymptomContentView.xib */; };
+		4F41DEC620DA6CA3009D3E48 /* ConsentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F41DEC520DA6CA3009D3E48 /* ConsentDetailsViewController.swift */; };
 		4F5F606D207F333E003B02F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F606C207F333E003B02F7 /* AppDelegate.swift */; };
 		4F5F606F207F333E003B02F7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F606E207F333E003B02F7 /* FirstViewController.swift */; };
 		4F5F6071207F333E003B02F7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F6070207F333E003B02F7 /* SecondViewController.swift */; };
@@ -32,6 +36,9 @@
 		4FBDCA2F20867D790022193D /* SpeechRecognitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDCA2E20867D790022193D /* SpeechRecognitionView.swift */; };
 		4FBDCA3220867DB70022193D /* SpeechRecognitionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FBDCA3120867DB70022193D /* SpeechRecognitionView.xib */; };
 		4FE3497320CE77AB0006707F /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3497220CE77AB0006707F /* ConsentViewController.swift */; };
+		4FE9989720D26FE1006A9288 /* SymptomItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FE9989620D26FE1006A9288 /* SymptomItemView.xib */; };
+		4FE9989920D26FF9006A9288 /* SymptomItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9989820D26FF9006A9288 /* SymptomItemView.swift */; };
+		4FE9989C20D2896D006A9288 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FE9989E20D2896D006A9288 /* Localizable.strings */; };
 		4FF6654E20861C8F00774B64 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6654D20861C8F00774B64 /* Medication.swift */; };
 		4FF6655020861CA900774B64 /* EntityMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6654F20861CA900774B64 /* EntityMedication.swift */; };
 		4FF665A22086295900774B64 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF665532086295800774B64 /* Array+Extensions.swift */; };
@@ -118,7 +125,11 @@
 		4F2B343820A3055A00CD3302 /* WitApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WitApiHelper.swift; sourceTree = "<group>"; };
 		4F2B343B20A3246D00CD3302 /* DetailSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSettingsTableViewController.swift; sourceTree = "<group>"; };
 		4F2B343E20A33A5600CD3302 /* STOPKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOPKeys.swift; sourceTree = "<group>"; };
-		4F4925D220CFCAB600C25669 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
+		4F2E214A20D3DD7C008D487A /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
+		4F2E214B20D3F775008D487A /* Consent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consent.swift; sourceTree = "<group>"; };
+		4F3A9BCF20D150B1002C8A07 /* SymptomContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomContentView.swift; sourceTree = "<group>"; };
+		4F3A9BD120D150D4002C8A07 /* SymptomContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymptomContentView.xib; sourceTree = "<group>"; };
+		4F41DEC520DA6CA3009D3E48 /* ConsentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentDetailsViewController.swift; sourceTree = "<group>"; };
 		4F4925D320CFCAB600C25669 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4F5F6069207F333E003B02F7 /* STOP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STOP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F5F606C207F333E003B02F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +156,10 @@
 		4FBDCA2E20867D790022193D /* SpeechRecognitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionView.swift; sourceTree = "<group>"; };
 		4FBDCA3120867DB70022193D /* SpeechRecognitionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeechRecognitionView.xib; sourceTree = "<group>"; };
 		4FE3497220CE77AB0006707F /* ConsentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewController.swift; sourceTree = "<group>"; };
+		4FE9989620D26FE1006A9288 /* SymptomItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymptomItemView.xib; sourceTree = "<group>"; };
+		4FE9989820D26FF9006A9288 /* SymptomItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomItemView.swift; sourceTree = "<group>"; };
+		4FE9989D20D2896D006A9288 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4FE9989F20D28974006A9288 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4FF6654D20861C8F00774B64 /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		4FF6654F20861CA900774B64 /* EntityMedication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityMedication.swift; sourceTree = "<group>"; };
 		4FF665532086295800774B64 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -400,6 +415,7 @@
 				4FE3497420CE77B00006707F /* Consent */,
 				4F5F6075207F333F003B02F7 /* Assets.xcassets */,
 				4F5F6077207F333F003B02F7 /* LaunchScreen.storyboard */,
+				4FE9989E20D2896D006A9288 /* Localizable.strings */,
 				4F5F607A207F333F003B02F7 /* Info.plist */,
 				4F884B002084CE6100D64AEC /* AWARE_STOP.xcdatamodeld */,
 			);
@@ -469,6 +485,12 @@
 			isa = PBXGroup;
 			children = (
 				4FE3497220CE77AB0006707F /* ConsentViewController.swift */,
+				4F41DEC520DA6CA3009D3E48 /* ConsentDetailsViewController.swift */,
+				4F2E214B20D3F775008D487A /* Consent.swift */,
+				4F3A9BCF20D150B1002C8A07 /* SymptomContentView.swift */,
+				4F3A9BD120D150D4002C8A07 /* SymptomContentView.xib */,
+				4FE9989820D26FF9006A9288 /* SymptomItemView.swift */,
+				4FE9989620D26FE1006A9288 /* SymptomItemView.xib */,
 			);
 			path = Consent;
 			sourceTree = "<group>";
@@ -764,8 +786,6 @@
 				4F5F607B207F333F003B02F7 /* Sources */,
 				4F5F607C207F333F003B02F7 /* Frameworks */,
 				4F5F607D207F333F003B02F7 /* Resources */,
-				3274D0F6CB528A3DA01FE2C2 /* [CP] Embed Pods Frameworks */,
-				F2E549242F6CDBA076A8238F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -785,8 +805,6 @@
 				4F5F6086207F333F003B02F7 /* Sources */,
 				4F5F6087207F333F003B02F7 /* Frameworks */,
 				4F5F6088207F333F003B02F7 /* Resources */,
-				EE8D45F5D2F3638D14A9B32E /* [CP] Embed Pods Frameworks */,
-				29AB78548BB441092FA67123 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -828,6 +846,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fi,
 			);
 			mainGroup = 4F5F6060207F333E003B02F7;
 			productRefGroup = 4F5F606A207F333E003B02F7 /* Products */;
@@ -846,9 +865,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FE9989720D26FE1006A9288 /* SymptomItemView.xib in Resources */,
+				4F3A9BD220D150D4002C8A07 /* SymptomContentView.xib in Resources */,
 				4FF665B52086295900774B64 /* Countries.bundle in Resources */,
 				4F5F6079207F333F003B02F7 /* LaunchScreen.storyboard in Resources */,
 				4F5F6076207F333F003B02F7 /* Assets.xcassets in Resources */,
+				4FE9989C20D2896D006A9288 /* Localizable.strings in Resources */,
 				4F5F6074207F333E003B02F7 /* Main.storyboard in Resources */,
 				4FBDCA3220867DB70022193D /* SpeechRecognitionView.xib in Resources */,
 			);
@@ -871,36 +893,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		29AB78548BB441092FA67123 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-STOPUITests/Pods-STOPUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3274D0F6CB528A3DA01FE2C2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-STOPTests/Pods-STOPTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3A8C6B86FD72E4BE137D5BEF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1011,36 +1003,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EE8D45F5D2F3638D14A9B32E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-STOPUITests/Pods-STOPUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F2E549242F6CDBA076A8238F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-STOPTests/Pods-STOPTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1068,6 +1030,7 @@
 				4FF665A72086295900774B64 /* Date+Extension.swift in Sources */,
 				4F00EBF520B36648006EB9E6 /* HealthActivity.swift in Sources */,
 				4FF665B92086295900774B64 /* PhoneCodeCell.swift in Sources */,
+				4FE9989920D26FF9006A9288 /* SymptomItemView.swift in Sources */,
 				4FF665AB2086295900774B64 /* UIImage+Extensions.swift in Sources */,
 				4FF665D02086295900774B64 /* ItemWithPhoto.swift in Sources */,
 				4FF665CE2086295900774B64 /* PhotoLayout.swift in Sources */,
@@ -1094,6 +1057,7 @@
 				4FF665A32086295900774B64 /* UISegmentedControl+Extensions.swift in Sources */,
 				4FF665A52086295900774B64 /* UIViewController+Extensions.swift in Sources */,
 				4FF665C62086295900774B64 /* ContactsPickerViewController.swift in Sources */,
+				4F3A9BD020D150B1002C8A07 /* SymptomContentView.swift in Sources */,
 				4FF665C82086295900774B64 /* Contact.swift in Sources */,
 				4F00EBF920B36727006EB9E6 /* EntityHealth+CoreDataProperties.swift in Sources */,
 				4FF665BB2086295900774B64 /* CountryCell.swift in Sources */,
@@ -1104,11 +1068,13 @@
 				4F2B343920A3055A00CD3302 /* WitApiHelper.swift in Sources */,
 				4FF665A82086295900774B64 /* String+Extensions.swift in Sources */,
 				4F5F60A3207F8AEF003B02F7 /* FeedbackViewController.swift in Sources */,
+				4F2E214C20D3F775008D487A /* Consent.swift in Sources */,
 				4FBDCA2F20867D790022193D /* SpeechRecognitionView.swift in Sources */,
 				4FF665D52086295900774B64 /* TextField.swift in Sources */,
 				4FF665A62086295900774B64 /* UIView+Extensions.swift in Sources */,
 				4FB190812085104E0021CC5D /* Feedback.swift in Sources */,
 				4FF665B22086295900774B64 /* UITextField+Extensions.swift in Sources */,
+				4F41DEC620DA6CA3009D3E48 /* ConsentDetailsViewController.swift in Sources */,
 				4FF665CD2086295900774B64 /* ItemWithImage.swift in Sources */,
 				4FF665CC2086295900774B64 /* ImagePickerViewController.swift in Sources */,
 				4FF665B02086295900774B64 /* Common+Extensions.swift in Sources */,
@@ -1154,7 +1120,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F5F6073207F333E003B02F7 /* Base */,
-				4F4925D220CFCAB600C25669 /* fi */,
+				4F2E214A20D3DD7C008D487A /* fi */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1166,6 +1132,15 @@
 				4F4925D320CFCAB600C25669 /* fi */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4FE9989E20D2896D006A9288 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FE9989D20D2896D006A9288 /* en */,
+				4FE9989F20D28974006A9288 /* fi */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

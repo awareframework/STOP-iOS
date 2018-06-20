@@ -1,0 +1,120 @@
+/* 
+  Localizable.strings
+  STOP
+
+  Created by Yuuki Nishiyama on 2018/06/14.
+  Copyright © 2018 Yuuki Nishiyama. All rights reserved.
+*/
+
+"symptom_5_0"="Puhe";
+"symptom_5_1"="Normaalia";
+"symptom_5_2"="Lievästi vaikeutunut, täysin ymmärrettävissä";
+"symptom_5_3"="Kohtalaisesti vaikeutunut. Pyydetään joskus toistamaan sanottavansa";
+"symptom_5_4"="Vahvasti vaikeutunut. Pyydetään usein toistamaan sanottavansa";
+"symptom_5_5"="Suurimman osan ajasta puhe ei ole ymmärrettävissä";
+"symptom_6_0"="Syljen eritys";
+"symptom_6_1"="Normaalia";
+"symptom_6_2"="Lievää, mutta selvästi lisääntynyt, voi olla yöllistä syljen valumista";
+"symptom_6_3"="Kohtalaisesti lisääntynyt, voi olla vähäistä syljen valumista";
+"symptom_6_4"="Huomattavasti lisääntynyt syljen eritys, johon liittyy jonkin verran syljen valumista";
+"symptom_6_5"="Huomattavaa syljen valumista, tarvitsee jatkuvasti nenäliinoja";
+"symptom_7_0"="Nieleminen";
+"symptom_7_1"="Normaalia";
+"symptom_7_2"="Harvoin yskimistä tai kakistelua niellessä";
+"symptom_7_3"="Toisinaan yskimistä tai kakistelua niellessä";
+"symptom_7_4"="Tarvitsee soseutettua ruokaa";
+"symptom_7_5"="Tarvitsee nenämaha­ tai PEG­letkun ";
+"symptom_8_0"="Kirjoittaminen ja käsiala";
+"symptom_8_1"="Normaalia";
+"symptom_8_2"="Hieman hidasta tai käsiala pientä";
+"symptom_8_3"="Kohtalaisen hidasta tai käsiala pientä; kaikki sanat luettavissa";
+"symptom_8_4"="Huomattavan poikkeavaa; kaikista sanoista ei enää saa selvää";
+"symptom_8_5"="Valtaosasta sanoista ei saa selvää";
+"symptom_9_0"="Ruokailuvälineiden käyttö ja ruuan paloittelu";
+"symptom_9_1"="Normaalia";
+"symptom_9_2"="Hieman hidasta ja kömpelöä, mutta ei tarvitse apua";
+"symptom_9_3"="Hidasta ja kömpelöä, voi paloitella useammat ruuat, tarvitsee hieman apua";
+"symptom_9_4"="Tarvitsee apua ruuan paloittelussa, mutta syö itse hitaasti";
+"symptom_9_5"="Syötettävä";
+"symptom_10_0"="Pukeutuminen";
+"symptom_10_1"="Normaalia";
+"symptom_10_2"="Hieman hidasta, ei tarvitse apua";
+"symptom_10_3"="Tarvitsee joskus apua napittamisessa ja käden hihaan pujottamisessa";
+"symptom_10_4"="Tarvitsee huomattavasti apua, mutta pystyy tekemään jotain itse";
+"symptom_10_5"="Ei pysty pukeutumaan ilman apua";
+"symptom_11_0"="Hygienia";
+"symptom_11_1"="Normaalia";
+"symptom_11_2"="Hieman hidasta, ei tarvitse apua";
+"symptom_11_3"="Tarvitsee apua suihkussa tai kylvyssä, tai hoitaa hygieniaansa hyvin hitaasti";
+"symptom_11_4"="Tarvitsee apua peseytymisessä, hampaiden harjauksessa, hiusten kampaamisessa,  WC:ssä käynnissä";
+"symptom_11_5"="Käyttää katetria tai muuta apuvälinettä";
+"symptom_12_0"="Sängyssä kääntyminen ja vuodevaatteiden kohentaminen";
+"symptom_12_1"="Normaalia";
+"symptom_12_2"="Hieman hidasta ja kömpelöä, ei tarvitse apua";
+"symptom_12_3"="Kääntyminen ja vuodevaatteiden kohentaminen selvästi vaikeaa";
+"symptom_12_4"="Voi aloittaa kääntymisen tai vuodevaatteiden kohentamisen, mutta ei pysty tekemään sitä loppuun ilman apua";
+"symptom_12_5"="Avuton, ei pysty kääntymään eikä kohentamaan vuodevaatteita ilman apua";
+"symptom_13_0"="Kaatuilu (ei liity jähmettymiseen)";
+"symptom_13_1"="Ei esiinny";
+"symptom_13_2"="Harvinaista";
+"symptom_13_3"="Satunnaisesti, mutta ei päivittäin";
+"symptom_13_4"="Keskimäärin kerran päivässä";
+"symptom_13_5"="Useita kertoja päivässä";
+"symptom_14_0"="Jähmettyminen kävellessä";
+"symptom_14_1"="Ei esiinny. ";
+"symptom_14_2"="Harvinaista, joskus liikkeelle lähtiessä";
+"symptom_14_3"="Satunnaisesti. ";
+"symptom_14_4"="Usein. Joskus kaatumisia jähmettymisen takia";
+"symptom_14_5"="Usein kaatumisia jähmettymisen takia";
+"symptom_15_0"="Kävely";
+"symptom_15_1"="Normaalia";
+"symptom_15_2"="Lievästi vaikeutunut, käsien myötäliikkeet voivat olla vaimentuneet tai voi laahata jalkaansa";
+"symptom_15_3"="Kohtalaisesti vaikeutunut, mutta ei tarvitse apua lainkaan tai tarvitsee sitä vain vähän";
+"symptom_15_4"="Selvästi vaikeutunut, tarvitsee apua";
+"symptom_15_5"="Ei pysty kävelemään edes autettuna";
+"symptom_16_0"="Vapina";
+"symptom_16_1"="Ei ole";
+"symptom_16_2"="Lievää tai ajoittaista";
+"symptom_16_3"="Kohtalaista; haittaa potilasta";
+"symptom_16_4"="Vaikeaa; haittaa monia toimintoja";
+"symptom_16_5"="Erittäin vaikeaa; haittaa lähes kaikkia toimintoja ";
+"symptom_17_0"="Parkinsonismiin liittyvät sensoriset oireet (Tuntohäiriöt ja kivut )";
+"symptom_17_1"="Ei ole";
+"symptom_17_2"="Ajoittaista puutumista, pistelyä tai lievää kipua";
+"symptom_17_3"="Usein puutumista, pistelyä tai kipua; ei vaivaa potilasta";
+"symptom_17_4"="Usein kivuliaita tuntemuksia";
+"symptom_17_5"="Sietämätöntä kipua";
+
+"app_name" = "STOP";
+"nav_medication" = "Lääkepäiväkirja";
+"nav_game" = "Peli";
+"main_experiment" = "Tutkimus";
+"main_demo" = "Demo";
+"main_demo_mode" = "Demo tila";
+"main_demo_details" = "Käytät STOP sovellusta demo tilassa: kaikki sovelluksen toiminnot ovat käytössäsi, mutta tietojasi ei kerätä tutkimusta varten. Voit halutessasi liittyä tutkimukseen, jolloin annat luvan tietojesi keräämiseen tutkimuksen käyttöön.";
+"main_quit_details" = "Poistut tutkimuksesta: sovellus ei enää lähetä tietojasi palvelimelle, ja kaikki sinusta kerätty tieto poistetaan palvelimelta. Voit jatkaa sovelluksen käyttämista demo tilassa, jolloin kaikki sovelluksen toiminnot ovat käytössäsi, mutta tietojasi ei kerätä tutkimusta varten.";
+"main_participant_info" = "Osallistujan tiedot";
+"main_join_study" = "Liity tutkimukseen";
+"main_quit_study" = "Poistu tutkimuksesta";
+"main_quit_done" = "Et ole enää mukana tutkimuksessa. Sovellus ei tallenna enää tietojasi.";
+"main_daily_survey" = "Päivittäinen oireiden arviointi";
+"provider_game_label" = "STOP sovelluksen tiedot";
+"submit" = "Lähetä";
+"confirm" = "Vahvista";
+"edit" = "Muokkaa";
+"delete" = "Poista";
+"cancel" = "Peruuta";
+"specify_with_voice" = "Määritä puhuen";
+"voice_when_taken" = "Milloin otit lääkkeet?";
+"voice_what_think" = "Mitä mieltä olet STOP sovelluksesta?";
+
+"consent_empty_entries" = "Vastaa kaikkiin kysymyksiin ja arvioi kaikki oireet";
+"consent_declining" = "Voit käyttää sovellusta vaikka kieltäytyisit tutkimuksesta. Tietojasi ei kerätä eikä käytetä tutkimuksessa.  Haluatko jatkaa? ";
+"consent_loading" = "Kiitos kun osallistut tutkimukseen! Sovellusta ladataan…";
+
+"consent_accept" = "Hyväksy";
+"consent_decline" = "Kieltäydy";
+"consent_app_consent" = "Suostumus sovelluksen käyttöön";
+"consent_app_consent_details" = "Tämä sovellus on kehitetty STOP: Sentient Tracking of Parkinson’s tutkimusta varten.\n\nSovellus kerää seuravia tietoja tutkimusta varten:\n* Tietoja käyttäjästä: Asennuksen jälkeen sovellus kysyy osallistujan ikää ja Parkinsonin taudin diagnosointiaikaa ja pyytää arvioimaan oireita UPDRS asteikon osan II mukaisesti.\n* Mobiililaitteen sisäisistä antureista kerättävä tieto: Sovellus pyytää osallistujaa pelaamaan yksinkertaista pallopeliä kymmenen sekunnin ajan. Pelin aikana kerätään dataa laitteen liikkeentunnistusanturista eli gyroskoopista, kiihtyvyysanturista ja lineaarisesta kiihtyvyysanturista.\n* Lääkepäiväkirja: Sovellus pyytää osallistujaa kirjaamaan ylös lääkkeenottoajankohdat.\n* Tieto muistutuksista: Sovellus lähettää muistutuksen neljä kertaa päivässä, pyytäen osallistujaa pelaamaan peliä ja täyttämään lääkepäiväkirjaa. Muistutuksen aika ja avaamisaika tallennetaan.\n* Palaute: Osallistuja voi antaa palautetta sovelluksesta.\n\nHyväksymällä tämän suostumuslomakkeen, annat suostumuksen tietojen keräämiseen ja käyttämiseen osana Oulun ja Manchesterin yliopistojen tutkimuksessa ja julkaisuissa. Voit keskeyttää tutkimuksen halutessasi milloin vain. Sovelluksen kautta voi poistaa sinusta kerätyt tiedot ennen sovelluksen poistamista. Jos poistat sovelluksen ilman kerättyjen tietojen poistamista, tietojen keräys keskeytyy ja aiemmin kerättyä tietoa voidaan käyttää tutkimuksessa.";
+
+
