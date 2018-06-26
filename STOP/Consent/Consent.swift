@@ -30,7 +30,7 @@ class Consent: AWARESensor {
 //        return false
     }
     
-    public static func setContantAnswer(state:Bool){
+    public static func setConsentAnswer(state:Bool){
         UserDefaults.standard.set(state, forKey: "stop.consent.answer.state")
         UserDefaults.standard.synchronize()
     }
@@ -42,7 +42,7 @@ class Consent: AWARESensor {
 //        return false
     }
     
-    public static func setContentRead(state:Bool) {
+    public static func setConsentRead(state:Bool) {
         UserDefaults.standard.set(state, forKey: "stop.consent.read.state")
         UserDefaults.standard.synchronize()
     }

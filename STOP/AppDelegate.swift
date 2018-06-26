@@ -27,9 +27,14 @@ class AppDelegate: AWAREDelegate {
         /// Change the database mode
         let url = Bundle.main.url(forResource: "AWARE_STOP", withExtension: "momd")
         CoreDataHandler.shared()!.overwriteManageObjectModel(withFileURL: url)
-        
+
         /// Turn off background sensing
         AWARECore.shared()!.isNeedBackgroundSensing = false
+        
+    }
+    
+    public func joinStudy(_ completion:JoinStudyCompletionHandler?){
+
         
         /// Set clean interval = never clean the stored data
         AWAREStudy.shared()!.setCleanOldDataType(cleanOldDataTypeNever)
@@ -38,9 +43,27 @@ class AppDelegate: AWAREDelegate {
         let studyURL = "https://api.awareframework.com/index.php/webservice/index/1836/5IuLyJjLQQNK"
         AWAREStudy.shared().setStudyURL(studyURL);
         AWAREStudy.shared().join(withURL:studyURL, completion: { (result, status, error) in
+            /// set esms
+           
             
+            NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(self.receivedHealthSurveyAnswer(notification:)),
+                                                   name: Notification.Name(ACTION_AWARE_ESM_NEXT),
+                                                   object: nil)
+            self.health = HealthActivity.init(awareStudy: AWAREStudy.shared(), dbType: AwareDBTypeSQLite)
+            self.health?.createTable()
+            
+            if let hadler = completion {
+                hadler(result, status, error)
+            }
         })
     }
+    
+    public func quitStudy(){
+        AWAREStudy.shared().clearSettings()
+        AWARESensorManager.shared().stopAndRemoveAllSensors()
+    }
+    
     
     @objc func receivedHealthSurveyAnswer(notification: Notification){
         let userInfo = notification.userInfo
@@ -61,10 +84,7 @@ class AppDelegate: AWAREDelegate {
     }
     
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        Consent.setContentRead(state: true)
-        Consent.setContantAnswer(state: false)
-        
+
         // Override point for customization after application launch.
         super.application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -75,7 +95,6 @@ class AppDelegate: AWAREDelegate {
             NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.white]
         UINavigationBar.appearance().titleTextAttributes = navBarAttributesDictionary
         
-        /// set esms
         if let uwEsmManager = ESMScheduleManager.shared() {
             uwEsmManager.removeAllNotifications()
             uwEsmManager.deleteAllSchedules()
@@ -91,13 +110,6 @@ class AppDelegate: AWAREDelegate {
             
             uwEsmManager.add(esmSchdule)
         }
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.receivedHealthSurveyAnswer(notification:)),
-                                               name: Notification.Name(ACTION_AWARE_ESM_NEXT),
-                                               object: nil)
-        self.health = HealthActivity.init(awareStudy: AWAREStudy.shared(), dbType: AwareDBTypeSQLite)
-        self.health?.createTable()
         
         return true
     }

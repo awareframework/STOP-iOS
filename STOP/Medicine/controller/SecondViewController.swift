@@ -9,13 +9,23 @@
 import UIKit
 import AWAREFramework
 
-class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class SecondViewController: MainViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var speechRecognitionView: SpeechRecognitionView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundView: UIView!
     
     private let medicationSensor = Medication.init()
+    
+    @IBOutlet weak var voiceInputButtonView: UIView!
+    
+    @IBOutlet weak var fiftyPercentConstraintForSpecifyTime: NSLayoutConstraint!
+    @IBOutlet weak var fiftyPercentConstraintForNow: NSLayoutConstraint!
+    
+    @IBOutlet weak var thirtyPercentConstraintForSpecifyTime: NSLayoutConstraint!
+    @IBOutlet weak var thirtyPercentConstraintForNow: NSLayoutConstraint!
+    
+    @IBOutlet weak var demoButton: UIBarButtonItem!
     
     var medications:Array<EntityMedication> = []
     
@@ -78,6 +88,32 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         backgroundView.isHidden = true
         speechRecognitionView.defaultMessage = "When have you taken medication last time?"
         reloadTableContents()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // set title
+        if(!Consent.isConsentAnswered() && Consent.isConsentRead()){
+            self.demoButton.title = "Demo"
+            self.demoButton.isEnabled = true
+        }else{
+            self.demoButton.title = ""
+            self.demoButton.isEnabled = false
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !Language().isEnglish() {
+            voiceInputButtonView.isHidden = true
+            NSLayoutConstraint.deactivate([thirtyPercentConstraintForNow, thirtyPercentConstraintForSpecifyTime])
+            NSLayoutConstraint.activate([fiftyPercentConstraintForNow, fiftyPercentConstraintForSpecifyTime])
+            
+        }else{
+            voiceInputButtonView.isHidden = false
+            NSLayoutConstraint.deactivate([fiftyPercentConstraintForNow, fiftyPercentConstraintForSpecifyTime])
+            NSLayoutConstraint.activate([thirtyPercentConstraintForNow, thirtyPercentConstraintForSpecifyTime])
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -161,34 +197,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     /// This method is called then the setting button on the menu bar is pushed.
     /// Moreover, this method make options to move a next view.
     /// - Parameter sender: The generator of this event
-    @IBAction func pushedSettingButton(_ sender: Any) {
-        let alertController = UIAlertController.init(title: "Move to...", message: nil, preferredStyle: UIAlertControllerStyle.alert)
-        
-        let settingsButton = UIAlertAction.init(title: "Settings", style: UIAlertActionStyle.default) { (action) in
-            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsView") as? SettingsTableViewController {
-                if let navigator = self.navigationController {
-                    navigator.pushViewController(viewController, animated: true)
-                }
-            }
-        }
-        
-        let feedbackButton = UIAlertAction.init(title: "Feedback", style: UIAlertActionStyle.default) { (action) in
-            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedbackView") as? FeedbackViewController {
-                if let navigator = self.navigationController {
-                    navigator.pushViewController(viewController, animated: true)
-                }
-            }
-        }
-        
-        let cancelButton = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
-        
-        alertController.addAction(settingsButton)
-        alertController.addAction(feedbackButton)
-        alertController.addAction(cancelButton)
-        
-        present(alertController, animated: true) {
-            
-        }
+    @IBAction override func pushedSettingButton(_ sender: Any) {
+        super.pushedSettingButton(sender)
     }
     
     @IBAction func pushedSpecifyTimeButton(_ sender: Any) {
@@ -230,6 +240,11 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return dateFormatter.string(from: date)
     }
+    
+    @IBAction func pushedDemoButton(_ sender: UIBarButtonItem) {
+        super.pushedDemoButton()
+    }
+    
 }
 
 

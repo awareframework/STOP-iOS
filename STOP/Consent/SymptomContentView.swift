@@ -10,6 +10,7 @@ import UIKit
 
 @IBDesignable class SymptomContentView: UIView {
 
+    public var key = ""
     @IBOutlet weak var baseStackView: UIStackView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var mainStackView: UIStackView!

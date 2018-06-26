@@ -31,7 +31,7 @@ class ConsentDetailsViewController: UIViewController {
     }
     
     @IBAction func pushedAcceptButton(_ sender: UIButton) {
-        Consent.setContentRead(state: true)
+        Consent.setConsentRead(state: true)
         if let unwrappedHandler = resultHandler {
             unwrappedHandler(true)
         }
@@ -40,7 +40,7 @@ class ConsentDetailsViewController: UIViewController {
     
     
     @IBAction func pushedDeclineButton(_ sender: UIButton) {
-        Consent.setContentRead(state: true)
+        Consent.setConsentRead(state: true)
         if let unwrappedHandler = resultHandler {
             unwrappedHandler(false)
         }
