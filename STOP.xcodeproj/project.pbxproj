@@ -23,6 +23,7 @@
 		4F41DEC620DA6CA3009D3E48 /* ConsentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F41DEC520DA6CA3009D3E48 /* ConsentDetailsViewController.swift */; };
 		4F41DEC820DA9EB1009D3E48 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F41DEC720DA9EB1009D3E48 /* Language.swift */; };
 		4F41DECA20DBC555009D3E48 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F41DEC920DBC555009D3E48 /* MainViewController.swift */; };
+		4F5722B520E6607800A592EC /* HealthActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5722B420E6607800A592EC /* HealthActivityViewController.swift */; };
 		4F5F606D207F333E003B02F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F606C207F333E003B02F7 /* AppDelegate.swift */; };
 		4F5F606F207F333E003B02F7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F606E207F333E003B02F7 /* FirstViewController.swift */; };
 		4F5F6071207F333E003B02F7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F6070207F333E003B02F7 /* SecondViewController.swift */; };
@@ -33,13 +34,13 @@
 		4F5F608F207F333F003B02F7 /* STOPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F608E207F333F003B02F7 /* STOPUITests.swift */; };
 		4F5F60A1207F8ABF003B02F7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F60A0207F8ABF003B02F7 /* SettingsTableViewController.swift */; };
 		4F5F60A3207F8AEF003B02F7 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F60A2207F8AEF003B02F7 /* FeedbackViewController.swift */; };
-		4F7C313820DD8D87004A5B79 /* MedicationEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F7C313720DD8D87004A5B79 /* MedicationEditorView.xib */; };
 		4F7C313A20DD8DA7004A5B79 /* MedicationEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C313920DD8DA7004A5B79 /* MedicationEditorView.swift */; };
 		4F884B052084CE6100D64AEC /* AWARE_STOP.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F884B002084CE6100D64AEC /* AWARE_STOP.xcdatamodeld */; };
 		4FB190812085104E0021CC5D /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB190802085104E0021CC5D /* Feedback.swift */; };
 		4FBDCA2F20867D790022193D /* SpeechRecognitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDCA2E20867D790022193D /* SpeechRecognitionView.swift */; };
 		4FBDCA3220867DB70022193D /* SpeechRecognitionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FBDCA3120867DB70022193D /* SpeechRecognitionView.xib */; };
 		4FE3497320CE77AB0006707F /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3497220CE77AB0006707F /* ConsentViewController.swift */; };
+		4FE59D4A20EA4D8100662A83 /* MedicationEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FE59D4C20EA4D8100662A83 /* MedicationEditorView.xib */; };
 		4FE9989720D26FE1006A9288 /* SymptomItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FE9989620D26FE1006A9288 /* SymptomItemView.xib */; };
 		4FE9989920D26FF9006A9288 /* SymptomItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9989820D26FF9006A9288 /* SymptomItemView.swift */; };
 		4FE9989C20D2896D006A9288 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FE9989E20D2896D006A9288 /* Localizable.strings */; };
@@ -137,6 +138,9 @@
 		4F41DEC720DA9EB1009D3E48 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		4F41DEC920DBC555009D3E48 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4F4925D320CFCAB600C25669 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4F5722AE20E6146200A592EC /* STOP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = STOP.entitlements; sourceTree = "<group>"; };
+		4F5722B020E6400300A592EC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4F5722B420E6607800A592EC /* HealthActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HealthActivityViewController.swift; path = STOP/HealthActivity/controller/HealthActivityViewController.swift; sourceTree = SOURCE_ROOT; };
 		4F5F6069207F333E003B02F7 /* STOP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STOP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F5F606C207F333E003B02F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F5F606E207F333E003B02F7 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -153,7 +157,6 @@
 		4F5F6090207F333F003B02F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F5F60A0207F8ABF003B02F7 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4F5F60A2207F8AEF003B02F7 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
-		4F7C313720DD8D87004A5B79 /* MedicationEditorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicationEditorView.xib; sourceTree = "<group>"; };
 		4F7C313920DD8DA7004A5B79 /* MedicationEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationEditorView.swift; sourceTree = "<group>"; };
 		4F884B012084CE6100D64AEC /* AWARE_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AWARE_v2.xcdatamodel; sourceTree = "<group>"; };
 		4F884B022084CE6100D64AEC /* AWARE_v4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AWARE_v4.xcdatamodel; sourceTree = "<group>"; };
@@ -164,6 +167,10 @@
 		4FBDCA2E20867D790022193D /* SpeechRecognitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionView.swift; sourceTree = "<group>"; };
 		4FBDCA3120867DB70022193D /* SpeechRecognitionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeechRecognitionView.xib; sourceTree = "<group>"; };
 		4FE3497220CE77AB0006707F /* ConsentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewController.swift; sourceTree = "<group>"; };
+		4FE59D4420EA3F8A00662A83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		4FE59D4B20EA4D8100662A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MedicationEditorView.xib; sourceTree = "<group>"; };
+		4FE59D4D20EA4D8A00662A83 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/MedicationEditorView.strings; sourceTree = "<group>"; };
+		4FE59D4F20EA513D00662A83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MedicationEditorView.strings; sourceTree = "<group>"; };
 		4FE9989620D26FE1006A9288 /* SymptomItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymptomItemView.xib; sourceTree = "<group>"; };
 		4FE9989820D26FF9006A9288 /* SymptomItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomItemView.swift; sourceTree = "<group>"; };
 		4FE9989D20D2896D006A9288 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -289,6 +296,7 @@
 		4F00EBCB20B2C561006EB9E6 /* HealthActivity */ = {
 			isa = PBXGroup;
 			children = (
+				4F5722B620E6608000A592EC /* controller */,
 				4F00EBFA20B3FF29006EB9E6 /* sensor */,
 				4F00EBFB20B3FF34006EB9E6 /* model */,
 			);
@@ -387,6 +395,14 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		4F5722B620E6608000A592EC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				4F5722B420E6607800A592EC /* HealthActivityViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		4F5F6060207F333E003B02F7 = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +428,7 @@
 		4F5F606B207F333E003B02F7 /* STOP */ = {
 			isa = PBXGroup;
 			children = (
+				4F5722AE20E6146200A592EC /* STOP.entitlements */,
 				4F5F606C207F333E003B02F7 /* AppDelegate.swift */,
 				4F2B343A20A3056100CD3302 /* Utilities */,
 				4FF665512086295800774B64 /* Extensions */,
@@ -421,9 +438,9 @@
 				4F28A696208613F400CE1A68 /* Settings */,
 				4F28A6922086138E00CE1A68 /* Feedback */,
 				4F00EBCB20B2C561006EB9E6 /* HealthActivity */,
-				4F5F6072207F333E003B02F7 /* Main.storyboard */,
 				4FE3497420CE77B00006707F /* Consent */,
 				4F5F6075207F333F003B02F7 /* Assets.xcassets */,
+				4F5F6072207F333E003B02F7 /* Main.storyboard */,
 				4F5F6077207F333F003B02F7 /* LaunchScreen.storyboard */,
 				4FE9989E20D2896D006A9288 /* Localizable.strings */,
 				4F5F607A207F333F003B02F7 /* Info.plist */,
@@ -502,7 +519,7 @@
 				4FE9989820D26FF9006A9288 /* SymptomItemView.swift */,
 				4FE9989620D26FE1006A9288 /* SymptomItemView.xib */,
 				4F7C313920DD8DA7004A5B79 /* MedicationEditorView.swift */,
-				4F7C313720DD8D87004A5B79 /* MedicationEditorView.xib */,
+				4FE59D4C20EA4D8100662A83 /* MedicationEditorView.xib */,
 			);
 			path = Consent;
 			sourceTree = "<group>";
@@ -834,12 +851,26 @@
 		4F5F6061207F333E003B02F7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					0,
+					1,
+					3,
+					4,
+				);
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Yuuki Nishiyama";
 				TargetAttributes = {
 					4F5F6068207F333E003B02F7 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					4F5F607E207F333F003B02F7 = {
 						CreatedOnToolsVersion = 9.3;
@@ -859,6 +890,7 @@
 				en,
 				Base,
 				fi,
+				ja,
 			);
 			mainGroup = 4F5F6060207F333E003B02F7;
 			productRefGroup = 4F5F606A207F333E003B02F7 /* Products */;
@@ -877,7 +909,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F7C313820DD8D87004A5B79 /* MedicationEditorView.xib in Resources */,
+				4FE59D4A20EA4D8100662A83 /* MedicationEditorView.xib in Resources */,
 				4FE9989720D26FE1006A9288 /* SymptomItemView.xib in Resources */,
 				4F3A9BD220D150D4002C8A07 /* SymptomContentView.xib in Resources */,
 				4FF665B52086295900774B64 /* Countries.bundle in Resources */,
@@ -1045,6 +1077,7 @@
 				4FF665B92086295900774B64 /* PhoneCodeCell.swift in Sources */,
 				4FE9989920D26FF9006A9288 /* SymptomItemView.swift in Sources */,
 				4F41DEC820DA9EB1009D3E48 /* Language.swift in Sources */,
+				4F5722B520E6607800A592EC /* HealthActivityViewController.swift in Sources */,
 				4FF665AB2086295900774B64 /* UIImage+Extensions.swift in Sources */,
 				4FF665D02086295900774B64 /* ItemWithPhoto.swift in Sources */,
 				4FF665CE2086295900774B64 /* PhotoLayout.swift in Sources */,
@@ -1137,6 +1170,7 @@
 			children = (
 				4F5F6073207F333E003B02F7 /* Base */,
 				4F2E214A20D3DD7C008D487A /* fi */,
+				4FE59D4420EA3F8A00662A83 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1146,8 +1180,19 @@
 			children = (
 				4F5F6078207F333F003B02F7 /* Base */,
 				4F4925D320CFCAB600C25669 /* fi */,
+				4F5722B020E6400300A592EC /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4FE59D4C20EA4D8100662A83 /* MedicationEditorView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FE59D4B20EA4D8100662A83 /* Base */,
+				4FE59D4D20EA4D8A00662A83 /* fi */,
+				4FE59D4F20EA513D00662A83 /* en */,
+			);
+			name = MedicationEditorView.xib;
 			sourceTree = "<group>";
 		};
 		4FE9989E20D2896D006A9288 /* Localizable.strings */ = {
@@ -1283,6 +1328,7 @@
 			baseConfigurationReference = EEB4BDA273194F0B8F11EB0A /* Pods-STOP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = STOP/STOP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FH352PYMNC;
 				INFOPLIST_FILE = STOP/Info.plist;
@@ -1303,6 +1349,7 @@
 			baseConfigurationReference = 1F2876228EF33D6B172B7FC1 /* Pods-STOP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = STOP/STOP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FH352PYMNC;
 				INFOPLIST_FILE = STOP/Info.plist;

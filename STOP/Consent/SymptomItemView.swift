@@ -21,7 +21,7 @@ import UIKit
     let uncheckedImage = UIImage(named: "stop_unselected_circle")! as UIImage
     
     
-    var isSelected:Bool = false
+    var isSelected = false
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

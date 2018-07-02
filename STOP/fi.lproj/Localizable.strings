@@ -112,9 +112,91 @@
 "consent_declining" = "Voit käyttää sovellusta vaikka kieltäytyisit tutkimuksesta. Tietojasi ei kerätä eikä käytetä tutkimuksessa.  Haluatko jatkaa? ";
 "consent_loading" = "Kiitos kun osallistut tutkimukseen! Sovellusta ladataan…";
 
-"consent_accept" = "Hyväksy";
-"consent_decline" = "Kieltäydy";
-"consent_app_consent" = "Suostumus sovelluksen käyttöön";
+/* health */
+"health_survey_saved"="Vastaus tallennettu, kiitos vastauksesta!";
+"health_empty_response"="Valitse oireiden taso";
+
+/* medication */
+"medication_list_heading"="Lääkepäiväkirja";
+"medication_no_record"="Ei merkintöjä";
+"medication_when_last_time"="Milloin otit lääkkeet?";
+"medication_specify"="Määritä aika";
+"medication_now"="Nyt";
+"medication_item_number_sample"="1)";
+"medication_item_timestamp_sample"="12:00, 21.12.2018";
+"medication_check_title"="Tarkista lääkkeenoton aika";
+"medication_check_date"="Tarkista päivä";
+"medication_check_time"="Tarkista aika";
+"medication_specify_date"="Lääkkeenoton päivämäärä";
+"medication_specify_time"="Lääkkeenoton aika";
+"medication_modify_title"="Muokkaa merkintää";
+"medication_edit_time"="Muokkaa aikaa";
+"medication_edit_date"="Muokkaa päivämäärää";
+"medication_edited"="Muutokset tallennettu";
+"medication_deleted"="Merkintä poistettu";
+"medication_error"="Virhe: ";
+"medication_no_internet"="Ei internet yhteyttä. Takista yhteys tai valitse \"Määritä aika\" ";
+"medication_cannot_recognize"="Päivämäärää ei tunnistettu, yritä uudelleen";
+"medication_recorded"="Merkintä tallennettu";
+"medication_parser_dialog"="Odota…";
+
+
+/* Feedback activity strings */
+"feedback" = "Palaute";
+"feedback_device_name" = "Laitteen nimi";
+"feedback_device_id" = "Laitteen ID";
+"feedback_clear" = "Tyhjennä";
+"feedback_saved" = "Palaute tallennettu, kiitos palautteesta!";
+"feedback_enter" = "Palaute:";
+
+/* notification */
+"notification_game_morning" = "Aamu";
+"notification_game_noon" = "Päivä";
+"notification_game_afternoon" = "Iltapäivä";
+"notification_game_evening" = "Ilta";
+"notification_game_text" = ": pelaa ja kirjaa lääkkeenotto";
+"notification_survey" = "Päivittäinen kysely";
+"notification_survey_text" = ": Miten eilinen meni?";
+
+/* game */
+"pref_header_ball_game"   = "Peli";
+"pref_header_medication"  = "Lääkepäiväkirja";
+"key_ball_size_title"     = "Pallon koko";
+"key_ball_size"           = "key_ball_size";
+"key_ball_size_value"     = "150";
+"key_sensitivity_title"   = "Herkkyys";
+"key_sensitivity"         = "key_sensitivity";
+"key_sensitivity_value"   = "3";
+"key_game_time_title"     = "Pelin pituus";
+"key_game_time"           = "key_game_time";
+"key_game_time_value"     = "10";
+"key_game_reset_default_title" = "Palauta oletusasetukset";
+"key_game_reset_default"  = "key_game_reset_default";
+"key_medication_title"    = "Tyhjennä lääkepäiväkirja";
+"key_medication"          = "key_medication";
+"settings_are_you_sure"   = "Oletko varma?";
+"settings_delete_warning" = "Tämä poistaa kaikki lääkepäiväkirjan merkinnät.";
+"settings_list_cleared"   = "Merkinnät poistettu.";
+"settings_default_applied" = "Oletusasetukset tallennettu";
+
+
+"game_press_button_to_play"="Aloita peli painamalla nappia";
+"game_start"="Peli alkaa";
+"game_get_ready"="Peli alkaa pian";
+"game_play"="Pelaa";
+"game_done"="Peli loppui!\n Haluatko pelata uudelleen?\nTulos:";
+"game_invalid_settings"="Mikään asetuksista ei voi olla 0, ole hyvä ja päivitä";
+
+/* consent */
+"consent_yes" = "Kyllä";
+"consent_no" = "Ei";
+"consent_accept"        = "Hyväksy";
+"consent_decline"       = "Kieltäydy";
+"consent_app_consent"   = "Suostumus sovelluksen käyttöön";
+"consent_empty_entries" = "Vastaa kaikkiin kysymyksiin ja arvioi kaikki oireet";
+"consent_specify_age"   = "Anna käyttäjätunnus ja ikäsi";
+"consent_declining"     = "Voit käyttää sovellusta vaikka kieltäytyisit tutkimuksesta. Tietojasi ei kerätä eikä käytetä tutkimuksessa.  Haluatko jatkaa?";
+"consent_loading"       = "Kiitos kun osallistut tutkimukseen! Sovellusta ladataan…";
 "consent_app_consent_details" = "Tämä sovellus on kehitetty STOP: Sentient Tracking of Parkinson’s tutkimusta varten.\n\nSovellus kerää seuravia tietoja tutkimusta varten:\n* Tietoja käyttäjästä: Asennuksen jälkeen sovellus kysyy osallistujan ikää ja Parkinsonin taudin diagnosointiaikaa ja pyytää arvioimaan oireita UPDRS asteikon osan II mukaisesti.\n* Mobiililaitteen sisäisistä antureista kerättävä tieto: Sovellus pyytää osallistujaa pelaamaan yksinkertaista pallopeliä kymmenen sekunnin ajan. Pelin aikana kerätään dataa laitteen liikkeentunnistusanturista eli gyroskoopista, kiihtyvyysanturista ja lineaarisesta kiihtyvyysanturista.\n* Lääkepäiväkirja: Sovellus pyytää osallistujaa kirjaamaan ylös lääkkeenottoajankohdat.\n* Tieto muistutuksista: Sovellus lähettää muistutuksen neljä kertaa päivässä, pyytäen osallistujaa pelaamaan peliä ja täyttämään lääkepäiväkirjaa. Muistutuksen aika ja avaamisaika tallennetaan.\n* Palaute: Osallistuja voi antaa palautetta sovelluksesta.\n\nHyväksymällä tämän suostumuslomakkeen, annat suostumuksen tietojen keräämiseen ja käyttämiseen osana Oulun ja Manchesterin yliopistojen tutkimuksessa ja julkaisuissa. Voit keskeyttää tutkimuksen halutessasi milloin vain. Sovelluksen kautta voi poistaa sinusta kerätyt tiedot ennen sovelluksen poistamista. Jos poistat sovelluksen ilman kerättyjen tietojen poistamista, tietojen keräys keskeytyy ja aiemmin kerättyä tietoa voidaan käyttää tutkimuksessa.";
 
 

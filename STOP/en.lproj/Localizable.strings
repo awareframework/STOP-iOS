@@ -85,7 +85,7 @@
 "symptom_17_4"="Frequent painful sensations";
 "symptom_17_5"="Excruciating pain";
 
-
+/* general */
 "app_name" = "STOP";
 "nav_medication" = "Medication";
 "nav_game" = "Game";
@@ -109,10 +109,70 @@
 "voice_when_taken" = "When have you taken medication last time?";
 "voice_what_think" = "What do you think about STOP?";
 
+/* health */
+"health_survey_saved"="Survey recorded. Thank you!";
+"health_empty_response"="Please select PD level";
 
+/* medication */
+"medication_list_heading"="List of medication records";
+"medication_no_record"="No records have been made yet";
+"medication_when_last_time"="When have you taken medication last time?";
+"medication_specify"="Specify time";
+"medication_now"="Now";
+"medication_item_number_sample"="1)";
+"medication_item_timestamp_sample"="12:00, 21 December 2018";
+"medication_check_title"="Check medication time";
+"medication_check_date"="Check date";
+"medication_check_time"="Check time";
+"medication_specify_date"="Medication date";
+"medication_specify_time"="Medication time";
+"medication_modify_title"="Modify medication record";
+"medication_edit_time"="Edit time";
+"medication_edit_date"="Edit date";
+"medication_edited"="Medication edited";
+"medication_deleted"="Medication deleted";
+"medication_error"="Error: ";
+"medication_no_internet"="Internet connection is disabled. Please enable it or use \"Specify time\" option ";
+"medication_cannot_recognize"="Cannot recognize date, please try again";
+"medication_recorded"="Medication recorded";
+"medication_parser_dialog"="Please wait…";
+
+/* feedback */
+"feedback" = "Feedback";
+"feedback_device_name" = "Device name";
+"feedback_device_id" = "Device ID";
+"feedback_clear" = "Clear";
+"feedback_saved" = "Feedback saved. Thank you!";
+"feedback_enter" = "Please enter your feedback";
+
+
+/* notification */
+"notification_game_morning" = "Morning";
+"notification_game_noon"    = "Noon";
+"notification_game_afternoon" = "Afternoon";
+"notification_game_evening" = "Evening";
+"notification_game_text"    = "play a game and record medication";
+"notification_survey"       = "Daily survey";
+"notification_survey_text"  =  ": how was yesterday?";
+
+/* game */
+"game_press_button_to_play" = "Press button to play";
+"game_start" = "Start";
+"game_get_ready" = "Get ready";
+"game_play" = "Play";
+"game_done" = "Done! Play again?\nScore:";
+"game_invalid_settings" = "None of the game settings can be 0. Please update first";
+
+/* consent */
 "consent_empty_entries" = "Please insert data to empty entries and rate all the symptoms";
-"consent_declining" = "By declining the Research Consent, you may still use the application with all its functionalities. No data will be collected or shared with our study. Do you wish to proceed?";
-"consent_loading" = "Thank you for joining our study! Loading resources…";
+"consent_declining"     = "By declining the Research Consent, you may still use the application with all its functionalities. No data will be collected or shared with our study. Do you wish to proceed?";
+"consent_loading"       = "Thank you for joining our study! Loading resources…";
+"consent_empty_entries" = "Please insert data to empty entries and rate all the symptoms";
+"consent_specify_age"   = "Please select a username and specify your age";
+"consent_declining"     = "By declining the Research Consent, you may still use the application with all its functionalities. No data will be collected or shared with our study. Do you wish to proceed?";
+
+"consent_yes" = "Yes";
+"consent_no"  = "No";
 
 "consent_accept" = "Accept";
 "consent_decline" = "Decline";

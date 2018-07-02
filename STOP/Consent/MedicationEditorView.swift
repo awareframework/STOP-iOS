@@ -15,6 +15,7 @@ struct MedicationInfo {
     var oftenNumber    = ""
     var oftenUnit      = ""
     var firstMedicationTime = ""
+    var comment        = ""
 }
 
 @IBDesignable class MedicationEditorView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -28,8 +29,9 @@ struct MedicationInfo {
     @IBOutlet weak var oftenNumberField: UITextField!
     @IBOutlet weak var oftenUnitPicker: UIPickerView!
     @IBOutlet weak var firstMedicationTimeField: UITextField!
-
-    let units = ["minutes","hours","days"]
+    @IBOutlet weak var commentTextField: UITextField!
+    
+    let units = ["minutes","hours"]
     
     var addButtonEventHandler:MedicationEditorAddButtonEventHandler?
     var cancelButtonEventHandler:MedicationEditorCancelButtonEventHandler?
@@ -108,12 +110,44 @@ struct MedicationInfo {
             medicationInfo.firstMedicationTime = firstMedicationTime
         }
         
+        if let comment = commentTextField.text {
+            medicationInfo.comment = comment
+        }
+        
         medicationNameField.resignFirstResponder()
         timesPerDayField.resignFirstResponder()
         pillsEachTimesField.resignFirstResponder()
         oftenNumberField.resignFirstResponder()
         firstMedicationTimeField.resignFirstResponder()
+        commentTextField.resignFirstResponder()
         
+        // validation
+        guard medicationInfo.medicationName != "" else {
+            // send notification
+            return
+        }
+        
+        guard medicationInfo.timesPerDay != "" else {
+            return
+        }
+
+        guard medicationInfo.pillsEachTimes != "" else {
+            return
+        }
+
+        guard medicationInfo.oftenNumber != "" else {
+            return
+        }
+        
+        guard medicationInfo.oftenUnit != "" else {
+            return
+        }
+
+        guard medicationInfo.firstMedicationTime != "" else {
+            return
+        }
+
+        // send medication info using handler
         if let addHandler = addButtonEventHandler {
             addHandler(medicationInfo)
         }

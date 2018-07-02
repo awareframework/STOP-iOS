@@ -14,8 +14,8 @@ class DetailSettingsTableViewController: UITableViewController {
     
     let gameSettingItems = [
                     ["title":"Ball size",         "key":STOPKeys.SETTING_BALL_SIZE],
-                    ["title":"Small circle size", "key":STOPKeys.SETTING_SMALL_CIRCLE_SIZE],
-                    ["title":"Big circle size",   "key":STOPKeys.SETTING_BIG_CIRCLE_SIZE],
+                    // ["title":"Small circle size", "key":STOPKeys.SETTING_SMALL_CIRCLE_SIZE],
+                    // ["title":"Big circle size",   "key":STOPKeys.SETTING_BIG_CIRCLE_SIZE],
                     ["title":"Sensitivity",       "key":STOPKeys.SETTING_SENSITIVITY],
                     ["title":"Game time",         "key":STOPKeys.SETTING_GAME_TIME]
                 ]

@@ -24,6 +24,10 @@
 	<string>STOP needs to access your microphone for inputting texts from your voice.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>STOP needs to access Speech Recognition API for inputting texts from your voice.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

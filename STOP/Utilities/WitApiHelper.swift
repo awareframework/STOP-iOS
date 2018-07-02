@@ -15,8 +15,12 @@ class WitApiHelper{
     public var serverResponseHandler:ServerResponseHandler?
     
     public func convertTextToTimestamp(_ text:String){
+        
+//        String timezone = "&context={\"timezone\":\"" + TimeZone.getDefault().getID() + "\"}";
+//        String getUrl = String.format("%s%s", "https://api.wit.ai/message?q=", URLEncoder.encode(text[0], "utf-8")) + timezone;
+        let timeZone = "{\"timezone\":\"\(TimeZone.current.identifier)\"}".addingPercentEncoding(withAllowedCharacters:.urlQueryAllowed)!
         let encodedText:String = text.addingPercentEncoding(withAllowedCharacters:.urlQueryAllowed)!
-        let url = URL(string: "https://api.wit.ai/message?q=\(encodedText)")
+        let url = URL(string: "https://api.wit.ai/message?q=\(encodedText)&context=\(timeZone)")
         let accessToken = "SWGWOH2KRZ6UYTDKWLK5WA65ALIBLC47"
         var request = URLRequest(url: url!)
         request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")

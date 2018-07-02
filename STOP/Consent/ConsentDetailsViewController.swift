@@ -38,13 +38,33 @@ class ConsentDetailsViewController: UIViewController {
         dismiss(animated: true, completion: {})
     }
     
-    
     @IBAction func pushedDeclineButton(_ sender: UIButton) {
         Consent.setConsentRead(state: true)
-        if let unwrappedHandler = resultHandler {
-            unwrappedHandler(false)
-        }
-        dismiss(animated: true, completion: {})
+        let declineAlert = UIAlertController.init(title:   NSLocalizedString("consent_decline",   comment: "consent_decline"),
+                                                  message: NSLocalizedString("consent_declining", comment: "consent_declining"),
+                                                  preferredStyle: UIAlertControllerStyle.alert )
+        let actionYes = UIAlertAction.init(title: NSLocalizedString("consent_yes", comment: "consent_yes"), style: UIAlertActionStyle.default, handler: { (action) in
+            
+            if let unwrappedHandler = self.resultHandler {
+                unwrappedHandler(false)
+            }
+            // DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: {
+                // Consent.setConsentRead(state: false)
+            })
+            
+        })
+        
+        let actionNo  = UIAlertAction.init(title: NSLocalizedString("consent_no", comment: "consent_yes"), style: .cancel, handler: { (action) in
+        })
+        
+        declineAlert.addAction(actionNo)
+        declineAlert.addAction(actionYes)
+        
+        self.present(declineAlert, animated: true, completion: {
+            
+        })
+        
     }
     
     /*
@@ -56,7 +76,5 @@ class ConsentDetailsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    
 
 }

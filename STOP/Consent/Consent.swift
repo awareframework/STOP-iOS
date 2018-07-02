@@ -27,7 +27,6 @@ class Consent: AWARESensor {
     public static func isConsentAnswered() -> Bool{
         let state = UserDefaults.standard.bool(forKey: "stop.consent.answer.state")
         return state
-//        return false
     }
     
     public static func setConsentAnswer(state:Bool){
@@ -39,7 +38,6 @@ class Consent: AWARESensor {
     public static func isConsentRead() -> Bool {
         let state = UserDefaults.standard.bool(forKey: "stop.consent.read.state")
         return state
-//        return false
     }
     
     public static func setConsentRead(state:Bool) {

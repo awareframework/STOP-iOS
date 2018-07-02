@@ -75,7 +75,6 @@ class FirstViewController: MainViewController {
         bigCircle.isHidden = true
         startButton.isHidden = false
 
-        
         self.setGameContents()
     }
     
@@ -104,6 +103,8 @@ class FirstViewController: MainViewController {
             self.demoButton.title = ""
             self.demoButton.isEnabled = false
         }
+        
+        self.messageLabel.text = NSLocalizedString("game_press_button_to_play", comment: "game_press_button_to_play")
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -163,11 +164,11 @@ class FirstViewController: MainViewController {
                 sTimer.invalidate()
                 self.sampling = true
                 
-                self.messageLabel?.text = "start!"// "point"
+                self.messageLabel?.text = NSLocalizedString("game_start", comment: "game_start")
                 
                 self.gameTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (gTimer) in
                     self.timeCount = self.timeCount + 1
-                    self.messageLabel?.text = "time: \(self.timeCount)"// "point"
+                    self.messageLabel?.text = "\(self.timeCount)"
                     
                     if self.timeCount > Int(self.gameTime){
                         gTimer.invalidate()
@@ -178,8 +179,8 @@ class FirstViewController: MainViewController {
         }
     }
     
+    
     func startGame(){
-        
         accelSamples = ""
         linaccelSamples = ""
         gyroSamples = ""
@@ -230,8 +231,6 @@ class FirstViewController: MainViewController {
         linearAccelerometer.startSensor()
         gyroScope.startSensor()
         rotation.startSensor()
-        
-
     }
     
     func stopGame(){
@@ -240,7 +239,13 @@ class FirstViewController: MainViewController {
         
         // calculating game score
         let finalScore = 100 - ((scoreRaw/Double(scoreCounter)) / ballMaxDistance)*100;
-        self.messageLabel?.text = "finish: score is \( String(format: "%.2f",finalScore)) \n"
+        let message = "\(NSLocalizedString("game_done", comment: "game_done")) \(String(format: "%.2f",finalScore))"
+        self.messageLabel?.text = message
+        // "finish: score is \( String(format: "%.2f",finalScore)) \n"
+    
+        // "game_get_ready" = "Get ready";
+        // "game_play" = "Play";
+        // "game_invalid_settings" = "None of the game settings can be 0. Please update first";
         
         /// save the final result to GallGame table
         let gameResult = "\(gameData.prefix(gameData.count-1))],\"score\":\(finalScore)}]"
@@ -297,7 +302,7 @@ class FirstViewController: MainViewController {
         
         self.sampling = false
         
-        self.messageLabel?.text = "Push to play the game!"
+        self.messageLabel?.text = NSLocalizedString("game_press_button_to_play", comment: "game_press_button_to_play")
     }
     
     func updateBall(_ timestamp:Int64) {

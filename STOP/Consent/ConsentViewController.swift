@@ -87,7 +87,7 @@ class ConsentViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         medicationsTableView.dataSource = self
         medicationsTableView.register(UITableViewCell.self, forCellReuseIdentifier: ConsentViewController.identifier)
         
-        nicknameTextFiled.text = AWAREStudy.shared().getDeviceName()
+        // nicknameTextFiled.text = AWAREStudy.shared().getDeviceName()
 
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(self.dismissKeyboard))
         self.view.addGestureRecognizer(tap)
@@ -116,7 +116,7 @@ class ConsentViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.view.addSubview(medicationEditorBackgroundView!)
         
         /// set medication editor view itself
-        medicationEditorView = MedicationEditorView.init(frame:CGRect(x:10, y:30, width:self.view.frame.width - 20, height:350))
+        medicationEditorView = MedicationEditorView.init(frame:CGRect(x:10, y:30, width:self.view.frame.width - 20, height: 430))
         self.view.addSubview(medicationEditorView!)
         medicationEditorView?.isHidden = true
         
@@ -138,17 +138,13 @@ class ConsentViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
         
         UIApplication.shared.sendAction(#selector(resignFirstResponder), to: nil, from: nil, for: nil)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
-
+        // move to consent details view
         if !Consent.isConsentRead() {
             performSegue(withIdentifier: "consentDetailsView",sender: nil)
-//            let storyboard: UIStoryboard = self.storyboard!
-//            let nextView = storyboard.instantiateViewController(withIdentifier: "consentDetailsView")
-//            
-//            present(nextView, animated: true, completion: nil)
-            
         }
     }
     
@@ -274,7 +270,8 @@ class ConsentViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     "times_per_day":medInfo.timesPerDay,
                     "pills_per_time":medInfo.pillsEachTimes,
                     "how_often":medInfo.oftenNumber,
-                    "first_med_daily":medInfo.firstMedicationTime
+                    "first_med_daily":medInfo.firstMedicationTime,
+                    "comment":medInfo.comment
                     ])
             }
             userAnswer["medications"] = medicationInfoArray

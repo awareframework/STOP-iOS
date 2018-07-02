@@ -1,0 +1,27 @@
+
+/* Class = "UITextField"; placeholder = "Comment"; ObjectID = "QYC-sP-RQ4"; */
+"QYC-sP-RQ4.placeholder" = "Comment";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "RBN-j3-t4S"; */
+"RBN-j3-t4S.normalTitle" = "Cancel";
+
+/* Class = "UITextField"; placeholder = "Pills each time"; ObjectID = "Scc-1l-63K"; */
+"Scc-1l-63K.placeholder" = "Pills each time";
+
+/* Class = "UILabel"; text = "Add a medication"; ObjectID = "Sm7-jD-OLy"; */
+"Sm7-jD-OLy.text" = "Add a medication";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "UDg-du-5Za"; */
+"UDg-du-5Za.normalTitle" = "Add";
+
+/* Class = "UITextField"; placeholder = "How often: every"; ObjectID = "YFT-pE-KFu"; */
+"YFT-pE-KFu.placeholder" = "How often: every";
+
+/* Class = "UITextField"; placeholder = "The first one I have is at"; ObjectID = "kNr-Ez-8RC"; */
+"kNr-Ez-8RC.placeholder" = "The first one I have is at";
+
+/* Class = "UITextField"; placeholder = "Times per day"; ObjectID = "ujz-lY-jMv"; */
+"ujz-lY-jMv.placeholder" = "Times per day";
+
+/* Class = "UITextField"; placeholder = "Medication name"; ObjectID = "vdZ-DZ-cpH"; */
+"vdZ-DZ-cpH.placeholder" = "Medication name";

@@ -11,8 +11,8 @@
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "689-5e-Z42"; */
 "689-5e-Z42.title" = "Item";
 
-/* Class = "UILabel"; text = "Do you have a diagnosis of Parkinson's disease (PD)?"; ObjectID = "6K1-cP-Zkm"; */
-"6K1-cP-Zkm.text" = "Do you have a diagnosis of Parkinson's disease (PD)?";
+/* Class = "UILabel"; text = "Do you have diagnosed PD?"; ObjectID = "6K1-cP-Zkm"; */
+"6K1-cP-Zkm.text" = "Do you have diagnosed PD?";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "8aa-PP-Dh0"; */
 "8aa-PP-Dh0.title" = "Item";
@@ -22,9 +22,6 @@
 
 /* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "99L-9h-SUO"; */
 "99L-9h-SUO.normalTitle" = "Submit";
-
-/* Class = "UILabel"; text = "Minimal symptoms with no concrete interference with my daily activities"; ObjectID = "DzJ-bA-i9Z"; */
-"DzJ-bA-i9Z.text" = "Minimal symptoms with no concrete interference with my daily activities";
 
 /* Class = "UIButton"; normalTitle = "Accept"; ObjectID = "Ea3-Fq-bLd"; */
 "Ea3-Fq-bLd.normalTitle" = "Accept";
@@ -53,20 +50,8 @@
 /* Class = "UILabel"; text = "Define medications you take"; ObjectID = "L0y-nw-dpB"; */
 "L0y-nw-dpB.text" = "Define medications you take";
 
-/* Class = "UILabel"; text = "Mild symptoms that slightly interfered with my daily activities"; ObjectID = "N82-bk-wh2"; */
-"N82-bk-wh2.text" = "Mild symptoms that slightly interfered with my daily activities";
-
-/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "O2P-9O-ig0"; */
-"O2P-9O-ig0.normalTitle" = "Submit";
-
 /* Class = "UINavigationItem"; title = "STOP"; ObjectID = "UcD-Ju-8TE"; */
 "UcD-Ju-8TE.title" = "STOP";
-
-/* Class = "UILabel"; text = "Overall, how were your Parkinson's disease symptoms yesterday?"; ObjectID = "VG2-R6-9Qk"; */
-"VG2-R6-9Qk.text" = "Overall, how were your Parkinson's disease symptoms yesterday?";
-
-/* Class = "UILabel"; text = "Severe symptoms that prevented me from carrying out one or more of my daily activities"; ObjectID = "VI5-sn-Nld"; */
-"VI5-sn-Nld.text" = "Severe symptoms that prevented me from carrying out one or more of my daily activities";
 
 /* Class = "UILabel"; text = "List of medication records"; ObjectID = "YT0-M0-0YR"; */
 "YT0-M0-0YR.text" = "List of medication records";
@@ -92,9 +77,6 @@
 /* Class = "UILabel"; text = "PD was diagnosed"; ObjectID = "g33-J7-bev"; */
 "g33-J7-bev.text" = "PD was diagnosed";
 
-/* Class = "UILabel"; text = "Moderate symptoms but they did not stop me from carrying out my daily activities"; ObjectID = "iN4-D9-0hH"; */
-"iN4-D9-0hH.text" = "Moderate symptoms but they did not stop me from carrying out my daily activities";
-
 /* Class = "UILabel"; text = "Title"; ObjectID = "iZ1-XQ-v7B"; */
 "iZ1-XQ-v7B.text" = "Title";
 
@@ -110,9 +92,6 @@
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "mm1-xQ-gIq"; */
 "mm1-xQ-gIq.title" = "Item";
 
-/* Class = "UILabel"; text = "No symptoms, excellent day"; ObjectID = "oYV-Sk-jtL"; */
-"oYV-Sk-jtL.text" = "No symptoms, excellent day";
-
 /* Class = "UILabel"; text = "Device ID"; ObjectID = "pxs-Q7-CXF"; */
 "pxs-Q7-CXF.text" = "Device ID";
 
@@ -127,9 +106,6 @@
 
 /* Class = "UILabel"; text = "Device Name"; ObjectID = "uL1-67-IcG"; */
 "uL1-67-IcG.text" = "Device Name";
-
-/* Class = "UIButton"; normalTitle = "SPECIFY TIME"; ObjectID = "xhM-a9-bTw"; */
-"xhM-a9-bTw.normalTitle" = "SPECIFY TIME";
 
 /* Class = "UILabel"; text = "Your username"; ObjectID = "zCe-m8-M95"; */
 "zCe-m8-M95.text" = "Your username";

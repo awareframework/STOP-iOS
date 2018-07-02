@@ -50,6 +50,8 @@
 /* Class = "UIButton"; normalTitle = "NOW"; ObjectID = "ZJi-ZF-Udp"; */
 "ZJi-ZF-Udp.normalTitle" = "Nyt";
 
+"xhM-a9-bTw.normalTitle" = "Määritä aika";
+
 /* Class = "UITabBarItem"; title = "Game"; ObjectID = "acW-dT-cKf"; */
 "acW-dT-cKf.title" = "Peli";
 
@@ -72,13 +74,13 @@
 "jbf-9X-PIi.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Device Name"; ObjectID = "jmE-kI-0z9"; */
-"jmE-kI-0z9.text" = "Device Name";
+"jmE-kI-0z9.text" = "Laitteen nimi";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "mm1-xQ-gIq"; */
 "mm1-xQ-gIq.title" = "Item";
 
 /* Class = "UILabel"; text = "Device ID"; ObjectID = "pxs-Q7-CXF"; */
-"pxs-Q7-CXF.text" = "Device ID";
+"pxs-Q7-CXF.text" = "Laitteen ID";
 
 /* Class = "UILabel"; text = "When have you taken medication last time?"; ObjectID = "qTi-il-UeO"; */
 "qTi-il-UeO.text" = "Milloin otit lääkkeet?";
@@ -91,3 +93,18 @@
 
 /* Class = "UILabel"; text = "Participant"; ObjectID = "zCe-m8-M95"; */
 "zCe-m8-M95.text" = "Participant";
+
+/* Class = "UILabel"; text = "Device Name"; ObjectID = "uL1-67-IcG"; */
+"uL1-67-IcG.text" = "Laitteen nimi";
+
+
+///////////////////////
+"VG2-R6-9Qk.text"="Minkä verran sinulla oli eilen Parkinsonin oireita?";
+"oYV-Sk-jtL.text"="Ei oireita, mahtava päivä";
+"DzJ-bA-i9Z.text"="Vain vähän oireita, oireet eivät vaikuttaneet juurikaan päivittäisiin toimiini";
+"N82-bk-wh2.text"="Jonkin verran oireita, oireet vaikuttivat päivittäisiin toimiini vain vähän";
+"iN4-D9-0hH.text"="Kohtalaisen paljon oireita, oireet vaikeuttivat päivittäisiä toimiani, mutta eivät estäneet suoriutumista";
+"VI5-sn-Nld.text"="Voimakkaita oireita, oireet estivät minua suoriutumasta yhdestä tai useammasta päivittäisestä toimestani";
+"O2P-9O-ig0.text"="Lähetä";
+
+

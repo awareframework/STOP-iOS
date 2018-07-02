@@ -1,0 +1,27 @@
+
+/* Class = "UITextField"; placeholder = "Comment"; ObjectID = "QYC-sP-RQ4"; */
+"QYC-sP-RQ4.placeholder" = "Lisätietoja";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "RBN-j3-t4S"; */
+"RBN-j3-t4S.normalTitle" = "Peruuta";
+
+/* Class = "UITextField"; placeholder = "Pills each time"; ObjectID = "Scc-1l-63K"; */
+"Scc-1l-63K.placeholder" = "Tablettia/kerta";
+
+/* Class = "UILabel"; text = "Add a medication"; ObjectID = "Sm7-jD-OLy"; */
+"Sm7-jD-OLy.text" = "Lisää lääkitys";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "UDg-du-5Za"; */
+"UDg-du-5Za.normalTitle" = "Lisää";
+
+/* Class = "UITextField"; placeholder = "How often: every"; ObjectID = "YFT-pE-KFu"; */
+"YFT-pE-KFu.placeholder" = "Ottoväli";
+
+/* Class = "UITextField"; placeholder = "Time medication taken first time daily"; ObjectID = "kNr-Ez-8RC"; */
+"kNr-Ez-8RC.placeholder" = "Time medication taken first time daily";
+
+/* Class = "UITextField"; placeholder = "Times per day"; ObjectID = "ujz-lY-jMv"; */
+"ujz-lY-jMv.placeholder" = "Ensimmäinen lääke kello";
+
+/* Class = "UITextField"; placeholder = "Medication name"; ObjectID = "vdZ-DZ-cpH"; */
+"vdZ-DZ-cpH.placeholder" = "Lääkkeen nimi";

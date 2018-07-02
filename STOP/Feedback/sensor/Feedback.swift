@@ -32,11 +32,12 @@ class Feedback: AWARESensor {
         self.storage.createDBTableOnServer(with: maker)
     }
     
-    open func saveFeedback(deviceName:String, feedback:String){
+    public func saveFeedback(userName:String, deviceName:String, feedback:String){
         
         let data:[String : Any] = [
             "device_id":self.getDeviceId(),
             "timestamp":AWAREUtils.getUnixTimestamp(Date.init()),
+            "user_name":userName,
             "device_name":deviceName,
             "feedback":feedback
             ]

@@ -11,6 +11,8 @@ import AWAREFramework
 
 class SecondViewController: MainViewController, UITableViewDelegate, UITableViewDataSource{
 
+    @IBOutlet weak var specifyTimeButton: UIButton!
+    
     @IBOutlet weak var speechRecognitionView: SpeechRecognitionView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundView: UIView!
@@ -36,6 +38,7 @@ class SecondViewController: MainViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         speechRecognitionView.isHidden = true
         speechRecognitionView.speechRecognitionStartHandler = ({()-> Void in
             print("start")
@@ -86,9 +89,9 @@ class SecondViewController: MainViewController, UITableViewDelegate, UITableView
             wit.convertTextToTimestamp(result)
         })
         backgroundView.isHidden = true
-        speechRecognitionView.defaultMessage = "When have you taken medication last time?"
+        speechRecognitionView.defaultMessage = NSLocalizedString("voice_when_taken", comment: "voice_when_taken")// "When have you taken medication last time?"
         reloadTableContents()
-        
+        adjustButtonSizes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,25 +103,32 @@ class SecondViewController: MainViewController, UITableViewDelegate, UITableView
             self.demoButton.title = ""
             self.demoButton.isEnabled = false
         }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        adjustButtonSizes()
+    }
+
+    func adjustButtonSizes(){
         if !Language().isEnglish() {
             voiceInputButtonView.isHidden = true
             NSLayoutConstraint.deactivate([thirtyPercentConstraintForNow, thirtyPercentConstraintForSpecifyTime])
             NSLayoutConstraint.activate([fiftyPercentConstraintForNow, fiftyPercentConstraintForSpecifyTime])
-            
         }else{
             voiceInputButtonView.isHidden = false
             NSLayoutConstraint.deactivate([fiftyPercentConstraintForNow, fiftyPercentConstraintForSpecifyTime])
             NSLayoutConstraint.activate([thirtyPercentConstraintForNow, thirtyPercentConstraintForSpecifyTime])
-            
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
     }
     
     func reloadTableContents(){
@@ -136,13 +146,12 @@ class SecondViewController: MainViewController, UITableViewDelegate, UITableView
         let timestamp = medications[indexPath.row].double_medication
         let datetime = Date.init(unixTimestamp: timestamp/1000)
         
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "mm:hh, dd MM yyyy", options: 0, locale: nil)
         var number = 0
         if medications.count > 0 {
             number = medications.count - indexPath.row
         }
-        cell.textLabel!.text = "\(number) ) \( self.convertStringFromDate(date: datetime))"
+        cell.textLabel!.text = "\(number) ) \t \( self.convertStringFromDate(date: datetime))"
+        cell.textLabel!.textAlignment = NSTextAlignment.center
         return cell
     }
     
@@ -150,27 +159,25 @@ class SecondViewController: MainViewController, UITableViewDelegate, UITableView
         // print("cell:\(indexPath.row) fruits:\(medications[indexPath.row])")
         let medication:EntityMedication = medications[indexPath.row]
         let selectedDateTime = Date.init(unixTimestamp:medication.timestamp/1000)
-        let alert: UIAlertController = UIAlertController(title: "Modify medication record", message: "\(convertStringFromDate(date: selectedDateTime))", preferredStyle:  UIAlertControllerStyle.alert)
+        let alert: UIAlertController = UIAlertController(title: NSLocalizedString("medication_modify_title", comment: "medication_modify_title"), message: "\(convertStringFromDate(date: selectedDateTime))", preferredStyle:  UIAlertControllerStyle.alert)
 
-        let deleteAction: UIAlertAction = UIAlertAction(title:"Delete", style: UIAlertActionStyle.destructive, handler:{ (action: UIAlertAction!) -> Void in
+        let deleteAction: UIAlertAction = UIAlertAction(title:NSLocalizedString("medication_deleted", comment: "medication_deleted") , style: UIAlertActionStyle.destructive, handler:{ (action: UIAlertAction!) -> Void in
             print("Delete")
             self.medicationSensor.removeMedication(object: medication)
             self.reloadTableContents()
         })
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler:{
+        let cancelAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("cancel", comment: "Cancel"), style: UIAlertActionStyle.cancel, handler:{
             (action: UIAlertAction!) -> Void in
             print("Cancel")
         })
-        let defaultAction: UIAlertAction = UIAlertAction(title: "Edit", style: UIAlertActionStyle.default, handler:{
+        let defaultAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("edit", comment: "Edit"), style: UIAlertActionStyle.default, handler:{
             (action: UIAlertAction!) -> Void in
-            let alert = UIAlertController(style: .alert, title: "Select date")
+            let alert = UIAlertController(style: .alert, title: NSLocalizedString("medication_modify_title", comment: "Modify medication record") )//"Select date")
             var selectedData = Date.init(unixTimestamp: medication.double_medication/1000)
             alert.addDatePicker(mode: .dateAndTime, date: selectedData, minuteInterval: 15) { (date) in
                 selectedData = date
             }
             alert.addAction(image: nil, title: "OK", color: nil, style: .cancel) { action in
-                // self.medicationSensor.saveMedication(timestamp: selectedData)
-                // update
                 medication.double_medication = selectedData.timeIntervalSince1970*1000.0
                 medication.timestamp = Date().timeIntervalSince1970*1000.0
                 self.medicationSensor.updateMedication(object: medication)
@@ -188,11 +195,6 @@ class SecondViewController: MainViewController, UITableViewDelegate, UITableView
         present(alert, animated: true, completion: nil)
     }
     
-
-//    @objc func backgroundViewTapped(sender: UITapGestureRecognizer) {
-//        backgroundView.isHidden = true
-//        speechRecognitionView.isHidden = true
-//    }
     
     /// This method is called then the setting button on the menu bar is pushed.
     /// Moreover, this method make options to move a next view.
@@ -202,7 +204,7 @@ class SecondViewController: MainViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func pushedSpecifyTimeButton(_ sender: Any) {
-        let alert = UIAlertController(style: .alert, title: "Select date")
+        let alert = UIAlertController(style: .alert, title: NSLocalizedString("medication_when_last_time", comment: "When have you taken medication last time?"))
         var selectedData = Date.init()
         alert.addDatePicker(mode: .dateAndTime, date: Date.init(), minuteInterval: 15) { (date) in
             // print(date)
@@ -213,8 +215,9 @@ class SecondViewController: MainViewController, UITableViewDelegate, UITableView
             // completion handler
             self.medicationSensor.saveMedication(timestamp: selectedData)
             self.medicationSensor.startSyncDB()
+            self.reloadTableContents()
         }
-        alert.addAction(image: nil, title: "Cancel", color: nil, style: .cancel) { action in
+        alert.addAction(image: nil, title: NSLocalizedString("cancel", comment: "Cancel"), color: nil, style: .cancel) { action in
             
         }
         alert.show()
@@ -227,7 +230,7 @@ class SecondViewController: MainViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func pushedCurrentTimeButton(_ sender: Any) {
-        medicationSensor.saveMedication(timestamp: Date.init() )
+        medicationSensor.saveMedication( timestamp: Date.init() )
         medicationSensor.startSyncDB()
         reloadTableContents()
     }
@@ -236,7 +239,8 @@ class SecondViewController: MainViewController, UITableViewDelegate, UITableView
     func convertStringFromDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = NSTimeZone.default
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        // dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = "HH:mm dd MMM yyyy"
         
         return dateFormatter.string(from: date)
     }

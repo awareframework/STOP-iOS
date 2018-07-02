@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         // check a consent state
-        if(!Consent.isConsentAnswered() && !Consent.isConsentRead()){
+        if(!Consent.isConsentRead() && !Consent.isConsentAnswered() ){
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "ConsentViewIdentifier") as! ConsentViewController
             self.present(vc, animated: true, completion: {
@@ -48,7 +48,7 @@ class MainViewController: UIViewController {
         
         let alertController = UIAlertController.init(title: "Move to...", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         
-        let settingsButton = UIAlertAction.init(title: "Experiment", style: UIAlertActionStyle.default) { (action) in
+        let settingsButton = UIAlertAction.init(title: NSLocalizedString("main_experiment", comment: "main_experiment"), style: UIAlertActionStyle.default) { (action) in
             if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsView") as? SettingsTableViewController {
                 if let navigator = self.navigationController {
                     //self.cancelGame()
@@ -57,7 +57,7 @@ class MainViewController: UIViewController {
             }
         }
         
-        let feedbackButton = UIAlertAction.init(title: "Participant info", style: UIAlertActionStyle.default) { (action) in
+        let feedbackButton = UIAlertAction.init(title: NSLocalizedString("main_participant_info", comment: "main_participant_info"), style: UIAlertActionStyle.default) { (action) in
             if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedbackView") as? FeedbackViewController {
                 if let navigator = self.navigationController {
                     //self.cancelGame()

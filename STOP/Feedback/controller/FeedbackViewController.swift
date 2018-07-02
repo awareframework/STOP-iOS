@@ -11,11 +11,20 @@ import AWAREFramework
 
 class FeedbackViewController: UIViewController {
 
+    @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var deviceNameField: UITextField!
     @IBOutlet weak var deviceIdField: UITextField!
     @IBOutlet weak var feedbackMessageField: UITextView!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var speechRecognitionView: SpeechRecognitionView!
+    
+    @IBOutlet weak var clearButtonViewOneThirdConstraint: NSLayoutConstraint!
+    @IBOutlet weak var submitButtonViewOneThirdConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var clearButtonViewHalfConstraint: NSLayoutConstraint!
+    @IBOutlet weak var submitButtonViewHalfConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var voiceInputButtonView: UIView!
     
     var feedbackSensor:Feedback?
     
@@ -28,8 +37,9 @@ class FeedbackViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        deviceNameField.text = AWAREStudy.shared()!.getDeviceName()
+        userNameField.text = AWAREStudy.shared()!.getDeviceName()
         deviceIdField.text = AWAREStudy.shared()!.getDeviceId()
+        deviceNameField.text = AWAREUtils.deviceName()
         // Do any additional setup after loading the view.
         backgroundView.isHidden = true
         speechRecognitionView.isHidden = true
@@ -56,6 +66,18 @@ class FeedbackViewController: UIViewController {
         speechRecognitionView.defaultMessage = "What do you think about STOP?"
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !Language().isEnglish() {
+            voiceInputButtonView.isHidden = true
+            NSLayoutConstraint.deactivate([clearButtonViewOneThirdConstraint, submitButtonViewOneThirdConstraint])
+            NSLayoutConstraint.activate([clearButtonViewHalfConstraint, submitButtonViewHalfConstraint])
+        }else{
+            voiceInputButtonView.isHidden = false
+            NSLayoutConstraint.activate([clearButtonViewOneThirdConstraint, submitButtonViewOneThirdConstraint])
+            NSLayoutConstraint.deactivate([clearButtonViewHalfConstraint, submitButtonViewHalfConstraint])
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -80,12 +102,17 @@ class FeedbackViewController: UIViewController {
     /// - Parameter sender: A notification sender
     @IBAction func pushedSubmitButton(_ sender: Any) {
         
-        if let deviceName = self.deviceNameField.text,
+        if let userName = self.userNameField.text,
+           let deviceName = self.deviceIdField.text,
            let feedbackText = self.feedbackMessageField.text,
-        let feedbackSensor = self.feedbackSensor {
-            feedbackSensor.saveFeedback(deviceName: deviceName, feedback: feedbackText)
+           let feedbackSensor = self.feedbackSensor {
+            feedbackSensor.saveFeedback(userName:userName, deviceName: deviceName, feedback: feedbackText)
             feedbackSensor.storage.startSyncStorage { (name, progress, error) in
-                print(name)
+                let message = NSLocalizedString("feedback_saved", comment: "feedback_saved")
+                SVProgressHUD.showSuccess(withStatus: message)
+                SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
+                SVProgressHUD.dismiss(withDelay: 2)
+                self.navigationController?.popViewController(animated: true)
             }
             feedbackSensor.startSyncDB()
         }
