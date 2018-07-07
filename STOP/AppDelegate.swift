@@ -11,8 +11,8 @@ import AWAREFramework
 
 @UIApplicationMain
 class AppDelegate: AWAREDelegate {
-
-    let notificationIds = ["morning","noon","afternoon","evening","survey"]
+    
+    var appNotifications:NotificationData?
     
     override init() {
         
@@ -43,7 +43,13 @@ class AppDelegate: AWAREDelegate {
         let studyURL = "https://api.awareframework.com/index.php/webservice/index/1836/5IuLyJjLQQNK"
         AWAREStudy.shared().setStudyURL(studyURL);
         AWAREStudy.shared().join(withURL:studyURL, completion: { (result, status, error) in
-            self.updateNotifications(force: true)
+            if let notifications = self.appNotifications{
+                notifications.updateNotifications(force: true)
+            }
+            
+            let debug = Debug.init(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
+            debug?.createTable()
+            
             /// set esms
             if let hadler = completion {
                 hadler(result, status, error)
@@ -51,14 +57,17 @@ class AppDelegate: AWAREDelegate {
         })
         
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        
         AWARECore.shared().requestNotification(UIApplication.shared)
     }
     
     public func quitStudy(){
         AWAREStudy.shared().clearSettings()
         AWARESensorManager.shared().stopAndRemoveAllSensors()
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.removePendingNotificationRequests(withIdentifiers: self.notificationIds)
+        if let notifications = self.appNotifications{
+            notifications.removeAllPendingNotifications()
+        }
+
     }
     
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -75,7 +84,10 @@ class AppDelegate: AWAREDelegate {
         
         UIApplication.shared.isIdleTimerDisabled = true
         
-        updateNotifications(force: false)
+        appNotifications = NotificationData(awareStudy: AWAREStudy.shared(), dbType: AwareDBTypeJSON)
+        if let notifications = appNotifications{
+            notifications.updateNotifications(force: false)
+        }
         
         return true
     }
@@ -100,7 +112,9 @@ class AppDelegate: AWAREDelegate {
     override func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         UIApplication.shared.isIdleTimerDisabled = true
-        updateNotifications(force:false)
+        if let notifications = appNotifications {
+            notifications.updateNotifications(force: false)
+        }
     }
 
     override func applicationWillTerminate(_ application: UIApplication) {
@@ -110,123 +124,21 @@ class AppDelegate: AWAREDelegate {
 
 //    application:performFetchWithCompletionHandler:
     override func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
- 
-        updateNotifications(force:false)
+        
+        if let notifications = appNotifications {
+            notifications.updateNotifications(force: false)
+        }
+        
+        if AWAREStudy.shared().getURL() != "" {
+            print("[background fetch] exist url")
+            let debug = Debug(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
+            debug?.startSyncDB()
+        }else{
+            print("[background fetch] no url")
+        }
         
         // NewData, NoData, Failed
         completionHandler(.noData)
-    }
-    
-    func updateNotifications(force:Bool){
-        let center = UNUserNotificationCenter.current()
-    
-        center.getPendingNotificationRequests { (pendingNotifications) in
-            
-            for notificationId in self.notificationIds {
-                var isPending = false
-                for pendingNotification in pendingNotifications {
-                    if pendingNotification.identifier == notificationId {
-                        isPending = true
-                        print("next time => \(pendingNotification.identifier): \(pendingNotification.trigger)")
-                    }
-                }
-                
-                if isPending == false || force {
-                    // generate notification
-                    let body = NSLocalizedString("notification_game_text", comment: "notification_game_text")
-                    if notificationId == "morning" {
-                        // Morning notification    8:00 - 11:59
-                        let title = NSLocalizedString("notification_game_morning", comment: "notification_game_morning")
-                        self.setNotification(identifier: notificationId, title: title,body: body,
-                                        repeats: false, startHour: 8, startMin: 0, randomize: 60*4-1, forceOverwrite: force)
-                    }else if notificationId == "noon" {
-                         // Noon notification      12:00 - 14:59
-                        let title = NSLocalizedString("notification_game_noon", comment: "notification_game_noon")
-                        self.setNotification(identifier: notificationId, title: title,body: body,
-                                             repeats: false, startHour: 12, startMin: 0, randomize: 60*3-1, forceOverwrite: force)
-                    }else if notificationId == "afternoon" {
-                        // Afternoon notification 15:00 - 18:59
-                        let title = NSLocalizedString("notification_game_afternoon", comment: "notification_game_afternoon")
-                        self.setNotification(identifier: notificationId, title: title,body: body,
-                                             repeats: false, startHour: 15, startMin: 0, randomize: 60*4-1, forceOverwrite: force)
-                    }else if notificationId == "evening" {
-                        // Evening notification   19:00 - 21:59
-                        let title = NSLocalizedString("notification_game_evening", comment: "notification_game_evening")
-                        self.setNotification(identifier: notificationId, title: title,body: body,
-                                             repeats: false, startHour: 19, startMin: 0, randomize: 60*3-1, forceOverwrite: force)
-                    }else if notificationId == "survey" {
-                        // Survey notification    10:00 - 11:00
-                        let title = NSLocalizedString("notification_survey", comment: "notification_survey")
-                        let surveyBody = NSLocalizedString("notification_survey_text", comment: "notification_survey_text")
-                        self.setNotification(identifier: notificationId, title: title, body: surveyBody,
-                                            //repeats: false, startHour: 10, startMin: 17, randomize: 5, forceOverwrite: force)
-                                              repeats: false, startHour: 10, startMin: 0, randomize: 60, forceOverwrite: force)
-                    }
-                }
-            }
-        }
-    }
-    
-    func setNotification(identifier:String, title:String, body:String, repeats:Bool, startHour:Int, startMin:Int, randomize:Int, forceOverwrite:Bool) {
-        
-        let center = UNUserNotificationCenter.current()
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = body
-        content.sound = UNNotificationSound.default()
-        
-        var dateComponents = DateComponents()
-        if randomize == 0 {
-            dateComponents.hour   =  startHour
-            dateComponents.minute =  startMin
-        }else{
-            // randomize
-            var targetDate = Date();
-            let now = Date()
-            if (forceOverwrite){
-                targetDate = now;
-            }else{
-                let tomorrow = now.addingTimeInterval(60*60*24)
-                targetDate = tomorrow
-            }
-            var components = Calendar.current.dateComponents(in: TimeZone.current, from: targetDate)
-            components.hour = startHour
-            components.minute = startMin
-            
-            ///////////////////////
-            if components.date?.timeIntervalSince1970 < now.timeIntervalSince1970 {
-                let tomorrow = now.addingTimeInterval(60*60*24)
-                components = Calendar.current.dateComponents(in: TimeZone.current, from: tomorrow)
-                components.hour = startHour
-                components.minute = startMin
-            }
-            ////////////////////////
-            
-            let notificationDateTime = components.date
-            
-            let randomizedMin = arc4random_uniform(UInt32(randomize))
-            
-            let randomizedDateTime = notificationDateTime?.addingTimeInterval(TimeInterval(randomizedMin*60))
-            let randomizedDateTimeComponents = Calendar.current.dateComponents(in: TimeZone.current, from: randomizedDateTime!)
-            
-            dateComponents.hour = randomizedDateTimeComponents.hour
-            dateComponents.minute = randomizedDateTimeComponents.minute
-            dateComponents.day = randomizedDateTimeComponents.day
-            dateComponents.month = randomizedDateTimeComponents.month
-            dateComponents.year = randomizedDateTimeComponents.year
-            print("next time => \(dateComponents)")
-        }
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-        center.add(request) { (error) in
-            if let e = error {
-                print("\(identifier): error => \(e.localizedDescription)")
-            }else{
-                print("\(identifier): done")
-            }
-        }
     }
 }
 

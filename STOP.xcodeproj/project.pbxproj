@@ -15,7 +15,6 @@
 		4F00EBF920B36727006EB9E6 /* EntityHealth+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F00EBF720B36727006EB9E6 /* EntityHealth+CoreDataProperties.swift */; };
 		4F28A691208610C100CE1A68 /* EntityFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28A690208610C000CE1A68 /* EntityFeedback.swift */; };
 		4F2B343920A3055A00CD3302 /* WitApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B343820A3055A00CD3302 /* WitApiHelper.swift */; };
-		4F2B343C20A3246D00CD3302 /* DetailSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B343B20A3246D00CD3302 /* DetailSettingsTableViewController.swift */; };
 		4F2B343F20A33A5600CD3302 /* STOPKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B343E20A33A5600CD3302 /* STOPKeys.swift */; };
 		4F2E214C20D3F775008D487A /* Consent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E214B20D3F775008D487A /* Consent.swift */; };
 		4F3A9BD020D150B1002C8A07 /* SymptomContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A9BCF20D150B1002C8A07 /* SymptomContentView.swift */; };
@@ -41,6 +40,10 @@
 		4FBDCA3220867DB70022193D /* SpeechRecognitionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FBDCA3120867DB70022193D /* SpeechRecognitionView.xib */; };
 		4FE3497320CE77AB0006707F /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3497220CE77AB0006707F /* ConsentViewController.swift */; };
 		4FE59D4A20EA4D8100662A83 /* MedicationEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FE59D4C20EA4D8100662A83 /* MedicationEditorView.xib */; };
+		4FE59D5420ECDE4E00662A83 /* DetailSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE59D5320ECDE4E00662A83 /* DetailSettingsTableViewController.swift */; };
+		4FE59D5720ECDEB300662A83 /* NotificationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE59D5620ECDEB300662A83 /* NotificationData.swift */; };
+		4FE59D5A20ECDFB900662A83 /* EntityNotificationData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE59D5820ECDFB900662A83 /* EntityNotificationData+CoreDataClass.swift */; };
+		4FE59D5B20ECDFB900662A83 /* EntityNotificationData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE59D5920ECDFB900662A83 /* EntityNotificationData+CoreDataProperties.swift */; };
 		4FE9989720D26FE1006A9288 /* SymptomItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FE9989620D26FE1006A9288 /* SymptomItemView.xib */; };
 		4FE9989920D26FF9006A9288 /* SymptomItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9989820D26FF9006A9288 /* SymptomItemView.swift */; };
 		4FE9989C20D2896D006A9288 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FE9989E20D2896D006A9288 /* Localizable.strings */; };
@@ -128,7 +131,6 @@
 		4F00EBF720B36727006EB9E6 /* EntityHealth+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EntityHealth+CoreDataProperties.swift"; path = "/Users/yuuki/Dropbox/oulu/development/STOP-iOS/STOP/HealthActivity/EntityHealth+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		4F28A690208610C000CE1A68 /* EntityFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityFeedback.swift; sourceTree = "<group>"; };
 		4F2B343820A3055A00CD3302 /* WitApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WitApiHelper.swift; sourceTree = "<group>"; };
-		4F2B343B20A3246D00CD3302 /* DetailSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSettingsTableViewController.swift; sourceTree = "<group>"; };
 		4F2B343E20A33A5600CD3302 /* STOPKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOPKeys.swift; sourceTree = "<group>"; };
 		4F2E214A20D3DD7C008D487A /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
 		4F2E214B20D3F775008D487A /* Consent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consent.swift; sourceTree = "<group>"; };
@@ -171,6 +173,10 @@
 		4FE59D4B20EA4D8100662A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MedicationEditorView.xib; sourceTree = "<group>"; };
 		4FE59D4D20EA4D8A00662A83 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/MedicationEditorView.strings; sourceTree = "<group>"; };
 		4FE59D4F20EA513D00662A83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MedicationEditorView.strings; sourceTree = "<group>"; };
+		4FE59D5320ECDE4E00662A83 /* DetailSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailSettingsTableViewController.swift; sourceTree = "<group>"; };
+		4FE59D5620ECDEB300662A83 /* NotificationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationData.swift; sourceTree = "<group>"; };
+		4FE59D5820ECDFB900662A83 /* EntityNotificationData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EntityNotificationData+CoreDataClass.swift"; path = "/Users/yuuki/Dropbox/oulu/development/STOP-iOS/STOP/NotificationData/EntityNotificationData+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		4FE59D5920ECDFB900662A83 /* EntityNotificationData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EntityNotificationData+CoreDataProperties.swift"; path = "/Users/yuuki/Dropbox/oulu/development/STOP-iOS/STOP/NotificationData/EntityNotificationData+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		4FE9989620D26FE1006A9288 /* SymptomItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymptomItemView.xib; sourceTree = "<group>"; };
 		4FE9989820D26FF9006A9288 /* SymptomItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomItemView.swift; sourceTree = "<group>"; };
 		4FE9989D20D2896D006A9288 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -386,15 +392,6 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		4F2B343D20A3247D00CD3302 /* DetailSettings */ = {
-			isa = PBXGroup;
-			children = (
-				4F2B343B20A3246D00CD3302 /* DetailSettingsTableViewController.swift */,
-			);
-			name = DetailSettings;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		4F5722B620E6608000A592EC /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,13 +428,14 @@
 				4F5722AE20E6146200A592EC /* STOP.entitlements */,
 				4F5F606C207F333E003B02F7 /* AppDelegate.swift */,
 				4F2B343A20A3056100CD3302 /* Utilities */,
+				4FE59D5220ECDE4E00662A83 /* DetailSettings */,
 				4FF665512086295800774B64 /* Extensions */,
 				4F28A6972086140D00CE1A68 /* Game */,
 				4F28A6982086141700CE1A68 /* Medicine */,
-				4F2B343D20A3247D00CD3302 /* DetailSettings */,
 				4F28A696208613F400CE1A68 /* Settings */,
 				4F28A6922086138E00CE1A68 /* Feedback */,
 				4F00EBCB20B2C561006EB9E6 /* HealthActivity */,
+				4FE59D5520ECDE5700662A83 /* NotificationData */,
 				4FE3497420CE77B00006707F /* Consent */,
 				4F5F6075207F333F003B02F7 /* Assets.xcassets */,
 				4F5F6072207F333E003B02F7 /* Main.storyboard */,
@@ -522,6 +520,40 @@
 				4FE59D4C20EA4D8100662A83 /* MedicationEditorView.xib */,
 			);
 			path = Consent;
+			sourceTree = "<group>";
+		};
+		4FE59D5220ECDE4E00662A83 /* DetailSettings */ = {
+			isa = PBXGroup;
+			children = (
+				4FE59D5320ECDE4E00662A83 /* DetailSettingsTableViewController.swift */,
+			);
+			path = DetailSettings;
+			sourceTree = "<group>";
+		};
+		4FE59D5520ECDE5700662A83 /* NotificationData */ = {
+			isa = PBXGroup;
+			children = (
+				4FE59D5C20ECDFBE00662A83 /* sensor */,
+				4FE59D5D20ECDFC700662A83 /* model */,
+			);
+			path = NotificationData;
+			sourceTree = "<group>";
+		};
+		4FE59D5C20ECDFBE00662A83 /* sensor */ = {
+			isa = PBXGroup;
+			children = (
+				4FE59D5620ECDEB300662A83 /* NotificationData.swift */,
+			);
+			path = sensor;
+			sourceTree = "<group>";
+		};
+		4FE59D5D20ECDFC700662A83 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4FE59D5820ECDFB900662A83 /* EntityNotificationData+CoreDataClass.swift */,
+				4FE59D5920ECDFB900662A83 /* EntityNotificationData+CoreDataProperties.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		4FF665512086295800774B64 /* Extensions */ = {
@@ -967,11 +999,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-STOP/Pods-STOP-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/EAIntroView/EAIntroView.framework",
 				"${BUILT_PRODUCTS_DIR}/EARestrictedScrollView/EARestrictedScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/SCNetworkReachability/SCNetworkReachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/TPCircularBuffer/TPCircularBuffer.framework",
@@ -979,11 +1013,13 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EAIntroView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EARestrictedScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCNetworkReachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPCircularBuffer.framework",
@@ -1067,6 +1103,7 @@
 				4F884B052084CE6100D64AEC /* AWARE_STOP.xcdatamodeld in Sources */,
 				4FF665AC2086295900774B64 /* UISearchBar+Extensions.swift in Sources */,
 				4FF665CF2086295900774B64 /* TelegramPickerViewController.swift in Sources */,
+				4FE59D5A20ECDFB900662A83 /* EntityNotificationData+CoreDataClass.swift in Sources */,
 				4FF6654E20861C8F00774B64 /* Medication.swift in Sources */,
 				4F28A691208610C100CE1A68 /* EntityFeedback.swift in Sources */,
 				4FF665C52086295900774B64 /* PickerViewViewController.swift in Sources */,
@@ -1080,11 +1117,12 @@
 				4F5722B520E6607800A592EC /* HealthActivityViewController.swift in Sources */,
 				4FF665AB2086295900774B64 /* UIImage+Extensions.swift in Sources */,
 				4FF665D02086295900774B64 /* ItemWithPhoto.swift in Sources */,
+				4FE59D5420ECDE4E00662A83 /* DetailSettingsTableViewController.swift in Sources */,
 				4FF665CE2086295900774B64 /* PhotoLayout.swift in Sources */,
 				4F5F60A1207F8ABF003B02F7 /* SettingsTableViewController.swift in Sources */,
+				4FE59D5B20ECDFB900662A83 /* EntityNotificationData+CoreDataProperties.swift in Sources */,
 				4F5F6071207F333E003B02F7 /* SecondViewController.swift in Sources */,
 				4F5F606D207F333E003B02F7 /* AppDelegate.swift in Sources */,
-				4F2B343C20A3246D00CD3302 /* DetailSettingsTableViewController.swift in Sources */,
 				4FF665B62086295900774B64 /* LocaleStore.swift in Sources */,
 				4FF665D12086295900774B64 /* LikeButtonCell.swift in Sources */,
 				4FF665AF2086295900774B64 /* Optional+Extensions.swift in Sources */,
@@ -1101,6 +1139,7 @@
 				4FF665B42086295900774B64 /* TextViewController.swift in Sources */,
 				4FF665B72086295900774B64 /* LocaleInfo.swift in Sources */,
 				4FF6655020861CA900774B64 /* EntityMedication.swift in Sources */,
+				4FE59D5720ECDEB300662A83 /* NotificationData.swift in Sources */,
 				4F41DECA20DBC555009D3E48 /* MainViewController.swift in Sources */,
 				4F2B343F20A33A5600CD3302 /* STOPKeys.swift in Sources */,
 				4FF665A32086295900774B64 /* UISegmentedControl+Extensions.swift in Sources */,
@@ -1329,6 +1368,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = STOP/STOP.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FH352PYMNC;
 				INFOPLIST_FILE = STOP/Info.plist;
@@ -1339,6 +1379,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.awareframework.ios.STOP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1350,6 +1391,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = STOP/STOP.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FH352PYMNC;
 				INFOPLIST_FILE = STOP/Info.plist;
@@ -1360,6 +1402,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.awareframework.ios.STOP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17C88" minimumToolsVersion="Xcode 7.3" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17C88" minimumToolsVersion="Xcode 7.3" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="EntityAccelerometer" representedClassName="EntityAccelerometer" syncable="YES">
         <attribute name="accuracy" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="device_id" optional="YES" attributeType="String" syncable="YES"/>
@@ -486,6 +486,11 @@
         <attribute name="network_type" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
     </entity>
+    <entity name="EntityNotificationData" representedClassName=".EntityNotificationData" syncable="YES">
+        <attribute name="device_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="event" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
     <entity name="EntityNTPTime" representedClassName="EntityNTPTime" syncable="YES">
         <attribute name="device_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="drift" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
@@ -568,6 +573,7 @@
         <element name="EntityAccelerometer" positionX="457" positionY="84" width="128" height="150"/>
         <element name="EntityActivityRecognition" positionX="180" positionY="117" width="128" height="135"/>
         <element name="EntityAmbientNoise" positionX="234" positionY="0" width="128" height="165"/>
+        <element name="EntityBallGame" positionX="297" positionY="144" width="128" height="90"/>
         <element name="EntityBarometer" positionX="180" positionY="117" width="128" height="120"/>
         <element name="EntityBattery" positionX="297" positionY="72" width="128" height="195"/>
         <element name="EntityBatteryCharge" positionX="207" positionY="162" width="128" height="30"/>
@@ -595,6 +601,7 @@
         <element name="EntityFitbitDevice" positionX="306" positionY="153" width="128" height="150"/>
         <element name="EntityGravity" positionX="180" positionY="144" width="128" height="30"/>
         <element name="EntityGyroscope" positionX="189" positionY="153" width="128" height="150"/>
+        <element name="EntityHealth" positionX="315" positionY="162" width="128" height="90"/>
         <element name="EntityIBeacon" positionX="315" positionY="162" width="128" height="195"/>
         <element name="EntityIOSActivityRecognition" positionX="297" positionY="153" width="128" height="210"/>
         <element name="EntityLabel" positionX="225" positionY="189" width="128" height="30"/>
@@ -624,7 +631,6 @@
         <element name="EntityScreen" positionX="189" positionY="153" width="128" height="30"/>
         <element name="EntityTimezone" positionX="198" positionY="162" width="128" height="30"/>
         <element name="EntityWifi" positionX="207" positionY="171" width="128" height="30"/>
-        <element name="EntityBallGame" positionX="297" positionY="144" width="128" height="90"/>
-        <element name="EntityHealth" positionX="315" positionY="162" width="128" height="90"/>
+        <element name="EntityNotificationData" positionX="306" positionY="153" width="128" height="90"/>
     </elements>
 </model>

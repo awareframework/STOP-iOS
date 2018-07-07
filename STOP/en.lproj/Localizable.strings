@@ -86,34 +86,38 @@
 "symptom_17_5"="Excruciating pain";
 
 /* general */
-"app_name" = "STOP";
-"nav_medication" = "Medication";
-"nav_game" = "Game";
-"main_experiment" = "Experiment";
-"main_demo" = "Demo";
-"main_demo_mode" = "Demo mode";
-"main_demo_details" = "You are using STOP in demo mode: all the application functionalities are available but no data is collected and shared with the research study. You can join the study and contribute to the research";
-"main_quit_details" = "You will unenroll from the study: the application will stop sharing your data and all the already collected data will be deleted from the server. You can keep using the application will all the available functionalities in demo mode";
-"main_participant_info" ="Participant info";
-"main_join_study" = "Join study";
-"main_quit_study" = "Quit study";
-"main_quit_done" = "You have quit the study. The application will no longer collect your data";
-"main_daily_survey" = "Daily survey";
-"provider_game_label" = "STOP App data";
-"submit" = "Submit";
-"confirm" = "Confirm";
-"edit" = "Edit";
-"delete" = "Delete";
-"cancel" = "Cancel";
-"specify_with_voice" = "Specify with voice";
-"voice_when_taken" = "When have you taken medication last time?";
-"voice_what_think" = "What do you think about STOP?";
-
-/* health */
-"health_survey_saved"="Survey recorded. Thank you!";
-"health_empty_response"="Please select PD level";
-
-/* medication */
+"app_name"="STOP";
+"nav_medication"="Medication";
+"nav_game"="Game";
+"main_experiment"="Experiment";
+"main_demo"="Demo";
+"main_demo_mode"="Demo mode";
+"main_demo_details"="You are using STOP in demo mode: all the application functionalities are available but no data is collected and shared with the research study. You can join the study and contribute to the research";
+"main_quit_details"="You will unenroll from the study: the application will stop sharing your data and all the already collected data will be deleted from the server. You can keep using the application will all the available functionalities in demo mode";
+"main_participant_info"="Participant info";
+"main_join_study"="Join study";
+"main_quit_study"="Quit study";
+"main_quit_done"="You have quit the study. The application will no longer collect your data";
+"main_daily_survey"="Daily survey";
+"provider_game_label"="STOP App data";
+"submit"="Submit";
+"confirm"="Confirm";
+"edit"="Edit";
+"delete"="Delete";
+"cancel"="Cancel";
+"specify_with_voice"="Specify with voice";
+"voice_when_taken"="When have you taken medication last time?";
+"voice_what_think"="What do you think about STOP?";
+"game_press_button_to_play"="Press button to play";
+"game_start"="Start";
+"game_get_ready"="Get ready";
+"game_play"="Play";
+"game_done_1"="Done! Play again?\nScore:\u0020";
+"game_done_2"=", last score:\u0020";
+"game_done_3"="\nNow record your medications";
+"game_again"="Play again";
+"game_go_journal"="Go to medication journal";
+"game_invalid_settings"="None of the game settings can be 0. Please update first";
 "medication_list_heading"="List of medication records";
 "medication_no_record"="No records have been made yet";
 "medication_when_last_time"="When have you taken medication last time?";
@@ -135,46 +139,79 @@
 "medication_no_internet"="Internet connection is disabled. Please enable it or use \"Specify time\" option ";
 "medication_cannot_recognize"="Cannot recognize date, please try again";
 "medication_recorded"="Medication recorded";
+"medication_future"="You cannot input records for future, please try again";
 "medication_parser_dialog"="Please wait…";
-
-/* feedback */
-"feedback" = "Feedback";
-"feedback_device_name" = "Device name";
-"feedback_device_id" = "Device ID";
-"feedback_clear" = "Clear";
-"feedback_saved" = "Feedback saved. Thank you!";
-"feedback_enter" = "Please enter your feedback";
-
-
-/* notification */
-"notification_game_morning" = "Morning";
-"notification_game_noon"    = "Noon";
-"notification_game_afternoon" = "Afternoon";
-"notification_game_evening" = "Evening";
-"notification_game_text"    = "play a game and record medication";
-"notification_survey"       = "Daily survey";
-"notification_survey_text"  =  ": how was yesterday?";
-
-/* game */
-"game_press_button_to_play" = "Press button to play";
-"game_start" = "Start";
-"game_get_ready" = "Get ready";
-"game_play" = "Play";
-"game_done" = "Done! Play again?\nScore:";
-"game_invalid_settings" = "None of the game settings can be 0. Please update first";
-
-/* consent */
-"consent_empty_entries" = "Please insert data to empty entries and rate all the symptoms";
-"consent_declining"     = "By declining the Research Consent, you may still use the application with all its functionalities. No data will be collected or shared with our study. Do you wish to proceed?";
-"consent_loading"       = "Thank you for joining our study! Loading resources…";
-"consent_empty_entries" = "Please insert data to empty entries and rate all the symptoms";
-"consent_specify_age"   = "Please select a username and specify your age";
-"consent_declining"     = "By declining the Research Consent, you may still use the application with all its functionalities. No data will be collected or shared with our study. Do you wish to proceed?";
-
-"consent_yes" = "Yes";
-"consent_no"  = "No";
-
-"consent_accept" = "Accept";
-"consent_decline" = "Decline";
-"consent_app_consent" = "Application usage consent";
-"consent_app_consent_details" = "This application is created as a part for STOP: Sentient Tracking of Parkinson’s research project.\n\nThis application collects following data for research purposes:\n* Details about the user: a questionnaire with questions related to Parkinson disease symptoms using UDPRS part II scale and user characteristics is filled after installing the application.\n* Mobile device sensors data: there is a ball game exercise in the application that asks the user to play a simple game for ten seconds. During a game session, the application collects the mobile device’s gyroscope, accelerometer, linear accelerometer and rotation data.\n* Medication time data: the application asks the participant to record information about when the last medication was taken.\n* Notification data: the application randomly displays a notification four times per day in order to remind participant to play a game and record medication times. The time the notifications are shown and when they are opened is recorded.\n* Feedback: the participant is able to provide feedback about the application usage.\n\nBy accepting this consent form, you will give permission to collect the data and to use the collected data by the University of Manchester and the University of Oulu and published and/or disclosed by the University of Manchester and the University of Oulu to others for further analysis. You are free to leave the study whenever you want. There is a possibility to delete all collected data in the application. You can also just uninstall the application, and data collection stops and already collected data can be used in the study.";
+"feedback"="Feedback";
+"feedback_device_name"="Device name";
+"feedback_device_id"="Device ID";
+"feedback_clear"="Clear";
+"feedback_saved"="Feedback saved. Thank you!";
+"feedback_enter"="Please enter your feedback";
+"health_question"="Overall, how were your Parkinson\'s disease symptoms yesterday?";
+"health_survey_saved"="Survey recorded. Thank you!";
+"health_empty_response"="Please select PD level";
+"survey_response_zero"="No symptoms, excellent day";
+"survey_response_one"="Minimal symptoms with no concrete interference with my daily activities";
+"survey_response_two"="Mild symptoms that slightly interfered with my daily activities";
+"survey_response_three"="Moderate symptoms but they did not stop me from carrying out my daily activities";
+"survey_response_four"="Severe symptoms that prevented me from carrying out one or more of my daily activities";
+"title_activity_settings"="Settings";
+"pref_header_ball_game"="Ball game";
+"pref_header_medication"="Medication";
+"key_ball_size_title"="Ball size";
+"key_ball_size"="key_ball_size";
+"key_ball_size_value"="150";
+"key_sensitivity_title"="Sensitivity";
+"key_sensitivity"="key_sensitivity";
+"key_sensitivity_value"="3";
+"key_game_time_title"="Game time";
+"key_game_time"="key_game_time";
+"key_game_time_value"="10";
+"key_game_reset_default_title"="Reset to default settings";
+"key_game_reset_default"="key_game_reset_default";
+"key_medication_title"="Clear medication list";
+"key_medication"="key_medication";
+"settings_are_you_sure"="Are you sure?";
+"settings_delete_warning"="This will delete all recorded medications";
+"settings_list_cleared"="Medication list cleared";
+"settings_default_applied"="Default setting were applied";
+"consent_username"="Your username";
+"consent_age"="Your age";
+"consent_do_you_have_pd"="Do you have a diagnosis of Parkinson\'s disease (PD)?";
+"consent_yes"="Yes";
+"consent_no"="No";
+"consent_when_was_pd_diagnosed"="PD was diagnosed";
+"consent_define_your_symptoms"="Define your symptoms:";
+"consent_define_medications_you_take"="Define the medications you take:";
+"consent_app_consent"="Research consent";
+"consent_accept"="Accept";
+"consent_decline"="Decline";
+"consent_empty_entries"="Please insert data to empty entries and rate all the symptoms";
+"consent_specify_age"="Please select a username and specify your age";
+"consent_declining"="By declining the Research Consent, you may still use the application with all its functionalities. No data will be collected or shared with our study. Do you wish to proceed?";
+"consent_loading"="Thank you for joining our study! Loading resources…";
+"consent_app_consent_details"="The University of Oulu (Finland) and the University of Manchester (UK) are using this application to better understand Parkinson’s medication adherence and effectiveness via gamification and medication logs. By installing and agreeing to this consent, you effectively become a participant to our joint research effort. If you disagree, you may still use the application without any data sharing.\n\n";
+"consent_add_medication"="Add a medication";
+"consent_button_add"="Add";
+"consent_fill_entries"="Please fill all the entries (comments are optional)";
+"consent_no_medications_were_defined_yet"="No medications were defined yet";
+"consent_medication_name"="Medication name";
+"consent_times_per_day"="Times per day";
+"consent_pills_each_time"="Pills each time";
+"consent_how_often_every"="How often: every";
+"consent_the_first_one_i_have_is_at"="The first one I have is at";
+"consent_comments"="Comments";
+"consent_welcome"="STOP is designed for Parkinson\'s patients for tracking motor abilities and increasing medication adherence.\n\nThe motor functionalities are estimated with a ball game. The goal of the game is to keep the red ball motionless in the center of the inner black circle by balancing the device horizontally on the palm of the hand. The game success is evaluated using 0 (min) - 100 (max) scale. In addition the user is asked to record the medication taking time to the journal. The research will use the collected information for searching correlation between motor functionalities and medication effectiveness.\n\nSTOP application sends notifications about the game and medication recording four times per day. Once per day user is asked to evaluate the level of symptoms.";
+"consent_welcome_title"="Welcome to STOP";
+"consent_welcome_gotit"="Got it";
+"notification_game_morning"="Morning";
+"notification_game_noon"="Noon";
+"notification_game_afternoon"="Afternoon";
+"notification_game_evening"="Evening";
+"notification_game_text"=": play a game and record medication";
+"notification_survey"="Daily survey";
+"notification_survey_text"=": how was yesterday?";
+"foreground_notification_title"="STOP";
+"foreground_notification_text"="Medication tracking is active";
+"aware_activate_battery_optimize_ignore_title"="STOP";
+"aware_activate_battery_optimize_ignore"="Tap and add to the ignore battery optimizations\' list.";

@@ -8,6 +8,7 @@ target 'STOP' do
   # Pods for STOP
   pod 'AWAREFramework', :git=>'https://github.com/tetujin/AWAREFramework-iOS.git'
   pod 'SVProgressHUD'
+  pod 'PopupDialog', '~> 0.7'
   
   target 'STOPTests' do
     inherit! :search_paths

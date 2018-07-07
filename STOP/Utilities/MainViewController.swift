@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AWAREFramework
 
 class MainViewController: UIViewController {
 
@@ -74,9 +75,12 @@ class MainViewController: UIViewController {
         
         /// add a join or quit study button
         if Consent.isConsentAnswered() {
-            let quitStudyButton = UIAlertAction.init(title: NSLocalizedString("main_quit_study",comment: "Join Study"), style: .destructive) {(action) in
+            let quitStudyButton = UIAlertAction.init(title: NSLocalizedString("main_quit_study",comment: "Quit Study"), style: .destructive) {(action) in
                 DispatchQueue.main.async {
                     self.pushedDemoButton()
+                    let debug = Debug(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
+                    debug?.saveEvent(withText: "quit_study", type: DebugTypeInfo.rawValue, label: "STOP")
+                    debug?.startSyncDB()
                 }
             }
             alertController.addAction(quitStudyButton)
@@ -85,6 +89,9 @@ class MainViewController: UIViewController {
                                                      style: .destructive) {(action) in
                                                         DispatchQueue.main.async {
                                                             self.pushedDemoButton()
+                                                            let debug = Debug(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
+                                                            debug?.saveEvent(withText: "join_study", type: DebugTypeInfo.rawValue, label: "STOP")
+                                                            debug?.startSyncDB()
                                                         }
             }
             alertController.addAction(quitStudyButton)

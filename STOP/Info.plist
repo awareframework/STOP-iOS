@@ -17,11 +17,29 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>5</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>STOP needs to use Bluetooth for connecting external devices.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>STOP needs to access your calendar events for setting scheduled ESMs.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>STOP needs to access camera for recording a video.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>STOP needs to access your contact information.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>STOP needs to access HealthKit for analyzing health data.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>STOP needs to access HealthKit for storing health data.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>STOP needs to access location in the background for recording your activities.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>STOP needs to access your microphone for inputting texts from your voice.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>STOP needs to use Motion Sensors for recoding a performance in a game.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>STOP needs to access your photo library for selecting a picture as an ESM answer.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>STOP needs to access Speech Recognition API for inputting texts from your voice.</string>
 	<key>UIBackgroundModes</key>
