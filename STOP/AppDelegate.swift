@@ -40,7 +40,11 @@ class AppDelegate: AWAREDelegate {
         AWAREStudy.shared()!.setCleanOldDataType(cleanOldDataTypeNever)
         
         /// Set a remote server url
+        #if DBG
         let studyURL = "https://api.awareframework.com/index.php/webservice/index/1836/5IuLyJjLQQNK"
+        #else
+        let studyURL = "https://api.awareframework.com/index.php/webservice/index/1868/g5Jxp2f9IJwb"
+        #endif
         AWAREStudy.shared().setStudyURL(studyURL);
         AWAREStudy.shared().join(withURL:studyURL, completion: { (result, status, error) in
             if let notifications = self.appNotifications{

@@ -6,6 +6,12 @@
   Copyright © 2018 Yuuki Nishiyama. All rights reserved.
 */
 
+"move_to" = "Siirry ...";
+"minutes" = "minuuttia";
+"hours" = "tuntia";
+"months ago" = "kuukausi sitten";
+"years ago"  = "vuosi sitten";
+
 "symptom_5_0"="Puhe";
 "symptom_5_1"="Normaalia";
 "symptom_5_2"="Lievästi vaikeutunut, täysin ymmärrettävissä";
@@ -46,7 +52,7 @@
 "symptom_11_1"="Normaalia";
 "symptom_11_2"="Hieman hidasta, ei tarvitse apua";
 "symptom_11_3"="Tarvitsee apua suihkussa tai kylvyssä, tai hoitaa hygieniaansa hyvin hitaasti";
-"symptom_11_4"="Tarvitsee apua peseytymisessä, hampaiden harjauksessa, hiusten kampaamisessa,  WC:ssä käynnissä";
+"symptom_11_4"="Tarvitsee apua peseytymisessä, hampaiden harjauksessa, hiusten kampaamisessa, WC\:ssä käynnissä";
 "symptom_11_5"="Käyttää katetria tai muuta apuvälinettä";
 "symptom_12_0"="Sängyssä kääntyminen ja vuodevaatteiden kohentaminen";
 "symptom_12_1"="Normaalia";
@@ -111,8 +117,8 @@
 "game_start"="Peli alkaa";
 "game_get_ready"="Peli alkaa pian";
 "game_play"="Pelaa";
-"game_done_1"="Peli loppui!\n Haluatko pelata uudelleen?\nTulos:\u0020";
-"game_done_2"=", edellinen tulos:\u0020";
+"game_done_1"="Peli loppui!\n Haluatko pelata uudelleen?\nTulos:";
+"game_done_2"=", edellinen tulos:";
 "game_done_3"="\nMerkitse nyt lääkkeenotto";
 "game_again"="Pelaa uudelleen";
 "game_go_journal"="Avaa lääkepäiväkirja";
@@ -189,7 +195,7 @@
 "consent_specify_age"="Anna käyttäjätunnus ja ikäsi";
 "consent_declining"="Voit käyttää sovellusta vaikka kieltäytyisit tutkimuksesta. Tietojasi ei kerätä eikä käytetä tutkimuksessa.  Haluatko jatkaa? ";
 "consent_loading"="Kiitos kun osallistut tutkimukseen! Sovellusta ladataan…";
-"consent_app_consent_details"="Oulun yliopisto (Suomi) ja Manchesterin yliopisto (UK) käyttävät tätä sovellusta Parkinsonin taudin lääkitykseen sitoutumisen ja lääkityksen vaikutuksen tutkimiseen pelillistämisen ja lääkepäiväkirjan avulla. Hyväksymällä tämän suostumuksen tutkimukseen tulet osaksi tutkimusta. Jos et anna suostumusta, voit käyttää sovellusta ja mitään tietojasi ei tallenneta.\n\n";
+"consent_app_consent_details"="Oulun yliopisto (Suomi) ja Manchesterin yliopisto (UK) käyttävät tätä sovellusta Parkinsonin taudin lääkitykseen sitoutumisen ja lääkityksen vaikutuksen tutkimiseen pelillistämisen ja lääkepäiväkirjan avulla. Hyväksymällä tämän suostumuksen tutkimukseen tulet osaksi tutkimusta. Jos et anna suostumusta, voit käyttää sovellusta ja mitään tietojasi ei tallenneta.\n\n<b>Kerättävät tiedot</b>\n- Vastaukset potilasprofiilikyselyyn\n- Kiihtyvyystanturin ja gyroskoopin data puhelimen sensoreista VAIN STOP-pelin pelaamisen aikana\n- Lääkepäiväkirjan tiedot\n- Sovelluksen stabiilisuusdata joka kerätään Google Analytics analysointityökalulla\n\n<b>Tietoturva ja yksityisyys</b>\nSovellus noudattaa GDPR ja HIPAA tietosuoja-asetuksia: kerätyt tiedot lähetetään salattuna Oulussa sijaitsevalle palvelimelle säännöllisesti tutkimusta varten WiFiä käyttäen. Henkilöä ei voi tunnistaa kerätyistä tiedoista. Käyttäjä voi luoda käyttäjätunnuksen UUID tunnukselle. Käyttäjä voi halutessaan peruuttaa suostumuksensa, jolloin kaikki hänestä kerätty tieto tuhotaan.";
 "consent_add_medication"="Lisää lääkitys";
 "consent_button_add"="Lisää";
 "consent_fill_entries"="Täytä kaikki kentät (lisätiedot voi olla tyhjä)";
@@ -214,3 +220,6 @@
 "foreground_notification_text"="Lääkityksen seuranta on aktiivinen";
 "aware_activate_battery_optimize_ignore_title"="STOP";
 "aware_activate_battery_optimize_ignore"="Klikkaa ja lisää akun käytön optimointilistaan";
+
+
+

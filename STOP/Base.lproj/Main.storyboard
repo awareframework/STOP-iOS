@@ -41,26 +41,60 @@
                                     <action selector="pushedStartButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="126-O3-gya"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press button to play" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3a-3V-TCE">
-                                <rect key="frame" x="111.33333333333333" y="108" width="152.66666666666669" height="100"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press button to play" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3a-3V-TCE">
+                                <rect key="frame" x="16" y="108" width="343" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="ake-Sp-tOT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5X-bh-piJ">
+                                <rect key="frame" x="16" y="248" width="343" height="80"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="J3P-6g-pea"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Play again"/>
+                                <connections>
+                                    <action selector="pushedPlayAgainButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="kqp-V5-Syq"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hco-G8-0Vd">
+                                <rect key="frame" x="16" y="348" width="343" height="80"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="KGW-Ke-KfH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Go to medication journal"/>
+                                <connections>
+                                    <action selector="pushedGoToMedicationJournalButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="NsU-yN-bWR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jev-0l-ovN" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="26M-AR-iDg"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Hco-G8-0Vd" secondAttribute="trailing" constant="16" id="7Ih-DT-5YE"/>
+                            <constraint firstItem="c3a-3V-TCE" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="Hde-d8-bPU"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="c3a-3V-TCE" secondAttribute="trailing" constant="16" id="KIa-Vr-062"/>
                             <constraint firstItem="jbf-9X-PIi" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="L02-TM-v2N"/>
                             <constraint firstItem="c3a-3V-TCE" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="M0F-vW-JAO"/>
+                            <constraint firstItem="C5X-bh-piJ" firstAttribute="top" secondItem="c3a-3V-TCE" secondAttribute="bottom" constant="40" id="P7H-Nw-X1P"/>
                             <constraint firstItem="jbf-9X-PIi" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="SWK-dq-Gft"/>
                             <constraint firstItem="bXh-Vj-3os" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="VE3-0f-v5n"/>
+                            <constraint firstItem="Hco-G8-0Vd" firstAttribute="top" secondItem="C5X-bh-piJ" secondAttribute="bottom" constant="20" id="ZBu-72-PZP"/>
                             <constraint firstItem="jev-0l-ovN" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="aBT-vu-tP5"/>
+                            <constraint firstItem="Hco-G8-0Vd" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="cM5-qt-hSp"/>
                             <constraint firstItem="c3a-3V-TCE" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="20" id="eBq-H5-GAo"/>
+                            <constraint firstItem="C5X-bh-piJ" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="jeF-T6-oEZ"/>
                             <constraint firstItem="bXh-Vj-3os" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="lb1-1X-DZ6"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="C5X-bh-piJ" secondAttribute="trailing" constant="16" id="oKY-OD-oS9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -76,9 +110,9 @@
                                     <action selector="pushedSettingButton:" destination="9pv-A4-QxB" id="cic-z7-Zhw"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="ic_question_light" id="689-5e-Z42">
+                            <barButtonItem image="ic_survey" id="GEd-Ma-QZN">
                                 <connections>
-                                    <segue destination="PzT-vQ-aUC" kind="show" id="BKY-eA-9AN"/>
+                                    <segue destination="PzT-vQ-aUC" kind="show" id="IAP-WT-jWd"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -87,14 +121,16 @@
                         <outlet property="ballImage" destination="A5P-c9-HJ0" id="qs5-4k-Wkx"/>
                         <outlet property="bigCircle" destination="jev-0l-ovN" id="b5m-m9-H3B"/>
                         <outlet property="demoButton" destination="cRI-dj-jxt" id="SEj-Py-EyF"/>
+                        <outlet property="goToMedicationJournalButton" destination="Hco-G8-0Vd" id="K3Y-3c-biX"/>
                         <outlet property="messageLabel" destination="c3a-3V-TCE" id="9hV-p5-LdG"/>
+                        <outlet property="playAgainButton" destination="C5X-bh-piJ" id="gpp-7p-Vuw"/>
                         <outlet property="smallCircle" destination="bXh-Vj-3os" id="xvv-xl-aB7"/>
                         <outlet property="startButton" destination="jbf-9X-PIi" id="1Pm-Yt-Djn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688.8" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="1688.8" y="-320.68965517241378"/>
         </scene>
         <!--STOP-->
         <scene sceneID="wg7-f3-ORb">
@@ -262,6 +298,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="ApX-8p-9GK"/>
                     <navigationItem key="navigationItem" title="STOP" id="UcD-Ju-8TE">
                         <barButtonItem key="leftBarButtonItem" title="Demo" style="done" id="0JG-nL-OyR">
                             <connections>
@@ -274,13 +311,14 @@
                                     <action selector="pushedSettingButton:" destination="8rJ-Kc-sve" id="2Iv-56-8mV"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="ic_question_light" id="8aa-PP-Dh0">
+                            <barButtonItem image="ic_survey" id="oDD-dq-F9u">
                                 <connections>
-                                    <segue destination="PzT-vQ-aUC" kind="show" id="LNU-Za-RHR"/>
+                                    <segue destination="PzT-vQ-aUC" kind="show" id="wwa-sN-vCz"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backgroundView" destination="Xup-Lt-WnS" id="b2C-Be-TWF"/>
                         <outlet property="demoButton" destination="0JG-nL-OyR" id="07E-5a-fDw"/>
@@ -306,7 +344,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ff3-dm-If2">
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ff3-dm-If2">
                                 <rect key="frame" x="16" y="80" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -318,7 +356,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dLk-H3-1OO">
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dLk-H3-1OO">
                                 <rect key="frame" x="16" y="147.66666666666666" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -336,7 +374,7 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qIr-uj-zx2">
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qIr-uj-zx2">
                                 <rect key="frame" x="16" y="215.66666666666666" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -447,8 +485,8 @@
                                     </mask>
                                 </variation>
                             </stackView>
-                            <view alpha="0.60000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHF-uE-c4r">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
+                            <view alpha="0.60000002384185791" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OHF-uE-c4r">
+                                <rect key="frame" x="0.0" y="254" width="375" height="524"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJG-WU-NDv" customClass="SpeechRecognitionView" customModule="STOP" customModuleProvider="target">
@@ -520,7 +558,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FvT-iB-OE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="595"/>
+            <point key="canvasLocation" x="2628" y="594.82758620689663"/>
         </scene>
         <!--Health Activity View Controller-->
         <scene sceneID="S4N-U3-Pyf">
@@ -1224,14 +1262,14 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="DbS-wx-2wu"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hoo-tW-Kcd">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hoo-tW-Kcd">
                                         <rect key="frame" x="0.0" y="40" width="343" height="604"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJc-07-7JT">
@@ -1357,12 +1395,12 @@
         <image name="ic_game" width="32" height="32"/>
         <image name="ic_medication" width="32" height="32"/>
         <image name="ic_mic" width="32" height="32"/>
-        <image name="ic_question_light" width="32" height="32"/>
         <image name="ic_settings_light" width="32" height="32"/>
+        <image name="ic_survey" width="32" height="32"/>
         <image name="start_button" width="400" height="400"/>
         <image name="stop_unselected_circle" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BKY-eA-9AN"/>
+        <segue reference="IAP-WT-jWd"/>
     </inferredMetricsTieBreakers>
 </document>

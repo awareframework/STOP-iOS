@@ -47,8 +47,9 @@ class MainViewController: UIViewController {
     
     @IBAction func pushedSettingButton(_ sender: Any) {
         
-        let alertController = UIAlertController.init(title: "Move to...", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController.init(title: NSLocalizedString("move_to", comment: "move_to"), message: nil, preferredStyle: UIAlertControllerStyle.alert)
         
+        /*
         let settingsButton = UIAlertAction.init(title: NSLocalizedString("main_experiment", comment: "main_experiment"), style: UIAlertActionStyle.default) { (action) in
             if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsView") as? SettingsTableViewController {
                 if let navigator = self.navigationController {
@@ -57,6 +58,7 @@ class MainViewController: UIViewController {
                 }
             }
         }
+         */
         
         let feedbackButton = UIAlertAction.init(title: NSLocalizedString("main_participant_info", comment: "main_participant_info"), style: UIAlertActionStyle.default) { (action) in
             if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedbackView") as? FeedbackViewController {
@@ -68,7 +70,7 @@ class MainViewController: UIViewController {
         }
         
         /// add a setting button
-        alertController.addAction(settingsButton)
+        // alertController.addAction(settingsButton)
         
         // add a feedback button
         alertController.addAction(feedbackButton)
@@ -98,7 +100,7 @@ class MainViewController: UIViewController {
         }
         
         /// add a cancel button
-        let cancelButton = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        let cancelButton = UIAlertAction.init(title: NSLocalizedString("cancel", comment: "cancel") , style: UIAlertActionStyle.cancel, handler: nil)
         
         alertController.addAction(cancelButton)
         

@@ -93,7 +93,10 @@ class ConsentViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.view.addGestureRecognizer(tap)
         
         // set unit of date
-        dataUnits = ["months ago", "years ago"]
+        dataUnits = [
+                     NSLocalizedString("months ago", comment: "months ago"),
+                     NSLocalizedString("years ago",  comment: "years ago")
+                    ]
     
         // set symptom items
         for (index, symptomId) in zip(symptomIds.indices, symptomIds) {
@@ -128,12 +131,14 @@ class ConsentViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             DispatchQueue.main.async {
                 self.medications.append(medicationInfo)
                 self.medicationsTableView.reloadData()
+                self.medicationEditorView?.cleanItems()
             }
         })
         
         medicationEditorView?.setCancelButtonEventHandler {
             self.medicationEditorView?.isHidden = true
             self.medicationEditorBackgroundView?.isHidden = true
+            self.medicationEditorView?.cleanItems()
         }
 
         

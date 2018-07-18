@@ -8,6 +8,7 @@
 
 import UIKit
 import AWAREFramework
+import SVProgressHUD
 
 class SecondViewController: MainViewController, UITableViewDelegate, UITableViewDataSource{
 
@@ -161,10 +162,14 @@ class SecondViewController: MainViewController, UITableViewDelegate, UITableView
         let selectedDateTime = Date.init(unixTimestamp:medication.timestamp/1000)
         let alert: UIAlertController = UIAlertController(title: NSLocalizedString("medication_modify_title", comment: "medication_modify_title"), message: "\(convertStringFromDate(date: selectedDateTime))", preferredStyle:  UIAlertControllerStyle.alert)
 
-        let deleteAction: UIAlertAction = UIAlertAction(title:NSLocalizedString("medication_deleted", comment: "medication_deleted") , style: UIAlertActionStyle.destructive, handler:{ (action: UIAlertAction!) -> Void in
+        let deleteAction: UIAlertAction = UIAlertAction(title:NSLocalizedString("delete", comment: "delete"), style: UIAlertActionStyle.destructive, handler:{ (action: UIAlertAction!) -> Void in
             print("Delete")
             self.medicationSensor.removeMedication(object: medication)
             self.reloadTableContents()
+            
+            SVProgressHUD.showInfo(withStatus: NSLocalizedString("medication_deleted", comment: "medication_deleted"))
+            SVProgressHUD.setDefaultStyle(.dark)
+            SVProgressHUD.dismiss(withDelay: 2)
         })
         let cancelAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("cancel", comment: "Cancel"), style: UIAlertActionStyle.cancel, handler:{
             (action: UIAlertAction!) -> Void in
@@ -178,11 +183,18 @@ class SecondViewController: MainViewController, UITableViewDelegate, UITableView
                 selectedData = date
             }
             alert.addAction(image: nil, title: "OK", color: nil, style: .cancel) { action in
-                medication.double_medication = selectedData.timeIntervalSince1970*1000.0
-                medication.timestamp = Date().timeIntervalSince1970*1000.0
-                self.medicationSensor.updateMedication(object: medication)
-                self.medicationSensor.startSyncDB()
-                self.reloadTableContents()
+                // check future data or not
+                if selectedData.timeIntervalSince1970 <= Date().timeIntervalSince1970 {
+                    medication.double_medication = selectedData.timeIntervalSince1970*1000.0
+                    medication.timestamp = Date().timeIntervalSince1970*1000.0
+                    self.medicationSensor.updateMedication(object: medication)
+                    self.medicationSensor.startSyncDB()
+                    self.reloadTableContents()
+                }else{
+                    SVProgressHUD.setDefaultStyle(.dark)
+                    SVProgressHUD.showInfo(withStatus: NSLocalizedString("medication_future", comment: "medication_future"))
+                    SVProgressHUD.dismiss(withDelay: 2)
+                }
             }
             alert.show()
             print("Edit")
@@ -213,9 +225,15 @@ class SecondViewController: MainViewController, UITableViewDelegate, UITableView
         // alert.addAction(title: "OK", style: .cancel)
         alert.addAction(image: nil, title: "OK", color: nil, style: .default ) { action in
             // completion handler
-            self.medicationSensor.saveMedication(timestamp: selectedData)
-            self.medicationSensor.startSyncDB()
-            self.reloadTableContents()
+            if selectedData.timeIntervalSince1970 <= Date().timeIntervalSince1970 {
+                self.medicationSensor.saveMedication(timestamp: selectedData)
+                self.medicationSensor.startSyncDB()
+                self.reloadTableContents()
+            }else{
+                SVProgressHUD.showInfo(withStatus: NSLocalizedString("medication_future", comment: "medication_future"))
+                SVProgressHUD.setDefaultStyle(.dark)
+                SVProgressHUD.dismiss(withDelay: 2)
+            }
         }
         alert.addAction(image: nil, title: NSLocalizedString("cancel", comment: "Cancel"), color: nil, style: .cancel) { action in
             

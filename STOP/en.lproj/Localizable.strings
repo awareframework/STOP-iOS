@@ -6,6 +6,12 @@
   Copyright © 2018 Yuuki Nishiyama. All rights reserved.
 */
 
+"move_to" = "Move to ...";
+"minutes" = "minutes";
+"hours"   = "hours";
+"months ago" = "months ago";
+"years ago"  = "years ago";
+
 "symptom_5_0"="Speech";
 "symptom_5_1"="Normal";
 "symptom_5_2"="Mildly affected. No difficulty being understood";
@@ -112,8 +118,8 @@
 "game_start"="Start";
 "game_get_ready"="Get ready";
 "game_play"="Play";
-"game_done_1"="Done! Play again?\nScore:\u0020";
-"game_done_2"=", last score:\u0020";
+"game_done_1"="Done! Play again?\nScore:";
+"game_done_2"=", last score:";
 "game_done_3"="\nNow record your medications";
 "game_again"="Play again";
 "game_go_journal"="Go to medication journal";
@@ -190,7 +196,7 @@
 "consent_specify_age"="Please select a username and specify your age";
 "consent_declining"="By declining the Research Consent, you may still use the application with all its functionalities. No data will be collected or shared with our study. Do you wish to proceed?";
 "consent_loading"="Thank you for joining our study! Loading resources…";
-"consent_app_consent_details"="The University of Oulu (Finland) and the University of Manchester (UK) are using this application to better understand Parkinson’s medication adherence and effectiveness via gamification and medication logs. By installing and agreeing to this consent, you effectively become a participant to our joint research effort. If you disagree, you may still use the application without any data sharing.\n\n";
+"consent_app_consent_details"="The University of Oulu (Finland) and the University of Manchester (UK) are using this application to better understand Parkinson’s medication adherence and effectiveness via gamification and medication logs. By installing and agreeing to this consent, you effectively become a participant to our joint research effort. If you disagree, you may still use the application without any data sharing.\n\n<b>Data Collection</b>\n- Your answers to the initial Parkinson’s patient profile questions\n- Accelerometer, gyroscope, orientation data from the phone ONLY during game sessions of our STOP game\n- Your medication taking times\n- Application stability data collected via Google Analytics (crashes)\n\n<b>Security and Privacy</b>\nHIPAA and GDPR compliant: the encrypted data is securely sent to our server in Oulu for further analysis on a regular basis over WiFi. No personal identifiers are collected. Personalisable name for a randomly assigned UUID. If withdrawn from data collection, the server data is erased.";
 "consent_add_medication"="Add a medication";
 "consent_button_add"="Add";
 "consent_fill_entries"="Please fill all the entries (comments are optional)";

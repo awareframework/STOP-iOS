@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 struct MedicationInfo {
     var medicationName = ""
@@ -31,7 +32,8 @@ struct MedicationInfo {
     @IBOutlet weak var firstMedicationTimeField: UITextField!
     @IBOutlet weak var commentTextField: UITextField!
     
-    let units = ["minutes","hours"]
+    let units = [NSLocalizedString("minutes", comment: "minutes") ,
+                 NSLocalizedString("hours", comment: "hours")]
     
     var addButtonEventHandler:MedicationEditorAddButtonEventHandler?
     var cancelButtonEventHandler:MedicationEditorCancelButtonEventHandler?
@@ -83,7 +85,6 @@ struct MedicationInfo {
         return units[row]
     }
 
-    
     @IBAction func pushedAddButton(_ sender: Any) {
         
         var medicationInfo = MedicationInfo()
@@ -124,26 +125,32 @@ struct MedicationInfo {
         // validation
         guard medicationInfo.medicationName != "" else {
             // send notification
+            sendAlert()
             return
         }
         
         guard medicationInfo.timesPerDay != "" else {
+            sendAlert()
             return
         }
 
         guard medicationInfo.pillsEachTimes != "" else {
+            sendAlert()
             return
         }
 
         guard medicationInfo.oftenNumber != "" else {
+            sendAlert()
             return
         }
         
         guard medicationInfo.oftenUnit != "" else {
+            sendAlert()
             return
         }
 
         guard medicationInfo.firstMedicationTime != "" else {
+            sendAlert()
             return
         }
 
@@ -153,10 +160,24 @@ struct MedicationInfo {
         }
     }
     
+    func sendAlert(){
+        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
+        SVProgressHUD.showInfo(withStatus: NSLocalizedString("consent_fill_entries", comment: "consent_fill_entries"))
+        SVProgressHUD.dismiss(withDelay: 2)
+    }
+    
     @IBAction func pushedCancelButton(_ sender: Any) {
         if let cancelHandler = cancelButtonEventHandler{
             cancelHandler()
         }
     }
     
+    public func cleanItems(){
+        medicationNameField.text = ""
+        timesPerDayField.text    = ""
+        pillsEachTimesField.text = ""
+        oftenNumberField.text    = ""
+        firstMedicationTimeField.text = ""
+        commentTextField.text    = ""
+    }
 }

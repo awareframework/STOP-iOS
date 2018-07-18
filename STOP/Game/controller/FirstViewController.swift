@@ -18,6 +18,8 @@ class FirstViewController: MainViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var ballImage: UIImageView!
     @IBOutlet weak var demoButton: UIBarButtonItem!
+    @IBOutlet weak var playAgainButton: UIButton!
+    @IBOutlet weak var goToMedicationJournalButton: UIButton!
     
     var startTimer = Timer()
     var gameTimer  = Timer()
@@ -104,7 +106,7 @@ class FirstViewController: MainViewController {
             self.demoButton.isEnabled = false
         }
         
-        self.messageLabel.text = NSLocalizedString("game_press_button_to_play", comment: "game_press_button_to_play")
+        // self.messageLabel.text = NSLocalizedString("game_press_button_to_play", comment: "game_press_button_to_play")
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -113,18 +115,18 @@ class FirstViewController: MainViewController {
     
     private func setGameContents () {
         
-        ballSize = UserDefaults.standard.double(forKey: STOPKeys.SETTING_BALL_SIZE);
-        smallCircleSize = UserDefaults.standard.double(forKey: STOPKeys.SETTING_SMALL_CIRCLE_SIZE);
-        bigCircleSize = UserDefaults.standard.double(forKey: STOPKeys.SETTING_BIG_CIRCLE_SIZE);
-        sensitivity = UserDefaults.standard.double(forKey: STOPKeys.SETTING_SENSITIVITY); // 3.0 is default
-        gameTime = UserDefaults.standard.double(forKey: STOPKeys.SETTING_GAME_TIME)// *1000; // in milliseconds
+        ballSize          = UserDefaults.standard.double(forKey: STOPKeys.SETTING_BALL_SIZE);
+        smallCircleSize   = UserDefaults.standard.double(forKey: STOPKeys.SETTING_SMALL_CIRCLE_SIZE);
+        bigCircleSize     = UserDefaults.standard.double(forKey: STOPKeys.SETTING_BIG_CIRCLE_SIZE);
+        sensitivity       = UserDefaults.standard.double(forKey: STOPKeys.SETTING_SENSITIVITY); // 3.0 is default
+        gameTime          = UserDefaults.standard.double(forKey: STOPKeys.SETTING_GAME_TIME)// *1000; // in milliseconds
         
-        ballImage.frame = CGRect.init(x:0,y:0, width:ballSize, height:ballSize)
-        ballImage.center = startButton.center
+        ballImage.frame   = CGRect.init(x:0,y:0, width:ballSize, height:ballSize)
+        ballImage.center  = startButton.center
         // ballImage.setNeedsLayout()
         
-        self.deviceXres = Double(self.view.frame.height)
-        self.deviceYres = Double(self.view.frame.width)
+        self.deviceXres   = Double(self.view.frame.height)
+        self.deviceYres   = Double(self.view.frame.width)
         
         // setting up the maximum allowed X and Y values
         ballXmax = Double(self.view.frame.width  - ballImage.frame.width)
@@ -135,23 +137,33 @@ class FirstViewController: MainViewController {
         ballYpos = ballYmax / 2;
         
         // count maximum possible distance ball can cover from center
-        ballMaxDistance = sqrt(ballXpos*ballXpos + ballYpos*ballYpos);
+        ballMaxDistance    = sqrt(ballXpos*ballXpos + ballYpos*ballYpos);
         
         // put circles to the center
-        smallCircle.frame = CGRect.init(x:0 , y:0, width: smallCircleSize, height: smallCircleSize)
-        bigCircle.frame   = CGRect.init(x:0 , y:0, width: bigCircleSize,   height: bigCircleSize)
+        smallCircle.frame  = CGRect.init(x:0 , y:0, width: smallCircleSize, height: smallCircleSize)
+        bigCircle.frame    = CGRect.init(x:0 , y:0, width: bigCircleSize,   height: bigCircleSize)
     
         smallCircle.center = startButton.center
-        bigCircle.center = startButton.center
+        bigCircle.center   = startButton.center
+        
+        playAgainButton.isHidden             = true
+        goToMedicationJournalButton.isHidden = true
+        startButton.isHidden                 = false
+        
+        self.messageLabel.text = NSLocalizedString("game_press_button_to_play", comment: "game_press_button_to_play")
     }
 
     @IBAction func pushedStartButton(_ sender: Any) {
         
+        ballImage.isHidden   = false
         smallCircle.isHidden = false
-        bigCircle.isHidden = false
+        bigCircle.isHidden   = false
         startButton.isHidden = true
         count = 3
         timeCount = 0
+        
+        ballImage.frame = CGRect.init(x:0,y:0, width:ballSize, height:ballSize)
+        ballImage.center = startButton.center
         
         self.startGame()
         
@@ -204,9 +216,8 @@ class FirstViewController: MainViewController {
                             self.ballXaccel = -1 * (unwrappedData[self.SAMPLE_KEY_DOUBLE_VALUES_0] as! Double)
                             self.ballYaccel = (unwrappedData[self.SAMPLE_KEY_DOUBLE_VALUES_1] as! Double)
                             self.updateBall(unwrappedData[self.SAMPLE_KEY_TIMESTAMP] as! Int64)
-                            self.accelSamples .append(unwrappedJsonStr)
+                            self.accelSamples.append(unwrappedJsonStr)
                         } else if unwrappedSensor.getName() == self.linearAccelerometer.getName() {
-                            /// liner-acc ///
                             self.linaccelSamples.append(unwrappedJsonStr)
                         } else if unwrappedSensor.getName() == self.gyroScope.getName() {
                             self.gyroSamples.append(unwrappedJsonStr)
@@ -226,6 +237,9 @@ class FirstViewController: MainViewController {
         rotation.setSensorEventHandler(block)
 
         accelerometer.setSensingIntervalWithSecond(20000.0/1000.0/1000.0)
+        linearAccelerometer.setSensingIntervalWithSecond(20000.0/1000.0/1000.0)
+        gyroScope.setSensingIntervalWithSecond(20000.0/1000.0/1000.0)
+        rotation.setSensingIntervalWithSecond(20000.0/1000.0/1000.0)
         
         accelerometer.startSensor()
         linearAccelerometer.startSensor()
@@ -235,17 +249,29 @@ class FirstViewController: MainViewController {
     
     func stopGame(){
         
-        cancelGame()
+        // show next action buttons only when stopGame() is called
+        self.goToMedicationJournalButton.isHidden = false
+        self.playAgainButton.isHidden             = false
         
+        cancelGame()
+
         // calculating game score
         let finalScore = 100 - ((scoreRaw/Double(scoreCounter)) / ballMaxDistance)*100;
-        let message = "\(NSLocalizedString("game_done", comment: "game_done")) \(String(format: "%.2f",finalScore))"
+        let done1 = NSLocalizedString("game_done_1", comment: "game_done_1")
+        let done2 = NSLocalizedString("game_done_2", comment: "game_done_2")
+        let done3 = NSLocalizedString("game_done_3", comment: "game_done_3")
+        let lastScore = UserDefaults.standard.double(forKey: "com.awareframework.ios.STOP.game.score.last")
+        var message = "\(done1) \(String(format: "%.2f",finalScore)) \(done2) \(String(format: "%.2f",lastScore)) \(done3)"
+        if lastScore == 0 {
+            message = "\(done1) \(String(format: "%.2f",finalScore)) \(done3)"
+        }
         self.messageLabel?.text = message
-        // "finish: score is \( String(format: "%.2f",finalScore)) \n"
-    
-        // "game_get_ready" = "Get ready";
-        // "game_play" = "Play";
-        // "game_invalid_settings" = "None of the game settings can be 0. Please update first";
+        
+        UserDefaults.standard.set(finalScore, forKey: "com.awareframework.ios.STOP.game.score.last")
+        
+//        "game_done_1"="Done! Play again?\nScore:\u0020";
+//        "game_done_2"=", last score:\u0020";
+//        "game_done_3"="\nNow record your medications";
         
         /// save the final result to GallGame table
         let gameResult = "\(gameData.prefix(gameData.count-1))],\"score\":\(finalScore)}]"
@@ -297,8 +323,12 @@ class FirstViewController: MainViewController {
         }
         
         self.smallCircle.isHidden = true
-        self.bigCircle.isHidden = true
-        self.startButton.isHidden = false
+        self.bigCircle.isHidden   = true
+        self.ballImage.isHidden   = true
+        
+        if self.playAgainButton.isHidden == true{
+            self.startButton.isHidden = false
+        }
         
         self.sampling = false
         
@@ -360,6 +390,16 @@ class FirstViewController: MainViewController {
     @IBAction func pushedDemoButton(_ sender: UIBarButtonItem) {
         super.pushedDemoButton()
     }
+    
+    @IBAction func pushedPlayAgainButton(_ sender: UIButton) {
+        // self.pushedStartButton(sender)
+        setGameContents()
+    }
+    
+    @IBAction func pushedGoToMedicationJournalButton(_ sender: UIButton) {
+        tabBarController?.selectedIndex = 1;
+    }
+    
     
 }
 

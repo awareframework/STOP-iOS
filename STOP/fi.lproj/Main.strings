@@ -74,7 +74,7 @@
 "jbf-9X-PIi.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Device Name"; ObjectID = "jmE-kI-0z9"; */
-"jmE-kI-0z9.text" = "Laitteen nimi";
+"jmE-kI-0z9.text" = "Käyttäjätunnus";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "mm1-xQ-gIq"; */
 "mm1-xQ-gIq.title" = "Item";
@@ -92,11 +92,12 @@
 "thW-2A-YhS.text" = "Subtitle";
 
 /* Class = "UILabel"; text = "Participant"; ObjectID = "zCe-m8-M95"; */
-"zCe-m8-M95.text" = "Participant";
+"zCe-m8-M95.text" = "Käyttäjätunnus";
 
 /* Class = "UILabel"; text = "Device Name"; ObjectID = "uL1-67-IcG"; */
 "uL1-67-IcG.text" = "Laitteen nimi";
 
+"lqg-oh-jQ1.normalTitle" = "Lisää";
 
 ///////////////////////
 "VG2-R6-9Qk.text"="Minkä verran sinulla oli eilen Parkinsonin oireita?";
@@ -105,6 +106,9 @@
 "N82-bk-wh2.text"="Jonkin verran oireita, oireet vaikuttivat päivittäisiin toimiini vain vähän";
 "iN4-D9-0hH.text"="Kohtalaisen paljon oireita, oireet vaikeuttivat päivittäisiä toimiani, mutta eivät estäneet suoriutumista";
 "VI5-sn-Nld.text"="Voimakkaita oireita, oireet estivät minua suoriutumasta yhdestä tai useammasta päivittäisestä toimestani";
-"O2P-9O-ig0.text"="Lähetä";
+"O2P-9O-ig0.normalTitle" = "Lähetä";
 
+// game
+"C5X-bh-piJ.normalTitle" = "Pelaa uudelleen";
+"Hco-G8-0Vd.normalTitle" = "Avaa lääkepäiväkirja";
 
