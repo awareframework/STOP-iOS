@@ -17,16 +17,16 @@ class NotificationData: AWARESensor, UNUserNotificationCenterDelegate {
     
     override init!(awareStudy study: AWAREStudy!, dbType: AwareDBType) {
         
-        let storage = SQLiteStorage.init(study: study,
-                                         sensorName:sensorName ,
-                                         entityName: NSStringFromClass(EntityNotificationData.self)) { (data, managedContext, entityName) in
-                                            let entity = NSEntityDescription.insertNewObject(forEntityName: entityName!, into: managedContext!) as! EntityNotificationData
-                                            entity.timestamp = data?["timestamp"] as? NSNumber;
-                                            entity.device_id = data?["device_id"] as? String;
-                                            entity.event = data?["event"] as? String;
-        }
+//        let storage = SQLiteStorage.init(study: study,
+//                                         sensorName:sensorName ,
+//                                         entityName: NSStringFromClass(EntityNotificationData.self)) { (data, managedContext, entityName) in
+//                                            let entity = NSEntityDescription.insertNewObject(forEntityName: entityName!, into: managedContext!) as! EntityNotificationData
+//                                            entity.timestamp = data?["timestamp"] as? NSNumber;
+//                                            entity.device_id = data?["device_id"] as? String;
+//                                            entity.event = data?["event"] as? String;
+//        }
         
-        // let storage = JSONStorage.init(study: study, sensorName: sensorName)
+        let storage = JSONStorage.init(study: study, sensorName: sensorName)
         
         super.init(awareStudy: study, sensorName: sensorName, storage: storage)
         UNUserNotificationCenter.current().delegate = self

@@ -155,6 +155,8 @@ class FirstViewController: MainViewController {
 
     @IBAction func pushedStartButton(_ sender: Any) {
         
+        self.messageLabel.text = NSLocalizedString("game_get_ready", comment: "game_get_ready");
+        
         ballImage.isHidden   = false
         smallCircle.isHidden = false
         bigCircle.isHidden   = false
@@ -394,6 +396,7 @@ class FirstViewController: MainViewController {
     @IBAction func pushedPlayAgainButton(_ sender: UIButton) {
         // self.pushedStartButton(sender)
         setGameContents()
+        self.pushedStartButton(sender);
     }
     
     @IBAction func pushedGoToMedicationJournalButton(_ sender: UIButton) {
