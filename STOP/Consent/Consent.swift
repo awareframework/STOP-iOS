@@ -20,7 +20,7 @@ class Consent: AWARESensor {
         let dict:Dictionary <String,Any> = ["device_id":AWAREStudy.shared().getDeviceId(),
                                             "timestamp":AWAREUtils.getUnixTimestamp(Date.init()),
                                             "user_data":answer]
-        self.storage.saveData(with: dict, buffer: false, saveInMainThread: true)
+        self.storage?.saveData(with: dict, buffer: false, saveInMainThread: true)
     }
     
     //////////////////////////////////////////////////

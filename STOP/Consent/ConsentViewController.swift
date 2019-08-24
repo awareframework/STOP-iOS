@@ -114,7 +114,7 @@ class ConsentViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         /// set a background view of medication editor
         medicationEditorBackgroundView = UIView(frame:self.view.frame)
-        medicationEditorBackgroundView?.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, transparency: 0.5)
+        medicationEditorBackgroundView?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         medicationEditorBackgroundView?.isHidden = true
         self.view.addSubview(medicationEditorBackgroundView!)
         
@@ -237,7 +237,7 @@ class ConsentViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func getUserAnswer() -> String? {
         // append user name
         var userAnswer = Dictionary<String, Any> ()
-        AWAREStudy.shared().setDeviceName(nicknameTextFiled?.text)
+        AWAREStudy.shared().setDeviceName(nicknameTextFiled?.text ?? "")
         userAnswer["username"] = nicknameTextFiled?.text
         
         // append age
@@ -304,16 +304,16 @@ class ConsentViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     
     func checkAllItemsState()->Bool{
-        guard nicknameTextFiled.text?.count > 0 else {
+        guard nicknameTextFiled.text?.count ?? 0 > 0 else {
             return false
         }
         
-        guard ageTextField.text?.count > 0 else {
+        guard ageTextField.text?.count ?? 0 > 0 else {
             return false;
         }
         
         if pdStateSwitch.selectedSegmentIndex == 0 {
-            guard pdDateTextField.text?.count > 0 else {
+            guard pdDateTextField.text?.count ?? 0 > 0 else {
                 return false;
             }
             
@@ -351,7 +351,7 @@ class ConsentViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = medicationsTableView.dequeueReusableCell(withIdentifier: ConsentViewController.identifier, for: indexPath)
-        cell.textLabel?.text = medications.item(at: indexPath.row)?.medicationName
+        cell.textLabel?.text = medications[indexPath.row].medicationName
         return cell
     }
     

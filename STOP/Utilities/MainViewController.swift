@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
     
     @IBAction func pushedSettingButton(_ sender: Any) {
         
-        let alertController = UIAlertController.init(title: NSLocalizedString("move_to", comment: "move_to"), message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: NSLocalizedString("move_to", comment: "move_to"), message: nil, preferredStyle: .alert)
         
         /*
         let settingsButton = UIAlertAction.init(title: NSLocalizedString("main_experiment", comment: "main_experiment"), style: UIAlertActionStyle.default) { (action) in
@@ -60,7 +60,7 @@ class MainViewController: UIViewController {
         }
          */
         
-        let feedbackButton = UIAlertAction.init(title: NSLocalizedString("main_participant_info", comment: "main_participant_info"), style: UIAlertActionStyle.default) { (action) in
+        let feedbackButton = UIAlertAction(title: NSLocalizedString("main_participant_info", comment: "main_participant_info"), style: .default) { (action) in
             if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedbackView") as? FeedbackViewController {
                 if let navigator = self.navigationController {
                     //self.cancelGame()
@@ -77,30 +77,30 @@ class MainViewController: UIViewController {
         
         /// add a join or quit study button
         if Consent.isConsentAnswered() {
-            let quitStudyButton = UIAlertAction.init(title: NSLocalizedString("main_quit_study",comment: "Quit Study"), style: .destructive) {(action) in
+            let quitStudyButton = UIAlertAction(title: NSLocalizedString("main_quit_study",comment: "Quit Study"), style: .destructive) {(action) in
                 DispatchQueue.main.async {
                     self.pushedDemoButton()
                     let debug = Debug(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
-                    debug?.saveEvent(withText: "quit_study", type: DebugTypeInfo.rawValue, label: "STOP")
-                    debug?.startSyncDB()
+                    debug.saveEvent(withText: "quit_study", type: DebugTypeInfo.rawValue, label: "STOP")
+                    debug.startSyncDB()
                 }
             }
             alertController.addAction(quitStudyButton)
         }else{
-            let quitStudyButton = UIAlertAction.init(title:NSLocalizedString("main_join_study",comment: "Join Study"),
+            let quitStudyButton = UIAlertAction(title:NSLocalizedString("main_join_study",comment: "Join Study"),
                                                      style: .destructive) {(action) in
                                                         DispatchQueue.main.async {
                                                             self.pushedDemoButton()
                                                             let debug = Debug(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
-                                                            debug?.saveEvent(withText: "join_study", type: DebugTypeInfo.rawValue, label: "STOP")
-                                                            debug?.startSyncDB()
+                                                            debug.saveEvent(withText: "join_study", type: DebugTypeInfo.rawValue, label: "STOP")
+                                                            debug.startSyncDB()
                                                         }
             }
             alertController.addAction(quitStudyButton)
         }
         
         /// add a cancel button
-        let cancelButton = UIAlertAction.init(title: NSLocalizedString("cancel", comment: "cancel") , style: UIAlertActionStyle.cancel, handler: nil)
+        let cancelButton = UIAlertAction(title: NSLocalizedString("cancel", comment: "cancel") , style: .cancel, handler: nil)
         
         alertController.addAction(cancelButton)
         
@@ -112,16 +112,16 @@ class MainViewController: UIViewController {
     public func pushedDemoButton(){
         /// add a join or quit study button
         if Consent.isConsentAnswered() {
-            let quitStudyAlert = UIAlertController.init(title: NSLocalizedString("main_quit_study",comment: "Join Study"),
+            let quitStudyAlert = UIAlertController(title: NSLocalizedString("main_quit_study",comment: "Join Study"),
                                                         message: NSLocalizedString("main_quit_details", comment: "main_quit_details"),
-                                                        preferredStyle: UIAlertControllerStyle.alert)
-            let quitCancelButton = UIAlertAction.init(title: NSLocalizedString("cancel", comment: "cancel"),
-                                                      style: UIAlertActionStyle.cancel, handler: { (action) in
+                                                        preferredStyle: .alert)
+            let quitCancelButton = UIAlertAction(title: NSLocalizedString("cancel", comment: "cancel"),
+                                                      style: .cancel, handler: { (action) in
                                                         
             })
             
-            let quitConfirmButton = UIAlertAction.init(title: NSLocalizedString("confirm", comment: "confirm"),
-                                                       style: UIAlertActionStyle.destructive, handler: { (action) in
+            let quitConfirmButton = UIAlertAction(title: NSLocalizedString("confirm", comment: "confirm"),
+                                                       style: .destructive, handler: { (action) in
                                                         // quit study
                                                         DispatchQueue.main.async {
                                                             Consent.setConsentRead(state: false)
@@ -138,16 +138,16 @@ class MainViewController: UIViewController {
                 
             })
         }else{
-            let joinStudyAlert = UIAlertController.init(title: NSLocalizedString("main_join_study",comment: "Join Study"),
+            let joinStudyAlert = UIAlertController(title: NSLocalizedString("main_join_study",comment: "Join Study"),
                                                         message: NSLocalizedString("main_demo_details", comment: "main_demo_details"),
-                                                        preferredStyle: UIAlertControllerStyle.alert)
-            let joinCancelButton = UIAlertAction.init(title: NSLocalizedString("cancel", comment: "cancel"),
-                                                      style: UIAlertActionStyle.cancel, handler: { (action) in
+                                                        preferredStyle: .alert)
+            let joinCancelButton = UIAlertAction(title: NSLocalizedString("cancel", comment: "cancel"),
+                                                      style: .cancel, handler: { (action) in
                                                         
             })
             
-            let joinConfirmButton = UIAlertAction.init(title: NSLocalizedString("confirm", comment: "confirm"),
-                                                       style: UIAlertActionStyle.default, handler: { (action) in
+            let joinConfirmButton = UIAlertAction(title: NSLocalizedString("confirm", comment: "confirm"),
+                                                       style: .default, handler: { (action) in
                                                         // join study
                                                         DispatchQueue.main.async {
                                                             Consent.setConsentRead(state: false)

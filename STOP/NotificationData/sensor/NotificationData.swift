@@ -15,7 +15,7 @@ class NotificationData: AWARESensor, UNUserNotificationCenterDelegate {
     
     let sensorName = "notification_data"
     
-    override init!(awareStudy study: AWAREStudy!, dbType: AwareDBType) {
+    override init(awareStudy study: AWAREStudy?, dbType: AwareDBType) {
         
 //        let storage = SQLiteStorage.init(study: study,
 //                                         sensorName:sensorName ,
@@ -36,15 +36,15 @@ class NotificationData: AWARESensor, UNUserNotificationCenterDelegate {
     override func createTable() {
         let maker = TCQMaker.init()
         maker.addColumn("event", type: TCQTypeText, default: "''")
-        self.storage.createDBTableOnServer(with: maker)
+        self.storage?.createDBTableOnServer(with: maker)
     }
     
     
     func saveNotificationEvnet(timestamp:Date, event:String){
-        let data:[String:Any] = ["timestamp":AWAREUtils.getUnixTimestamp(timestamp),
-                                "device_id": AWAREStudy.shared().getDeviceId(),
-                                "event": event]
-        self.storage.saveData(with: data, buffer: false, saveInMainThread: true)
+        let data:[String:Any] = ["timestamp" : AWAREUtils.getUnixTimestamp(timestamp),
+                                 "device_id" : AWAREStudy.shared().getDeviceId(),
+                                 "event"     : event]
+        self.storage?.saveData(with: data, buffer: false, saveInMainThread: true)
     }
     
     
@@ -55,7 +55,9 @@ class NotificationData: AWARESensor, UNUserNotificationCenterDelegate {
         // let identifier = response.notification.request.identifier
         let content = response.notification.request.content
         self.saveNotificationEvnet(timestamp: now, event: "\(content.title.lowercased())_opened")
-        self.storage.startSyncStorage()
+        self.storage?.startSyncStorage()
+        
+        completionHandler()
     }
     
     public func updateNotifications(force:Bool){
@@ -114,7 +116,7 @@ class NotificationData: AWARESensor, UNUserNotificationCenterDelegate {
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         
         var dateComponents = DateComponents()
         if randomize == 0 {
@@ -135,7 +137,7 @@ class NotificationData: AWARESensor, UNUserNotificationCenterDelegate {
             components.minute = startMin
             
             ///////////////////////
-            if components.date?.timeIntervalSince1970 < now.timeIntervalSince1970 {
+            if components.date?.timeIntervalSince1970 ?? 0 < now.timeIntervalSince1970 {
                 let tomorrow = now.addingTimeInterval(60*60*24)
                 components = Calendar.current.dateComponents(in: TimeZone.current, from: tomorrow)
                 components.hour = startHour
@@ -150,11 +152,11 @@ class NotificationData: AWARESensor, UNUserNotificationCenterDelegate {
             let randomizedDateTime = notificationDateTime?.addingTimeInterval(TimeInterval(randomizedMin*60))
             let randomizedDateTimeComponents = Calendar.current.dateComponents(in: TimeZone.current, from: randomizedDateTime!)
             
-            dateComponents.hour = randomizedDateTimeComponents.hour
+            dateComponents.hour   = randomizedDateTimeComponents.hour
             dateComponents.minute = randomizedDateTimeComponents.minute
-            dateComponents.day = randomizedDateTimeComponents.day
-            dateComponents.month = randomizedDateTimeComponents.month
-            dateComponents.year = randomizedDateTimeComponents.year
+            dateComponents.day    = randomizedDateTimeComponents.day
+            dateComponents.month  = randomizedDateTimeComponents.month
+            dateComponents.year   = randomizedDateTimeComponents.year
             print("next time => \(dateComponents)")
         }
         
@@ -166,10 +168,14 @@ class NotificationData: AWARESensor, UNUserNotificationCenterDelegate {
                 print("\(identifier): error => \(e.localizedDescription)")
             }else{
                 print("\(identifier): done")
-                
                 // save notification events
-                let now = Date()
-                self.saveNotificationEvnet(timestamp: now, event: "\(title.lowercased())_shown")
+                if let timestamp = trigger.nextTriggerDate() {
+                    self.saveNotificationEvnet(timestamp: timestamp, event: "\(title.lowercased())_shown")
+                }
+                
+                let debug = Debug.init(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
+                debug.saveEvent(withText: "Update Notification", type: DebugTypeInfo.rawValue , label: title.lowercased())
+                
             }
         }
     }
@@ -179,10 +185,10 @@ class NotificationData: AWARESensor, UNUserNotificationCenterDelegate {
         let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
         content.title = "test"
-        content.sound = UNNotificationSound.default()
+        content.sound = .default
 
-        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60, repeats: true)
-        let request = UNNotificationRequest(identifier: UUID.init().uuidString, content: content, trigger: trigger)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         center.add(request) { (error) in
             if let e = error {
                 print("error => \(e.localizedDescription)")

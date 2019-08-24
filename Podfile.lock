@@ -1,0 +1,86 @@
+PODS:
+  - AppAuth (1.2.0):
+    - AppAuth/Core (= 1.2.0)
+    - AppAuth/ExternalUserAgent (= 1.2.0)
+  - AppAuth/Core (1.2.0)
+  - AppAuth/ExternalUserAgent (1.2.0)
+  - AWAREFramework (1.4.20):
+    - GoogleSignIn
+    - ios-ntp
+    - SCNetworkReachability
+    - TPCircularBuffer
+  - CocoaAsyncSocket (7.6.3)
+  - DynamicBlurView (3.0.1)
+  - GoogleSignIn (5.0.0):
+    - AppAuth (~> 1.1)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GTMAppAuth (1.0.0):
+    - AppAuth/Core (~> 1.0)
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.2.2):
+    - GTMSessionFetcher/Full (= 1.2.2)
+  - GTMSessionFetcher/Core (1.2.2)
+  - GTMSessionFetcher/Full (1.2.2):
+    - GTMSessionFetcher/Core (= 1.2.2)
+  - ios-ntp (1.1.9):
+    - CocoaAsyncSocket
+  - macros_blocks (0.0.4):
+    - macros_blocks/core (= 0.0.4)
+  - macros_blocks/core (0.0.4)
+  - PopupDialog (0.9.2):
+    - DynamicBlurView (~> 3.0.1)
+  - SCNetworkReachability (2.0.6):
+    - SCNetworkReachability/Core (= 2.0.6)
+  - SCNetworkReachability/Core (2.0.6):
+    - macros_blocks (~> 0.0.1)
+  - SVProgressHUD (2.2.5)
+  - TPCircularBuffer (1.6.1)
+
+DEPENDENCIES:
+  - AWAREFramework (from `https://github.com/tetujin/AWAREFramework-iOS.git`)
+  - PopupDialog (~> 0.7)
+  - SVProgressHUD
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AppAuth
+    - CocoaAsyncSocket
+    - DynamicBlurView
+    - GoogleSignIn
+    - GTMAppAuth
+    - GTMSessionFetcher
+    - ios-ntp
+    - macros_blocks
+    - PopupDialog
+    - SCNetworkReachability
+    - SVProgressHUD
+    - TPCircularBuffer
+
+EXTERNAL SOURCES:
+  AWAREFramework:
+    :git: https://github.com/tetujin/AWAREFramework-iOS.git
+
+CHECKOUT OPTIONS:
+  AWAREFramework:
+    :commit: 1c1de4f815f0f604a8ab685fe151e6001b24fe51
+    :git: https://github.com/tetujin/AWAREFramework-iOS.git
+
+SPEC CHECKSUMS:
+  AppAuth: bce82c76043657c99d91e7882e8a9e1a93650cd4
+  AWAREFramework: c2a7a8bff763eebeeb7d9cfa23907b096bbd7a1a
+  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
+  DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
+  GoogleSignIn: a62edd0516721d2a3db1259a5681b91f9b41c06a
+  GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
+  GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
+  ios-ntp: 49a4ef0866aee5343627710c1c7de71d7c064417
+  macros_blocks: cf3ff5810b798f462def9f1e3999817dc45cf2df
+  PopupDialog: f4bb461bf70ff422be0b56656566424ee9273080
+  SCNetworkReachability: dbb0150b1a7a4579e148420132da19e718b955ce
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TPCircularBuffer: c13243556527551c4d320709c7b14a6d20cdc30a
+
+PODFILE CHECKSUM: c78ccf6f65933c0d30f6e6ea0e5060edebebe2a5
+
+COCOAPODS: 1.7.0.beta.3

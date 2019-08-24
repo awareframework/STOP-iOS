@@ -305,8 +305,8 @@ class FirstViewController: MainViewController {
         // sync the remote server after 3 seconds
         let dispatchTime = DispatchTime.now() + 3
         DispatchQueue.main.asyncAfter( deadline: dispatchTime ) {
-            self.ballGame.storage.setDebug(true)
-            self.ballGame.storage.startSyncStorage()
+            self.ballGame.storage?.setDebug(true)
+            self.ballGame.storage?.startSyncStorage()
         }
     }
     

@@ -26,13 +26,13 @@ class Medication: AWARESensor {
     override func createTable() {
         let maker = TCQMaker.init()
         maker.addColumn("double_medication", type: TCQTypeReal, default: "0")
-        self.storage.createDBTableOnServer(with: maker)
+        self.storage?.createDBTableOnServer(with: maker)
     }
     
     public func saveMedication(timestamp:Date){
         
         let data:[String : Any] = [
-            "device_id":self.getDeviceId(),
+            "device_id":self.getDeviceId() ?? "",
             "timestamp":AWAREUtils.getUnixTimestamp(Date.init()),
             "double_medication":AWAREUtils.getUnixTimestamp(timestamp)
         ]

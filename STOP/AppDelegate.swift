@@ -10,7 +10,9 @@ import UIKit
 import AWAREFramework
 
 @UIApplicationMain
-class AppDelegate: AWAREDelegate {
+class AppDelegate:UIResponder, UIApplicationDelegate{
+    
+    var window: UIWindow?
     
     var appNotifications:NotificationData?
     
@@ -28,16 +30,16 @@ class AppDelegate: AWAREDelegate {
         
         /// Change the database mode
         let url = Bundle.main.url(forResource: "AWARE_STOP", withExtension: "momd")
-        CoreDataHandler.shared()!.overwriteManageObjectModel(withFileURL: url)
+        CoreDataHandler.shared().overwriteManageObjectModel(withFileURL: url)
 
         /// Turn off background sensing
-        AWARECore.shared()!.isNeedBackgroundSensing = false
+        AWARECore.shared().isNeedBackgroundSensing = false
     }
     
     public func joinStudy(_ completion:JoinStudyCompletionHandler?){
 
         /// Set clean interval = never clean the stored data
-        AWAREStudy.shared()!.setCleanOldDataType(cleanOldDataTypeNever)
+        AWAREStudy.shared().setCleanOldDataType(cleanOldDataTypeNever)
         
         /// Set a remote server url
         #if DBG
@@ -52,7 +54,7 @@ class AppDelegate: AWAREDelegate {
             }
             
             let debug = Debug.init(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
-            debug?.createTable()
+            debug.createTable()
             
             /// set esms
             if let hadler = completion {
@@ -60,9 +62,9 @@ class AppDelegate: AWAREDelegate {
             }
         })
         
-        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+    UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         
-        AWARECore.shared().requestNotification(UIApplication.shared)
+        AWARECore.shared().requestPermissionForPushNotification()
     }
     
     public func quitStudy(){
@@ -74,60 +76,91 @@ class AppDelegate: AWAREDelegate {
 
     }
     
-    override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        // Override point for customization after application launch.
-        super.application(application, didFinishLaunchingWithOptions: launchOptions)
-        
         /// set colors on navigation bars
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().barTintColor = UIColor.init(red:31.0/255 , green: 148.0/255, blue: 249.0/255, alpha: 1.0)
-        let navBarAttributesDictionary: [NSAttributedStringKey: Any] = [
-            NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.white]
+        let navBarAttributesDictionary: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white]
         UINavigationBar.appearance().titleTextAttributes = navBarAttributesDictionary
         
         UIApplication.shared.isIdleTimerDisabled = true
         
         appNotifications = NotificationData(awareStudy: AWAREStudy.shared(), dbType: AwareDBTypeJSON)
-        if let notifications = appNotifications{
+        if let notifications = self.appNotifications {
             notifications.updateNotifications(force: false)
+        }
+        
+        if AWAREStudy.shared().isStudy(){
+            let debug = Debug.init(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
+            debug.saveEvent(withText: "applicationDidFinishLaunching", type: DebugTypeInfo.rawValue , label: "app usage")
+            debug.startSyncDB()
         }
         
         return true
     }
 
-    override func applicationWillResignActive(_ application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
         UIApplication.shared.isIdleTimerDisabled = false
+        
+        if AWAREStudy.shared().isStudy(){
+            let debug = Debug.init(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
+            debug.saveEvent(withText: "applicationWillResignActive", type: DebugTypeInfo.rawValue , label: "app usage")
+            debug.startSyncDB()
+        }
     }
 
-    override func applicationDidEnterBackground(_ application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         UIApplication.shared.isIdleTimerDisabled = false
+        
+        if AWAREStudy.shared().isStudy(){
+            let debug = Debug.init(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
+            debug.saveEvent(withText: "applicationDidEnterBackground", type: DebugTypeInfo.rawValue , label: "app usage")
+            debug.startSyncDB()
+        }
     }
 
-    override func applicationWillEnterForeground(_ application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         UIApplication.shared.isIdleTimerDisabled = true
+        
+        if AWAREStudy.shared().isStudy(){
+            let debug = Debug.init(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
+            debug.saveEvent(withText: "applicationWillEnterForeground", type: DebugTypeInfo.rawValue , label: "app usage")
+            debug.startSyncDB()
+        }
     }
 
-    override func applicationDidBecomeActive(_ application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         UIApplication.shared.isIdleTimerDisabled = true
         if let notifications = appNotifications {
             notifications.updateNotifications(force: false)
         }
+        
+        if AWAREStudy.shared().isStudy(){
+            let debug = Debug.init(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
+            debug.saveEvent(withText: "applicationDidBecomeActive", type: DebugTypeInfo.rawValue , label: "app usage")
+            debug.startSyncDB()
+        }
     }
 
-    override func applicationWillTerminate(_ application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-
+        if AWAREStudy.shared().isStudy(){
+            let debug = Debug.init(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
+            debug.saveEvent(withText: "applicationWillTerminate", type: DebugTypeInfo.rawValue , label: "app usage")
+            // debug?.startSyncDB()
+        }
     }
 
 //    application:performFetchWithCompletionHandler:
-    override func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
         if let notifications = appNotifications {
             notifications.updateNotifications(force: false)
@@ -136,9 +169,14 @@ class AppDelegate: AWAREDelegate {
         if AWAREStudy.shared().getURL() != "" {
             print("[background fetch] exist url")
             let debug = Debug(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
-            debug?.startSyncDB()
+            debug.startSyncDB()
         }else{
             print("[background fetch] no url")
+        }
+        
+        if AWAREStudy.shared().isStudy(){
+            let debug = Debug.init(awareStudy:AWAREStudy.shared(), dbType: AwareDBTypeJSON)
+            debug.saveEvent(withText: "performFetchWithCompletionHandler", type: DebugTypeInfo.rawValue , label: "app usage")
         }
         
         // NewData, NoData, Failed

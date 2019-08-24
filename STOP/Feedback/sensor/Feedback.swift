@@ -29,13 +29,13 @@ class Feedback: AWARESensor {
         let maker = TCQMaker.init()
         maker.addColumn("device_name", type: TCQTypeText, default: "''")
         maker.addColumn("feedback", type: TCQTypeText, default: "''")
-        self.storage.createDBTableOnServer(with: maker)
+        self.storage?.createDBTableOnServer(with: maker)
     }
     
     public func saveFeedback(userName:String, deviceName:String, feedback:String){
         
         let data:[String : Any] = [
-            "device_id":self.getDeviceId(),
+            "device_id":self.getDeviceId() ?? "",
             "timestamp":AWAREUtils.getUnixTimestamp(Date.init()),
             "user_name":userName,
             "device_name":deviceName,

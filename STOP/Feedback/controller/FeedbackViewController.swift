@@ -8,6 +8,7 @@
 
 import UIKit
 import AWAREFramework
+import SVProgressHUD
 
 class FeedbackViewController: UIViewController {
 
@@ -37,19 +38,19 @@ class FeedbackViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        userNameField.text = AWAREStudy.shared()!.getDeviceName()
-        deviceIdField.text = AWAREStudy.shared()!.getDeviceId()
+        userNameField.text = AWAREStudy.shared().getDeviceName()
+        deviceIdField.text = AWAREStudy.shared().getDeviceId()
         deviceNameField.text = AWAREUtils.deviceName()
         // Do any additional setup after loading the view.
         backgroundView.isHidden = true
         speechRecognitionView.isHidden = true
         
         speechRecognitionView.speechRecognitionEndHandler = ({ (result) -> Void in
-            let alertController = UIAlertController.init(title: "Do you insert this text?", message:result, preferredStyle: UIAlertControllerStyle.alert)
-            let yesButton = UIAlertAction.init(title: "Yes", style: UIAlertActionStyle.default) { (action) in
+            let alertController = UIAlertController.init(title: "Do you insert this text?", message:result, preferredStyle: .alert)
+            let yesButton = UIAlertAction.init(title: "Yes", style: .default) { (action) in
                 self.feedbackMessageField.text = self.feedbackMessageField.text + result + ".\n "
             }
-            let cancelButton = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { (action) in
+            let cancelButton = UIAlertAction.init(title: "Cancel", style: .cancel) { (action) in
             }
             
             self.backgroundView.isHidden = true
@@ -107,7 +108,7 @@ class FeedbackViewController: UIViewController {
            let feedbackText = self.feedbackMessageField.text,
            let feedbackSensor = self.feedbackSensor {
             feedbackSensor.saveFeedback(userName:userName, deviceName: deviceName, feedback: feedbackText)
-            feedbackSensor.storage.startSyncStorage { (name, progress, error) in
+            feedbackSensor.storage?.startSyncStorage { (name, progress, error) in
                 let message = NSLocalizedString("feedback_saved", comment: "feedback_saved")
                 SVProgressHUD.showSuccess(withStatus: message)
                 SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)

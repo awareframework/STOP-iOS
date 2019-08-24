@@ -98,9 +98,9 @@ class SpeechRecognitionView: UIView, SFSpeechRecognizerDelegate {
         refreshTask()
         
         let audioSession = AVAudioSession.sharedInstance()
-        try audioSession.setCategory(AVAudioSessionCategoryRecord)
-        try audioSession.setMode(AVAudioSessionModeMeasurement)
-        try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+        try audioSession.setCategory(.record)
+        try audioSession.setMode(.measurement)
+        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         
@@ -207,7 +207,7 @@ class SpeechRecognitionView: UIView, SFSpeechRecognizerDelegate {
     private func micButtonOn() {
         let image:UIImage = UIImage(named:"ic_mic_light")!
         micControlButton.backgroundColor = UIColor.init(red:31.0/255 , green: 148.0/255, blue: 249.0/255, alpha: 1.0)
-        micControlButton.setImage(image, for: UIControlState.normal)
+        micControlButton.setImage(image, for: .normal)
         resultLabel.text = ""
         if let defaultMessage = self.defaultMessage {
             messageLabel.text = defaultMessage
@@ -219,7 +219,7 @@ class SpeechRecognitionView: UIView, SFSpeechRecognizerDelegate {
     private func micButtonOff(){
         let image:UIImage = UIImage(named:"ic_mic")!
         micControlButton.backgroundColor = UIColor.white
-        micControlButton.setImage(image, for: UIControlState.normal)
+        micControlButton.setImage(image, for: .normal)
         messageLabel.text = "Processing..."//."Tap to speak"
     }
     

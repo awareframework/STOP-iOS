@@ -28,14 +28,14 @@ class BallGame: AWARESensor {
     override func createTable() {
         let maker = TCQMaker.init()
         maker.addColumn("data", type: TCQTypeText, default: "")
-        self.storage.createDBTableOnServer(with: maker)
+        self.storage?.createDBTableOnServer(with: maker)
     }
     
     
     /// save a game data to the storage
     public func saveData(data:String){
         let data:[String : Any] = [
-            "device_id":self.getDeviceId(),
+            "device_id":self.getDeviceId() ?? "",
             "timestamp":AWAREUtils.getUnixTimestamp(Date.init()),
             "data":data
         ]

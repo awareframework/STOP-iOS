@@ -29,7 +29,7 @@ class ConsentDetailsViewController: UIViewController {
         let attributedBody = NSMutableAttributedString.init(string: body)
         
         // set default font size to all
-        attributedBody.addAttributes([ NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)], range: NSMakeRange(0, attributedBody.length))
+        attributedBody.addAttributes([ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)], range: NSMakeRange(0, attributedBody.length))
         
         /**
          * find a <b></b> and append a strong effect
@@ -49,7 +49,7 @@ class ConsentDetailsViewController: UIViewController {
                  * remove <b> and </b> after the loop
                  */
                 tagRanges.append(NSMakeRange(endRange.lowerBound.encodedOffset, targetEndTag.count))
-                let strongAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18, weight: UIFont.Weight(rawValue: 2) )]
+                let strongAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: UIFont.Weight(rawValue: 2) )]
                 let length = endRange.upperBound.encodedOffset - startRange.lowerBound.encodedOffset
                 attributedBody.addAttributes(strongAttributes, range: NSMakeRange(startRange.lowerBound.encodedOffset, length))
                 
@@ -112,8 +112,8 @@ class ConsentDetailsViewController: UIViewController {
         Consent.setConsentRead(state: true)
         let declineAlert = UIAlertController.init(title:   NSLocalizedString("consent_decline",   comment: "consent_decline"),
                                                   message: NSLocalizedString("consent_declining", comment: "consent_declining"),
-                                                  preferredStyle: UIAlertControllerStyle.alert )
-        let actionYes = UIAlertAction.init(title: NSLocalizedString("consent_yes", comment: "consent_yes"), style: UIAlertActionStyle.default, handler: { (action) in
+                                                  preferredStyle: UIAlertController.Style.alert )
+        let actionYes = UIAlertAction.init(title: NSLocalizedString("consent_yes", comment: "consent_yes"), style: UIAlertAction.Style.default, handler: { (action) in
             
             if let unwrappedHandler = self.resultHandler {
                 unwrappedHandler(false)

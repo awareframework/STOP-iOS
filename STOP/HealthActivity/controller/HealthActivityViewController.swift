@@ -53,8 +53,8 @@ class HealthActivityViewController: UIViewController {
         print(selectedRadioButton)
         if selectedRadioButton != -1 {
             health?.saveValue("\(selectedRadioButton)")
-            health?.storage.setDebug(true)
-            health?.storage.startSyncStorage(callBack: { (name, progress, error) in
+            health?.storage?.setDebug(true)
+            health?.storage?.startSyncStorage(callBack: { (name, progress, error) in
                 let message = NSLocalizedString("health_survey_saved", comment: "health_survey_saved")
                 SVProgressHUD.showSuccess(withStatus: message)
                 SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
